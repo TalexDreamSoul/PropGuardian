@@ -63,7 +63,6 @@ public class CommunityUse {
     }
 
     // toString 方法，用于打印对象信息
-    @Override
     public String toString() {
         return "CommunityUse{" +
                 "districtId=" + districtId +

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="cb16c874-b67b-4014-8434-dc51bfb6e097" name="更改" comment="feat(dao): 添加小区用水用电用气数据实体类&#10;&#10;- 新增 CommunityUse 类，用于表示小区每日用水用电用气数据&#10;- 类包含小区ID、日期、用水量、用电量、用气量等属性&#10;- 提供了构造函数、getter/setter 方法以及 toString 方法&#10;- 删除了 Main 类中的调试代码">
+      <change beforePath="$PROJECT_DIR$/src/dao/entity/CommunityUse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/entity/CommunityUse.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;LarsHuang421&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/TalexDreamSoul/PropGuardian.git&quot;,
+    &quot;accountId&quot;: &quot;3e64c020-eb45-46c9-a456-11dfaaf759d9&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2tcOkpV44KaHu1ACRkdVuwNozD6" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Workspace/PropGuardian&quot;,
+    &quot;应用程序.Step1Main.executor&quot;: &quot;Run&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="cb16c874-b67b-4014-8434-dc51bfb6e097" name="更改" comment="" />
+      <created>1740648042909</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1740648042909</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat: ready mysql structure" />
+    <MESSAGE value="feat(dao): 添加小区用水用电用气数据实体类&#10;&#10;- 新增 CommunityUse 类，用于表示小区每日用水用电用气数据&#10;- 类包含小区ID、日期、用水量、用电量、用气量等属性&#10;- 提供了构造函数、getter/setter 方法以及 toString 方法&#10;- 删除了 Main 类中的调试代码" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(dao): 添加小区用水用电用气数据实体类&#10;&#10;- 新增 CommunityUse 类，用于表示小区每日用水用电用气数据&#10;- 类包含小区ID、日期、用水量、用电量、用气量等属性&#10;- 提供了构造函数、getter/setter 方法以及 toString 方法&#10;- 删除了 Main 类中的调试代码" />
+  </component>
+</project>
