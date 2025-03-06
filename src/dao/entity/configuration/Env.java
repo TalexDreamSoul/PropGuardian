@@ -1,4 +1,4 @@
-package configuration;
+package dao.entity.configuration;
 
 public class Env {
 
