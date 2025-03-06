@@ -8,12 +8,13 @@ public class Main {
     public static void main(String[] args) {
 
         //List<String>lines = new ArrayList<String>();
-        Set<String>lines = new HashSet<>()
+        Set<String>lines = new HashSet<>();
         lines.add("Hello");
         lines.add("world");
         lines.add("!");
-        lines.add(index 1,element "java");
+        //  lines.add(1, "java");
         for(String line:lines) {
             System.out.print(line);
+        }
     }
 }
