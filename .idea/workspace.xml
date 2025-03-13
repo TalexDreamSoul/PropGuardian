@@ -4,11 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb16c874-b67b-4014-8434-dc51bfb6e097" name="更改" comment="feat: fix project err" />
+    <list default="true" id="cb16c874-b67b-4014-8434-dc51bfb6e097" name="更改" comment="feat: fix project err">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/PropCore.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/PropLauncher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/.env" beforeDir="false" afterPath="$PROJECT_DIR$/src/configuration/resources/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/configuration/Env.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/configuration/Env.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="PUSH_AUTO_UPDATE" value="true" />
@@ -40,8 +54,10 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.LoginPanel.executor": "Run",
+    "Application.PropLauncher.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/Workspace/PropGuardian",
@@ -51,9 +67,19 @@
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true",
     "应用程序.Step1Main.executor": "Run"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/configuration" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.PropLauncher">
     <configuration name="LoginPanel" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="gui.LoginPanel" />
       <module name="PropGuardian" />
@@ -67,8 +93,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PropLauncher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="core.PropLauncher" />
+      <module name="PropGuardian" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="core.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.PropLauncher" />
         <item itemvalue="Application.LoginPanel" />
       </list>
     </recent_temporary>
@@ -90,6 +130,7 @@
       <option name="presentableId" value="Default" />
       <updated>1740648042909</updated>
       <workItem from="1741249602362" duration="438000" />
+      <workItem from="1741848781992" duration="3363000" />
     </task>
     <task id="LOCAL-00001" summary="feat: fix project err">
       <option name="closed" value="true" />
