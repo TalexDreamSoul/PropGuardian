@@ -1,4 +1,4 @@
-package dao.entity.configuration;
+package configuration;
 
 import java.io.File;
 import java.io.FileInputStream;
