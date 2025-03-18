@@ -4,7 +4,7 @@
     - 本地工作流程：工作区代码添加到暂存区，暂存区代码提交到本地版本库。
     - 完整运行流程：本地版本库代码推送到远程仓库，从远程仓库拉取代码到本地。
 - 安装 Git 客户端：[Git 官网](https://git-scm.com/)下载安装。
-- 设置邮箱和用户名：
+- 设置邮箱和用户名
     ```
     git config --global user.email "自己的邮箱"
     git config --global user.name "Your Name"
