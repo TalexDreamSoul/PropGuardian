@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb16c874-b67b-4014-8434-dc51bfb6e097" name="更改" comment="refactor(learning): 移除 Hello World! 输出语句&#10;&#10;- 删除了 Main 类中的 System.out.println">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="cb16c874-b67b-4014-8434-dc51bfb6e097" name="更改" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,12 +27,12 @@
     &quot;assignee&quot;: &quot;LarsHuang421&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/TalexDreamSoul/PropGuardian.git&quot;,
-    &quot;accountId&quot;: &quot;a8d317a0-a618-452a-ac30-82233210993a&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/TalexDreamSoul/PropGuardian",
+    "accountId": "4ae41ef0-ae20-42fe-a6b0-eb92104dccd4"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -60,10 +58,11 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;,
     &quot;应用程序.LoginPanel.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.PropLauncher.executor&quot;: &quot;Debug&quot;,
     &quot;应用程序.Step1Main.executor&quot;: &quot;Run&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="应用程序.PropLauncher">
     <configuration name="LoginPanel" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="gui.LoginPanel" />
       <module name="PropGuardian" />
@@ -77,8 +76,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PropLauncher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="core.PropLauncher" />
+      <module name="PropGuardian" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="core.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="应用程序.PropLauncher" />
         <item itemvalue="应用程序.LoginPanel" />
       </list>
     </recent_temporary>
@@ -101,7 +114,39 @@
       <option name="project" value="LOCAL" />
       <updated>1741249573451</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="feat: fix project err">
+      <option name="closed" value="true" />
+      <created>1741852525986</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1741852525986</updated>
+    </task>
+    <task id="LOCAL-00003" summary="feat: fix project err">
+      <option name="closed" value="true" />
+      <created>1741852602154</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1741852602154</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat: fix project err">
+      <option name="closed" value="true" />
+      <created>1741855563089</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1741855563089</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat: fix project err">
+      <option name="closed" value="true" />
+      <created>1742304143152</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1742304143152</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -120,8 +165,19 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="refactor(learning): 重构学习代码&#10;&#10;- 新增 Main.java 文件，实现了一个简单的列表操作示例&#10;- 清空 Step1Main.java 和 Step2Main.java 文件的内容&#10;- 为 Step2Main.java 添加空行，准备后续编写代码" />
-    <MESSAGE value="feat: fix project err" />
     <MESSAGE value="refactor(learning): 移除 Hello World! 输出语句&#10;&#10;- 删除了 Main 类中的 System.out.println" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor(learning): 移除 Hello World! 输出语句&#10;&#10;- 删除了 Main 类中的 System.out.println" />
+    <MESSAGE value="feat: fix project err" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: fix project err" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/dao/entity/ConsumptionIndex.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
