@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb16c874-b67b-4014-8434-dc51bfb6e097" name="更改" comment="feat: fix project err">
+    <list default="true" id="cb16c874-b67b-4014-8434-dc51bfb6e097" name="更改" comment="build: 添加 Hutool 依赖&#10;&#10;- 在 PropGuardian.iml 文件中添加了 cn.hutool.all 库的项目级别依赖- 此修改可能为了引入 Hutool 工具库，以支持项目中的某些功能">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/learning/mxr/mxr reading.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/learning/mxr/mxr reading.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PropGuardian.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PropGuardian.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/configuration/resources/.env" beforeDir="false" afterPath="$PROJECT_DIR$/src/configuration/resources/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/PropCore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/PropCore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/MySql.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/MySql.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +26,7 @@
   <component name="Git.Settings">
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -30,12 +34,12 @@
     &quot;assignee&quot;: &quot;LarsHuang421&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/TalexDreamSoul/PropGuardian.git",
-    "accountId": "006b5971-7968-44a0-b7dd-1b875ccf2dbd"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/TalexDreamSoul/PropGuardian&quot;,
+    &quot;accountId&quot;: &quot;4ae41ef0-ae20-42fe-a6b0-eb92104dccd4&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -50,6 +54,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.LoginPanel.executor": "Run",
+    "Application.PropLauncher.executor": "Run",
     "Downloaded.Files.Path.Enabled": "true",
     "Repository.Attach.Annotations": "true",
     "Repository.Attach.JavaDocs": "true",
@@ -63,16 +68,16 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "模块",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true",
     "应用程序.LoginPanel.executor": "Run",
     "应用程序.PropLauncher.executor": "Debug",
     "应用程序.Step1Main.executor": "Run"
   }
 }]]></component>
-  <component name="RunManager" selected="应用程序.PropLauncher">
+  <component name="RunManager" selected="Application.PropLauncher">
     <configuration name="LoginPanel" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="gui.LoginPanel" />
       <module name="PropGuardian" />
@@ -101,8 +106,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="应用程序.PropLauncher" />
-        <item itemvalue="应用程序.LoginPanel" />
+        <item itemvalue="Application.PropLauncher" />
+        <item itemvalue="Application.LoginPanel" />
       </list>
     </recent_temporary>
   </component>
@@ -156,7 +161,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742304143152</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="build: 添加 Hutool 依赖&#10;&#10;- 在 PropGuardian.iml 文件中添加了 cn.hutool.all 库的项目级别依赖- 此修改可能为了引入 Hutool 工具库，以支持项目中的某些功能">
+      <option name="closed" value="true" />
+      <created>1742455510375</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1742455510375</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,7 +190,8 @@
     <MESSAGE value="refactor(learning): 重构学习代码&#10;&#10;- 新增 Main.java 文件，实现了一个简单的列表操作示例&#10;- 清空 Step1Main.java 和 Step2Main.java 文件的内容&#10;- 为 Step2Main.java 添加空行，准备后续编写代码" />
     <MESSAGE value="refactor(learning): 移除 Hello World! 输出语句&#10;&#10;- 删除了 Main 类中的 System.out.println" />
     <MESSAGE value="feat: fix project err" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: fix project err" />
+    <MESSAGE value="build: 添加 Hutool 依赖&#10;&#10;- 在 PropGuardian.iml 文件中添加了 cn.hutool.all 库的项目级别依赖- 此修改可能为了引入 Hutool 工具库，以支持项目中的某些功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="build: 添加 Hutool 依赖&#10;&#10;- 在 PropGuardian.iml 文件中添加了 cn.hutool.all 库的项目级别依赖- 此修改可能为了引入 Hutool 工具库，以支持项目中的某些功能" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
