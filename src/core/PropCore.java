@@ -50,4 +50,10 @@ public class PropCore {
         }
     }
 
+    public void destroy() {
+        this.mySql.disconnect();
+
+        logger.info("System destroy");
+    }
+
 }
