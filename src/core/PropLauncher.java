@@ -6,6 +6,8 @@ public class PropLauncher {
         PropCore propCore = new PropCore();
 
         propCore.run();
+
+        propCore.destroy();
     }
 
 }
