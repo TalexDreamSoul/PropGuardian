@@ -4,6 +4,8 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/.idea/dataSources" />
+      <excludeFolder url="file://$MODULE_DIR$/.idea/libraries" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -17,5 +19,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="cn.hutool.all" level="project" />
+    <orderEntry type="library" name="mysql.connector.java" level="project" />
   </component>
 </module>
