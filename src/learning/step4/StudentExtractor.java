@@ -1,4 +1,4 @@
-package learning.tzx.lesson4;
+package learning.step4;
 
 import cn.hutool.db.ds.simple.SimpleDataSource;
 import core.PropCore;
