@@ -2,6 +2,7 @@ package db;
 
 import cn.hutool.db.ds.simple.SimpleDataSource;
 import configuration.Env;
+import lombok.Getter;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -10,6 +11,7 @@ import java.util.logging.Logger;
 
 public class MySql {
     private final Logger logger = Logger.getLogger("MySQL");
+    @Getter
     private SimpleDataSource simpleDataSource;
 
     public MySql() {
