@@ -1,6 +1,7 @@
 package core;
 
 import configuration.Env;
+import dao.DaoInit;
 import db.MySql;
 import lombok.Getter;
 
@@ -13,6 +14,7 @@ public class PropCore {
 
     private Env env;
     private MySql mySql;
+    private DaoInit daoInit = new DaoInit();
 
     public PropCore() {
 
@@ -25,7 +27,6 @@ public class PropCore {
         env.loadEnvProperties();
 
         this.setup();
-        this.mysqlSetup();
 
         logger.info("System running end");
     }
@@ -37,6 +38,9 @@ public class PropCore {
 
         logger.info("Load system name as " + name);
 
+        this.mysqlSetup();
+
+        this.daoInit.init(this);
     }
 
     private void mysqlSetup() {
