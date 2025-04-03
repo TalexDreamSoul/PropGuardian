@@ -67,7 +67,7 @@ public class UserInfo implements IDataStorage {
 
         String sql = "INSERT INTO `userinfo` VALUES (?, ?, ?)";
 
-        int i = Db.use().insertOrUpdate(
+        int i = mysql.use().insertOrUpdate(
                 Entity.create("userinfo")
                         .set("uname", this.uname)
                         .set("paswrd", this.paswrd)
