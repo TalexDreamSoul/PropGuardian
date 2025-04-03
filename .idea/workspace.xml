@@ -4,12 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb16c874-b67b-4014-8434-dc51bfb6e097" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/src/dao/upper/IDataStorage.java" afterDir="false" />
+    <list default="true" id="cb16c874-b67b-4014-8434-dc51bfb6e097" name="更改" comment="feat(core): 初始化数据库和用户信息&#10;&#10;- 新增 DaoInit 类用于数据库初始化&#10;- 实现 IDataStorage 接口用于用户信息存储- 在 PropCore 中集成数据库初始化逻辑&#10;- 重构 UserInfo 类，添加存储方法">
+      <change afterPath="$PROJECT_DIR$/src/core/StateData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dao/upper/IDataCRUD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/PropCore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/PropCore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/DaoInit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/PropLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/PropLauncher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/entity/UserInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/entity/UserInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/MySql.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/MySql.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/LoginPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/LoginPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +23,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -35,12 +39,12 @@
     &quot;assignee&quot;: &quot;LarsHuang421&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/TalexDreamSoul/PropGuardian",
-    "accountId": "a8d317a0-a618-452a-ac30-82233210993a"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/TalexDreamSoul/PropGuardian&quot;,
+    &quot;accountId&quot;: &quot;a8d317a0-a618-452a-ac30-82233210993a&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -144,7 +148,9 @@
       <option name="presentableId" value="Default" />
       <updated>1740648042909</updated>
       <workItem from="1741249602362" duration="438000" />
-      <workItem from="1743055384931" duration="1141000" />
+      <workItem from="1743055384931" duration="1225000" />
+      <workItem from="1743057836608" duration="279000" />
+      <workItem from="1743650132126" duration="2983000" />
     </task>
     <task id="LOCAL-00001" summary="feat: fix project err">
       <option name="closed" value="true" />
@@ -226,7 +232,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742463110485</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="feat(core): 初始化数据库和用户信息&#10;&#10;- 新增 DaoInit 类用于数据库初始化&#10;- 实现 IDataStorage 接口用于用户信息存储- 在 PropCore 中集成数据库初始化逻辑&#10;- 重构 UserInfo 类，添加存储方法">
+      <option name="closed" value="true" />
+      <created>1743056610065</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1743056610065</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -250,7 +264,8 @@
     <MESSAGE value="build: 添加 Hutool 依赖&#10;&#10;- 在 PropGuardian.iml 文件中添加了 cn.hutool.all 库的项目级别依赖- 此修改可能为了引入 Hutool 工具库，以支持项目中的某些功能" />
     <MESSAGE value="feat(db): 重构数据库连接方式并添加 Hutool 依赖- 修改 .env 文件，将 MySQL 连接信息拆分为单独的属性&#10;- 新增 MySql 类，使用 SimpleDataSource 实现数据库连接- 在 PropCore 中集成 MySql，并在启动时进行连接测试&#10;- 添加 cn.hutool.all 依赖，以支持数据库操作等功能" />
     <MESSAGE value="refactor: 重构 StudentExtractor 类&#10;&#10;- 修改包名：从 learning.tzx.lesson4 改为 learning.step4&#10;- 更新文件路径：从 src/learning/tzx/lesson4/StudentExtractor.java 改为 src/learning/step4/StudentExtractor.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: 重构 StudentExtractor 类&#10;&#10;- 修改包名：从 learning.tzx.lesson4 改为 learning.step4&#10;- 更新文件路径：从 src/learning/tzx/lesson4/StudentExtractor.java 改为 src/learning/step4/StudentExtractor.java" />
+    <MESSAGE value="feat(core): 初始化数据库和用户信息&#10;&#10;- 新增 DaoInit 类用于数据库初始化&#10;- 实现 IDataStorage 接口用于用户信息存储- 在 PropCore 中集成数据库初始化逻辑&#10;- 重构 UserInfo 类，添加存储方法" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(core): 初始化数据库和用户信息&#10;&#10;- 新增 DaoInit 类用于数据库初始化&#10;- 实现 IDataStorage 接口用于用户信息存储- 在 PropCore 中集成数据库初始化逻辑&#10;- 重构 UserInfo 类，添加存储方法" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
