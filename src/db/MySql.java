@@ -1,10 +1,10 @@
 package db;
 
+import cn.hutool.db.Db;
 import cn.hutool.db.ds.simple.SimpleDataSource;
 import configuration.Env;
 import lombok.Getter;
 
-import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Logger;
@@ -18,6 +18,11 @@ public class MySql {
         Env instance = Env.getInstance();
 
         this.simpleDataSource = new SimpleDataSource(instance.getProperty("mysql"), instance.getProperty("user"), instance.getProperty("password"));
+    }
+
+    public Db use() {
+        return
+                Db.use(simpleDataSource);
     }
 
     public boolean connect() {

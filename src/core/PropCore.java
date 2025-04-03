@@ -3,13 +3,18 @@ package core;
 import configuration.Env;
 import dao.DaoInit;
 import db.MySql;
+import gui.LoginPanel;
 import lombok.Getter;
 
+import javax.swing.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.logging.Logger;
 
 @Getter
 public class PropCore {
 
+    public static PropCore INS = new PropCore();
     private final Logger logger = Logger.getLogger("PropGuardian");
 
     private Env env;
@@ -27,6 +32,16 @@ public class PropCore {
         env.loadEnvProperties();
 
         this.setup();
+
+        SwingUtilities.invokeLater(() -> {
+            JFrame frame = new JFrame("Login");
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.add(new LoginPanel());
+            frame.pack();
+            frame.setLocationRelativeTo(null);
+            frame.setVisible(true);
+            registerWindowCloseListener(frame);
+        });
 
         logger.info("System running end");
     }
@@ -58,6 +73,16 @@ public class PropCore {
         this.mySql.disconnect();
 
         logger.info("System destroy");
+    }
+
+    private void registerWindowCloseListener(JFrame frame) {
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                frame.dispose();
+                destroy();
+            }
+        });
     }
 
 }
