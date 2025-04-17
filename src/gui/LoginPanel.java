@@ -109,6 +109,11 @@ public class LoginPanel extends JPanel {
 
                     StateData.INS.setCurrentuser(entities.iterator().next().toBean(UserInfo.class));
 
+                    // 登录成功后关闭当前窗口并打开Index窗口
+                    JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(LoginPanel.this);
+                    frame.dispose();
+                    new Index().setVisible(true);
+
                     JOptionPane.showMessageDialog(LoginPanel.this, "Login successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
 
                 } catch (SQLException ex) {
