@@ -13,23 +13,52 @@ public class Index extends JFrame {
         // 创建导航条
         JMenuBar menuBar = new JMenuBar();
 
-        JMenu fileMenu = new JMenu("File");
-        JMenuItem exitItem = new JMenuItem("Exit");
-        exitItem.addActionListener(e -> System.exit(0));
-        fileMenu.add(exitItem);
-        menuBar.add(fileMenu);
+        JMenu manageMenu = new JMenu("系统管理");
 
-        JMenu manageMenu = new JMenu("Manage");
-        JMenuItem residentsItem = new JMenuItem("Residents");
-        JMenuItem propertiesItem = new JMenuItem("Properties");
-        manageMenu.add(residentsItem);
-        manageMenu.add(propertiesItem);
         menuBar.add(manageMenu);
 
-        JMenu helpMenu = new JMenu("Help");
-        JMenuItem aboutItem = new JMenuItem("About");
-        helpMenu.add(aboutItem);
-        menuBar.add(helpMenu);
+        // 添加基本信息菜单及其子菜单项
+        JMenu basicInfoMenu = new JMenu("基本信息");
+        JMenuItem communityInfoItem = new JMenuItem("小区信息维护");
+        JMenuItem buildingInfoItem = new JMenuItem("楼宇信息维护");
+        JMenuItem houseInfoItem = new JMenuItem("房屋信息维护");
+        JMenuItem modifyRateItem = new JMenuItem("修改收费单价");
+        JMenuItem queryRateItem = new JMenuItem("查询收费单价");
+        basicInfoMenu.add(communityInfoItem);
+        basicInfoMenu.add(buildingInfoItem);
+        basicInfoMenu.add(houseInfoItem);
+        basicInfoMenu.add(modifyRateItem);
+        basicInfoMenu.add(queryRateItem);
+        menuBar.add(basicInfoMenu);
+
+        // 添加消费指数菜单及其子菜单项
+        JMenu consumptionIndexMenu = new JMenu("消费指数");
+        JMenuItem ownerIndexItem = new JMenuItem("业主水电气指数录入");
+        JMenuItem publicIndexItem = new JMenuItem("公共水电指数录入");
+        consumptionIndexMenu.add(ownerIndexItem);
+        consumptionIndexMenu.add(publicIndexItem);
+        menuBar.add(consumptionIndexMenu);
+
+        // 添加费用报表菜单及其子菜单项
+        JMenu reportsMenu = new JMenu("费用报表");
+        JMenuItem electricityBillItem = new JMenuItem("电费收费报表");
+        JMenuItem waterBillItem = new JMenuItem("水费收费报表");
+        JMenuItem gasBillItem = new JMenuItem("气费收费报表");
+        JMenuItem userBillItem = new JMenuItem("用户收费报表");
+        JMenuItem propertyBillItem = new JMenuItem("物业收费报表");
+        reportsMenu.add(electricityBillItem);
+        reportsMenu.add(waterBillItem);
+        reportsMenu.add(gasBillItem);
+        reportsMenu.add(userBillItem);
+        reportsMenu.add(propertyBillItem);
+        menuBar.add(reportsMenu);
+
+
+
+        // 添加 Exit 菜单项到菜单栏
+        JMenuItem exitItem = new JMenuItem("退出");
+        exitItem.addActionListener(e -> System.exit(0));
+        menuBar.add(exitItem);
 
         setJMenuBar(menuBar);
 
