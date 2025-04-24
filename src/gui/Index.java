@@ -10,20 +10,20 @@ public class Index extends JFrame {
         setSize(800, 600);
         setLocationRelativeTo(null);
 
-        // 创建导航条
+        // Create navigation bar
         JMenuBar menuBar = new JMenuBar();
 
-        JMenu manageMenu = new JMenu("系统管理");
+        JMenu manageMenu = new JMenu("System Management");
 
         menuBar.add(manageMenu);
 
-        // 添加基本信息菜单及其子菜单项
-        JMenu basicInfoMenu = new JMenu("基本信息");
-        JMenuItem communityInfoItem = new JMenuItem("小区信息维护");
-        JMenuItem buildingInfoItem = new JMenuItem("楼宇信息维护");
-        JMenuItem houseInfoItem = new JMenuItem("房屋信息维护");
-        JMenuItem modifyRateItem = new JMenuItem("修改收费单价");
-        JMenuItem queryRateItem = new JMenuItem("查询收费单价");
+        // Add basic information menu and its sub-menu items
+        JMenu basicInfoMenu = new JMenu("Basic Information");
+        JMenuItem communityInfoItem = new JMenuItem("Community Info Maintenance");
+        JMenuItem buildingInfoItem = new JMenuItem("Building Info Maintenance");
+        JMenuItem houseInfoItem = new JMenuItem("House Info Maintenance");
+        JMenuItem modifyRateItem = new JMenuItem("Modify Charge Rate");
+        JMenuItem queryRateItem = new JMenuItem("Query Charge Rate");
         basicInfoMenu.add(communityInfoItem);
         basicInfoMenu.add(buildingInfoItem);
         basicInfoMenu.add(houseInfoItem);
@@ -31,27 +31,27 @@ public class Index extends JFrame {
         basicInfoMenu.add(queryRateItem);
         menuBar.add(basicInfoMenu);
 
-        // 在 "小区信息维护" 菜单项上添加动作监听器
+        // Add action listener to "Community Info Maintenance" menu item
         communityInfoItem.addActionListener(e -> {
             CommunityInfoPage communityInfoPage = new CommunityInfoPage();
             communityInfoPage.setVisible(true);
         });
 
-        // 添加消费指数菜单及其子菜单项
-        JMenu consumptionIndexMenu = new JMenu("消费指数");
-        JMenuItem ownerIndexItem = new JMenuItem("业主水电气指数录入");
-        JMenuItem publicIndexItem = new JMenuItem("公共水电指数录入");
+        // Add consumption index menu and its sub-menu items
+        JMenu consumptionIndexMenu = new JMenu("Consumption Index");
+        JMenuItem ownerIndexItem = new JMenuItem("Owner Water/Electricity/Gas Index Entry");
+        JMenuItem publicIndexItem = new JMenuItem("Public Water/Electricity Index Entry");
         consumptionIndexMenu.add(ownerIndexItem);
         consumptionIndexMenu.add(publicIndexItem);
         menuBar.add(consumptionIndexMenu);
 
-        // 添加费用报表菜单及其子菜单项
-        JMenu reportsMenu = new JMenu("费用报表");
-        JMenuItem electricityBillItem = new JMenuItem("电费收费报表");
-        JMenuItem waterBillItem = new JMenuItem("水费收费报表");
-        JMenuItem gasBillItem = new JMenuItem("气费收费报表");
-        JMenuItem userBillItem = new JMenuItem("用户收费报表");
-        JMenuItem propertyBillItem = new JMenuItem("物业收费报表");
+        // Add fee report menu and its sub-menu items
+        JMenu reportsMenu = new JMenu("Fee Reports");
+        JMenuItem electricityBillItem = new JMenuItem("Electricity Billing Report");
+        JMenuItem waterBillItem = new JMenuItem("Water Billing Report");
+        JMenuItem gasBillItem = new JMenuItem("Gas Billing Report");
+        JMenuItem userBillItem = new JMenuItem("User Billing Report");
+        JMenuItem propertyBillItem = new JMenuItem("Property Billing Report");
         reportsMenu.add(electricityBillItem);
         reportsMenu.add(waterBillItem);
         reportsMenu.add(gasBillItem);
@@ -59,16 +59,14 @@ public class Index extends JFrame {
         reportsMenu.add(propertyBillItem);
         menuBar.add(reportsMenu);
 
-
-
-        // 添加 Exit 菜单项到菜单栏
-        JMenuItem exitItem = new JMenuItem("退出");
+        // Add Exit menu item to the menu bar
+        JMenuItem exitItem = new JMenuItem("Exit");
         exitItem.addActionListener(e -> System.exit(0));
         menuBar.add(exitItem);
 
         setJMenuBar(menuBar);
 
-        // 添加主内容面板
+        // Add main content panel
         JPanel contentPanel = new JPanel();
         contentPanel.setLayout(new BorderLayout());
         contentPanel.add(new JLabel("Welcome to the Property Management System!", SwingConstants.CENTER), BorderLayout.CENTER);

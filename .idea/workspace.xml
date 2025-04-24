@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb16c874-b67b-4014-8434-dc51bfb6e097" name="更改" comment="feat(gui): 添加主界面并实现登录功能&#10;&#10;- 新增 Index 类作为主界面窗口&#10;- 实现菜单栏和主内容面板的基本布局&#10;- 在 LoginPanel 中添加登录成功后的逻辑，关闭登录窗口并打开主界面&#10;- 更新 workspace.xml，记录新增的 Index.java 文件变更">
-      <change beforePath="$PROJECT_DIR$/.idea/codestream.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codestream.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/Index.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Index.java" afterDir="false" />
     </list>
@@ -146,7 +145,7 @@
       <workItem from="1743650132126" duration="3193000" />
       <workItem from="1743662572177" duration="84000" />
       <workItem from="1744869687801" duration="7478000" />
-      <workItem from="1745477381146" duration="2510000" />
+      <workItem from="1745477381146" duration="3577000" />
     </task>
     <task id="LOCAL-00001" summary="feat: fix project err">
       <option name="closed" value="true" />
@@ -252,7 +251,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744872257796</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="feat(gui): 添加主界面并实现登录功能&#10;&#10;- 新增 Index 类作为主界面窗口&#10;- 实现菜单栏和主内容面板的基本布局&#10;- 在 LoginPanel 中添加登录成功后的逻辑，关闭登录窗口并打开主界面&#10;- 更新 workspace.xml，记录新增的 Index.java 文件变更">
+      <option name="closed" value="true" />
+      <created>1745480038841</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1745480038841</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
