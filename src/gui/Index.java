@@ -31,6 +31,12 @@ public class Index extends JFrame {
         basicInfoMenu.add(queryRateItem);
         menuBar.add(basicInfoMenu);
 
+        // 在 "小区信息维护" 菜单项上添加动作监听器
+        communityInfoItem.addActionListener(e -> {
+            CommunityInfoPage communityInfoPage = new CommunityInfoPage();
+            communityInfoPage.setVisible(true);
+        });
+
         // 添加消费指数菜单及其子菜单项
         JMenu consumptionIndexMenu = new JMenu("消费指数");
         JMenuItem ownerIndexItem = new JMenuItem("业主水电气指数录入");
