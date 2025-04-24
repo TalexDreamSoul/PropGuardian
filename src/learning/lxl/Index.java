@@ -1,4 +1,7 @@
-package gui;
+package learning.lxl;
+
+
+import gui.CommunityInfoPage;
 
 import javax.swing.*;
 import java.awt.*;
@@ -75,7 +78,7 @@ public class Index extends JFrame {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            Index index = new Index();
+            gui.Index index = new gui.Index();
             index.setVisible(true);
         });
     }
