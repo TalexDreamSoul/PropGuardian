@@ -1,4 +1,6 @@
-package gui;
+package learning.zyt;
+
+import gui.CommunityInfoPage;
 
 import javax.swing.*;
 import java.awt.*;
@@ -33,14 +35,8 @@ public class Index extends JFrame {
 
         // Add action listener to "Community Info Maintenance" menu item
         communityInfoItem.addActionListener(e -> {
-            CommunityInfoPage communityInfoPage = new CommunityInfoPage();
+            gui.CommunityInfoPage communityInfoPage = new CommunityInfoPage();
             communityInfoPage.setVisible(true);
-        });
-
-        // Add action listener to "Modify Charge Rate" menu item
-        modifyRateItem.addActionListener(e -> {
-            ModifyChargeRatePage modifyChargeRatePage = new ModifyChargeRatePage();
-            modifyChargeRatePage.setVisible(true);
         });
 
         // Add consumption index menu and its sub-menu items
@@ -81,7 +77,7 @@ public class Index extends JFrame {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            Index index = new Index();
+            gui.Index index = new gui.Index();
             index.setVisible(true);
         });
     }
