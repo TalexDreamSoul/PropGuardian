@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Index extends JFrame {
+
     public Index() {
         setTitle("Property Management System");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -14,7 +15,6 @@ public class Index extends JFrame {
         JMenuBar menuBar = new JMenuBar();
 
         JMenu manageMenu = new JMenu("System Management");
-
         menuBar.add(manageMenu);
 
         // Add basic information menu and its sub-menu items
@@ -35,6 +35,12 @@ public class Index extends JFrame {
         communityInfoItem.addActionListener(e -> {
             CommunityInfoPage communityInfoPage = new CommunityInfoPage();
             communityInfoPage.setVisible(true);
+        });
+
+        // Add action listener to "Query Charge Rate" menu item
+        queryRateItem.addActionListener(e -> {
+            QueryChargeRate queryChargeRate = new QueryChargeRate();
+            queryChargeRate.setVisible(true);
         });
 
         // Add consumption index menu and its sub-menu items

@@ -1,4 +1,4 @@
-package learning.zyt.step4;
+package learning.mxr.week11.step4;
 
 import cn.hutool.db.ds.simple.SimpleDataSource;
 import core.PropCore;
