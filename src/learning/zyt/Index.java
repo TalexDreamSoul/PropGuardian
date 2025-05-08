@@ -1,5 +1,4 @@
-package learning.lxl;
-
+package learning.zyt;
 
 import gui.CommunityInfoPage;
 
@@ -36,7 +35,7 @@ public class Index extends JFrame {
 
         // Add action listener to "Community Info Maintenance" menu item
         communityInfoItem.addActionListener(e -> {
-            CommunityInfoPage communityInfoPage = new CommunityInfoPage();
+            gui.CommunityInfoPage communityInfoPage = new CommunityInfoPage();
             communityInfoPage.setVisible(true);
         });
 

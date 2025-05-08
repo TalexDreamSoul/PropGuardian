@@ -1,4 +1,4 @@
-package learning.lxl;
+package learning.zyt;
 
 import cn.hutool.db.Db;
 import cn.hutool.db.ds.simple.SimpleDataSource;
@@ -9,12 +9,12 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Logger;
 
-public class MySqllxl {
+public class MySql {
     private final Logger logger = Logger.getLogger("MySQL");
     @Getter
     private SimpleDataSource simpleDataSource;
 
-    public MySqllxl() {
+    public MySql() {
         Env instance = Env.getInstance();
 
         this.simpleDataSource = new SimpleDataSource(instance.getProperty("mysql"), instance.getProperty("user"), instance.getProperty("password"));

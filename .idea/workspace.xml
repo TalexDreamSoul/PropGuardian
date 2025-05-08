@@ -75,7 +75,7 @@
     &quot;应用程序.Step1Main.executor&quot;: &quot;Run&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.PropLauncher">
+  <component name="RunManager" selected="应用程序.LoginPanel">
     <configuration name="LoginPanel" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="gui.LoginPanel" />
       <module name="PropGuardian" />
@@ -115,13 +115,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.PropLauncher" />
-        <item itemvalue="Application.StudentExtractor" />
-        <item itemvalue="Application.LoginPanel" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
