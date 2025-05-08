@@ -1,4 +1,6 @@
-package gui;
+package learning.zyt;
+
+import gui.CommunityInfoPage;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,16 +22,11 @@ public class Index extends JFrame {
         // Add basic information menu and its sub-menu items
         JMenu basicInfoMenu = new JMenu("Basic Information");
         JMenuItem communityInfoItem = new JMenuItem("Community Info Maintenance");
-        JMenuItem buildingInfoItem = new JMenuItem("Building Info Maintenance");  // {{ 保留此处定义 }}
+        JMenuItem buildingInfoItem = new JMenuItem("Building Info Maintenance");
         JMenuItem houseInfoItem = new JMenuItem("House Info Maintenance");
         JMenuItem modifyRateItem = new JMenuItem("Modify Charge Rate");
         JMenuItem queryRateItem = new JMenuItem("Query Charge Rate");
-        basicInfoMenu.add(communityInfoItem);// Add action listener to "House Info Maintenance" menu item
-houseInfoItem.addActionListener(e -> {
-    HouseInfoPage houseInfoPage = new HouseInfoPage();
-    houseInfoPage.setVisible(true);
-});
-;
+        basicInfoMenu.add(communityInfoItem);
         basicInfoMenu.add(buildingInfoItem);
         basicInfoMenu.add(houseInfoItem);
         basicInfoMenu.add(modifyRateItem);
@@ -38,14 +35,8 @@ houseInfoItem.addActionListener(e -> {
 
         // Add action listener to "Community Info Maintenance" menu item
         communityInfoItem.addActionListener(e -> {
-            CommunityInfoPage communityInfoPage = new CommunityInfoPage();
+            gui.CommunityInfoPage communityInfoPage = new CommunityInfoPage();
             communityInfoPage.setVisible(true);
-        });
-
-        // Add action listener to "Building Info Maintenance" menu item
-        buildingInfoItem.addActionListener(e -> {  // {{ 使用上方定义的 buildingInfoItem }}
-            BuildingInfoPage buildingInfoPage = new BuildingInfoPage();
-            buildingInfoPage.setVisible(true);
         });
 
         // Add consumption index menu and its sub-menu items
@@ -86,7 +77,7 @@ houseInfoItem.addActionListener(e -> {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            Index index = new Index();
+            gui.Index index = new gui.Index();
             index.setVisible(true);
         });
     }

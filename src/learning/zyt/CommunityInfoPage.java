@@ -1,4 +1,4 @@
-package gui;
+package learning.zyt;
 
 import javax.swing.*;
 import java.awt.*;
@@ -30,7 +30,6 @@ public class CommunityInfoPage extends JFrame {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setSize(600, 400);
         setLocationRelativeTo(null);
-
 
         // 设置布局
         setLayout(new BorderLayout());
@@ -281,7 +280,7 @@ public class CommunityInfoPage extends JFrame {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            CommunityInfoPage page = new CommunityInfoPage();
+            gui.CommunityInfoPage page = new gui.CommunityInfoPage();
             page.setVisible(true);
         });
     }
