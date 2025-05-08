@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb16c874-b67b-4014-8434-dc51bfb6e097" name="更改" comment="feat(gui): 添加主界面并实现登录功能&#10;&#10;- 新增 Index 类作为主界面窗口&#10;- 实现菜单栏和主内容面板的基本布局&#10;- 在 LoginPanel 中添加登录成功后的逻辑，关闭登录窗口并打开主界面&#10;- 更新 workspace.xml，记录新增的 Index.java 文件变更">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/Index.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Index.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/learning/mxr/week11/step1/week110/step1/Animal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/learning/mxr/week11/step1/week110/step1/Mouse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/learning/mxr/week11/step1/week110/step1/Penguin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/learning/mxr/week11/step1/week110/step1/Step1Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/learning/mxr/week11/step1/week110/step4/StudentExtractor.java" beforeDir="false" />
-    </list>
+    <list default="true" id="cb16c874-b67b-4014-8434-dc51bfb6e097" name="更改" comment="refactor: 重构 StudentExtractor 类&#10;&#10;- 修改包名：从 learning.tzx.lesson4 改为 learning.step4&#10;- 更新文件路径：从 src/learning/tzx/lesson4/StudentExtractor.java 改为 src/learning/step4/StudentExtractor.java" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -65,7 +57,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Workspace/PropGuardian",
+    "last_opened_file_path": "C:/Users/lenovo/IdeaProjects/PropGuardian1/src/learning/zhy/week112233",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -76,18 +68,20 @@
     "settings.editor.selected.configurable": "preferences.fileTypes",
     "vue.rearranger.settings.migration": "true",
     "应用程序.LoginPanel.executor": "Run",
-    "应用程序.PropLauncher.executor": "Run",
+    "应用程序.PropLauncher.executor": "Debug",
     "应用程序.Step1Main.executor": "Run"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Workspace\PropGuradian\src\learning\mxr\week11\step1\week110" />
-      <recent name="D:\Workspace\PropGuradian\src\learning\mxr\week11\step4\week111" />
-      <recent name="D:\Workspace\PropGuradian\src\learning\mxr\week11" />
+      <recent name="C:\Users\lenovo\IdeaProjects\PropGuardian1\src\learning\zhy\week112233" />
+      <recent name="C:\Users\lenovo\IdeaProjects\PropGuardian1\src\learning\zhy\week1122" />
+      <recent name="C:\Users\lenovo\IdeaProjects\PropGuardian1\src\learning\zhy\week1234" />
+      <recent name="C:\Users\lenovo\IdeaProjects\PropGuardian1\src\learning\zhy\week1011" />
+      <recent name="C:\Users\lenovo\IdeaProjects\PropGuardian1\src\learning\zhy\week10" />
     </key>
   </component>
-  <component name="RunManager" selected="应用程序.PropLauncher">
+  <component name="RunManager" selected="应用程序.LoginPanel">
     <configuration name="LoginPanel" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="gui.LoginPanel" />
       <module name="PropGuardian" />
@@ -127,11 +121,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="应用程序.PropLauncher" />
-      </list>
-    </recent_temporary>
+    <list>
+      <item itemvalue="应用程序.LoginPanel" />
+      <item itemvalue="应用程序.PropLauncher" />
+      <item itemvalue="应用程序.StudentExtractor" />
+    </list>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -278,7 +272,31 @@
       <option name="project" value="LOCAL" />
       <updated>1745481187843</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="refactor: 重构 StudentExtractor 类&#10;&#10;- 修改包名：从 learning.tzx.lesson4 改为 learning.step4&#10;- 更新文件路径：从 src/learning/tzx/lesson4/StudentExtractor.java 改为 src/learning/step4/StudentExtractor.java">
+      <option name="closed" value="true" />
+      <created>1746695008889</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1746695008889</updated>
+    </task>
+    <task id="LOCAL-00017" summary="refactor: 重构 StudentExtractor 类&#10;&#10;- 修改包名：从 learning.tzx.lesson4 改为 learning.step4&#10;- 更新文件路径：从 src/learning/tzx/lesson4/StudentExtractor.java 改为 src/learning/step4/StudentExtractor.java">
+      <option name="closed" value="true" />
+      <created>1746695224488</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1746695224488</updated>
+    </task>
+    <task id="LOCAL-00018" summary="refactor: 重构 StudentExtractor 类&#10;&#10;- 修改包名：从 learning.tzx.lesson4 改为 learning.step4&#10;- 更新文件路径：从 src/learning/tzx/lesson4/StudentExtractor.java 改为 src/learning/step4/StudentExtractor.java">
+      <option name="closed" value="true" />
+      <created>1746695400071</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1746695400071</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -301,11 +319,10 @@
     <MESSAGE value="feat: fix project err" />
     <MESSAGE value="build: 添加 Hutool 依赖&#10;&#10;- 在 PropGuardian.iml 文件中添加了 cn.hutool.all 库的项目级别依赖- 此修改可能为了引入 Hutool 工具库，以支持项目中的某些功能" />
     <MESSAGE value="feat(db): 重构数据库连接方式并添加 Hutool 依赖- 修改 .env 文件，将 MySQL 连接信息拆分为单独的属性&#10;- 新增 MySql 类，使用 SimpleDataSource 实现数据库连接- 在 PropCore 中集成 MySql，并在启动时进行连接测试&#10;- 添加 cn.hutool.all 依赖，以支持数据库操作等功能" />
-    <MESSAGE value="refactor: 重构 StudentExtractor 类&#10;&#10;- 修改包名：从 learning.tzx.lesson4 改为 learning.step4&#10;- 更新文件路径：从 src/learning/tzx/lesson4/StudentExtractor.java 改为 src/learning/step4/StudentExtractor.java" />
     <MESSAGE value="feat(core): 初始化数据库和用户信息&#10;&#10;- 新增 DaoInit 类用于数据库初始化&#10;- 实现 IDataStorage 接口用于用户信息存储- 在 PropCore 中集成数据库初始化逻辑&#10;- 重构 UserInfo 类，添加存储方法" />
     <MESSAGE value="feat(gui): 添加主界面并实现登录功能&#10;&#10;- 新增 Index 类作为主界面窗口&#10;- 实现菜单栏和主内容面板的基本布局&#10;- 在 LoginPanel 中添加登录成功后的逻辑，关闭登录窗口并打开主界面&#10;- 更新 workspace.xml，记录新增的 Index.java 文件变更" />
-    <MESSAGE value="feat:修复项目错误并添加新功能&#10;&#10;- 新增 Animal、Mouse、Penguin 类实现动物自我介绍和特殊行为&#10;- 添加 ConsumptionIndex 类管理消费指数&#10;- 实现 PropLauncher 和 StudentExtractor 类- 更新项目结构和代码组织" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:修复项目错误并添加新功能&#10;&#10;- 新增 Animal、Mouse、Penguin 类实现动物自我介绍和特殊行为&#10;- 添加 ConsumptionIndex 类管理消费指数&#10;- 实现 PropLauncher 和 StudentExtractor 类- 更新项目结构和代码组织" />
+    <MESSAGE value="refactor: 重构 StudentExtractor 类&#10;&#10;- 修改包名：从 learning.tzx.lesson4 改为 learning.step4&#10;- 更新文件路径：从 src/learning/tzx/lesson4/StudentExtractor.java 改为 src/learning/step4/StudentExtractor.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: 重构 StudentExtractor 类&#10;&#10;- 修改包名：从 learning.tzx.lesson4 改为 learning.step4&#10;- 更新文件路径：从 src/learning/tzx/lesson4/StudentExtractor.java 改为 src/learning/step4/StudentExtractor.java" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
