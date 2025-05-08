@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb16c874-b67b-4014-8434-dc51bfb6e097" name="更改" comment="refactor: 重构 StudentExtractor 类&#10;&#10;- 修改包名：从 learning.tzx.lesson4 改为 learning.step4&#10;- 更新文件路径：从 src/learning/tzx/lesson4/StudentExtractor.java 改为 src/learning/step4/StudentExtractor.java" />
+    <list default="true" id="cb16c874-b67b-4014-8434-dc51bfb6e097" name="更改" comment="refactor: 重构 StudentExtractor 类&#10;&#10;- 修改包名：从 learning.tzx.lesson4 改为 learning.step4&#10;- 更新文件路径：从 src/learning/tzx/lesson4/StudentExtractor.java 改为 src/learning/step4/StudentExtractor.java">
+      <change afterPath="$PROJECT_DIR$/src/gui/SelectCommunityAndBuilding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/Index.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Index.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/learning/zyt/LoginPanel.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,7 +62,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/lenovo/IdeaProjects/PropGuardian1/src/learning/zhy/week112233",
+    "last_opened_file_path": "C:/Users/lenovo/IdeaProjects/PropGuardian1/src/learning/zhy/week11223344",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -67,21 +72,36 @@
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.fileTypes",
     "vue.rearranger.settings.migration": "true",
+    "应用程序.Index.executor": "Run",
     "应用程序.LoginPanel.executor": "Run",
-    "应用程序.PropLauncher.executor": "Debug",
+    "应用程序.PropLauncher.executor": "Run",
+    "应用程序.SelectCommunityAndBuilding.executor": "Run",
     "应用程序.Step1Main.executor": "Run"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\lenovo\IdeaProjects\PropGuardian1\src\learning\zhy\week11223344" />
       <recent name="C:\Users\lenovo\IdeaProjects\PropGuardian1\src\learning\zhy\week112233" />
       <recent name="C:\Users\lenovo\IdeaProjects\PropGuardian1\src\learning\zhy\week1122" />
       <recent name="C:\Users\lenovo\IdeaProjects\PropGuardian1\src\learning\zhy\week1234" />
       <recent name="C:\Users\lenovo\IdeaProjects\PropGuardian1\src\learning\zhy\week1011" />
-      <recent name="C:\Users\lenovo\IdeaProjects\PropGuardian1\src\learning\zhy\week10" />
     </key>
   </component>
-  <component name="RunManager" selected="应用程序.LoginPanel">
+  <component name="RunManager" selected="应用程序.PropLauncher">
+    <configuration name="Index" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="gui.Index" />
+      <module name="PropGuardian" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="gui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="LoginPanel" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="gui.LoginPanel" />
       <module name="PropGuardian" />
@@ -108,6 +128,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SelectCommunityAndBuilding" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="gui.SelectCommunityAndBuilding" />
+      <module name="PropGuardian" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="gui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="StudentExtractor" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="learning.step4.StudentExtractor" />
       <module name="PropGuardian" />
@@ -122,10 +155,19 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="应用程序.Index" />
+      <item itemvalue="应用程序.SelectCommunityAndBuilding" />
       <item itemvalue="应用程序.LoginPanel" />
       <item itemvalue="应用程序.PropLauncher" />
       <item itemvalue="应用程序.StudentExtractor" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="应用程序.PropLauncher" />
+        <item itemvalue="应用程序.SelectCommunityAndBuilding" />
+        <item itemvalue="应用程序.Index" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -296,7 +338,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746695400071</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="refactor: 重构 StudentExtractor 类&#10;&#10;- 修改包名：从 learning.tzx.lesson4 改为 learning.step4&#10;- 更新文件路径：从 src/learning/tzx/lesson4/StudentExtractor.java 改为 src/learning/step4/StudentExtractor.java">
+      <option name="closed" value="true" />
+      <created>1746695523321</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1746695523322</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
