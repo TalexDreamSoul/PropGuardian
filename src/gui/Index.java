@@ -24,7 +24,12 @@ public class Index extends JFrame {
         JMenuItem houseInfoItem = new JMenuItem("House Info Maintenance");
         JMenuItem modifyRateItem = new JMenuItem("Modify Charge Rate");
         JMenuItem queryRateItem = new JMenuItem("Query Charge Rate");
-        basicInfoMenu.add(communityInfoItem);
+        basicInfoMenu.add(communityInfoItem);// Add action listener to "House Info Maintenance" menu item
+houseInfoItem.addActionListener(e -> {
+    HouseInfoPage houseInfoPage = new HouseInfoPage();
+    houseInfoPage.setVisible(true);
+});
+;
         basicInfoMenu.add(buildingInfoItem);
         basicInfoMenu.add(houseInfoItem);
         basicInfoMenu.add(modifyRateItem);
