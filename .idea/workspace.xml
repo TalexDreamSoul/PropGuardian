@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb16c874-b67b-4014-8434-dc51bfb6e097" name="更改" comment="feat(gui): 添加主界面并实现登录功能&#10;&#10;- 新增 Index 类作为主界面窗口&#10;- 实现菜单栏和主内容面板的基本布局&#10;- 在 LoginPanel 中添加登录成功后的逻辑，关闭登录窗口并打开主界面&#10;- 更新 workspace.xml，记录新增的 Index.java 文件变更">
+      <change beforePath="$PROJECT_DIR$/.idea/codestream.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codestream.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,11 +22,6 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="PREVIOUS_COMMIT_AUTHORS">
-      <list>
-        <option value="TalexDreamSoul &lt;talexdreamsoul@gmail.com&gt;" />
-      </list>
-    </option>
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -35,17 +31,17 @@
     &quot;assignee&quot;: &quot;LarsHuang421&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/TalexDreamSoul/PropGuardian",
-    "accountId": "953eda60-3d82-4fb3-993a-b9ed3127a811"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/TalexDreamSoul/PropGuardian&quot;,
+    &quot;accountId&quot;: &quot;a8d317a0-a618-452a-ac30-82233210993a&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
   <component name="ProjectId" id="2tcOkpV44KaHu1ACRkdVuwNozD6" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -79,7 +75,7 @@
     &quot;应用程序.Step1Main.executor&quot;: &quot;Run&quot;
   }
 }</component>
-  <component name="RunManager" selected="应用程序.LoginPanel">
+  <component name="RunManager" selected="Application.PropLauncher">
     <configuration name="LoginPanel" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="gui.LoginPanel" />
       <module name="PropGuardian" />
@@ -119,6 +115,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.PropLauncher" />
+        <item itemvalue="Application.StudentExtractor" />
+        <item itemvalue="Application.LoginPanel" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.23774.435" />
+        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-IU-251.23774.435" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -134,7 +145,8 @@
       <workItem from="1743650132126" duration="3193000" />
       <workItem from="1743662572177" duration="84000" />
       <workItem from="1744869687801" duration="7478000" />
-      <workItem from="1745477381146" duration="3577000" />
+      <workItem from="1745477381146" duration="5797000" />
+      <workItem from="1746682362855" duration="1908000" />
     </task>
     <task id="LOCAL-00001" summary="feat: fix project err">
       <option name="closed" value="true" />
@@ -248,13 +260,13 @@
       <option name="project" value="LOCAL" />
       <updated>1745480038841</updated>
     </task>
-    <task id="LOCAL-00015" summary="feat(learning): 添加社区信息维护功能&#10;&#10;- 新增 CommunityInfoPage 类实现小区信息的添加、修改、删除和查询功能&#10;- 添加 DaoInit 类用于初始化数据库和用户信息&#10;- 实现 Index 类作为系统主界面，包含菜单栏和基本功能入口&#10;- 开发 LoginPanel 类用于用户登录界面&#10;- 移除 Main 类，改为在 Index 和 CommunityInfoPage 中实现主程序入口&#10;- 新增 MySql 类用于数据库连接和操作">
+    <task id="LOCAL-00015" summary="feat(gui): 添加主界面并实现登录功能&#10;&#10;- 新增 Index 类作为主界面窗口&#10;- 实现菜单栏和主内容面板的基本布局&#10;- 在 LoginPanel 中添加登录成功后的逻辑，关闭登录窗口并打开主界面&#10;- 更新 workspace.xml，记录新增的 Index.java 文件变更">
       <option name="closed" value="true" />
-      <created>1746690675466</created>
+      <created>1745481187843</created>
       <option name="number" value="00015" />
       <option name="presentableId" value="LOCAL-00015" />
       <option name="project" value="LOCAL" />
-      <updated>1746690675466</updated>
+      <updated>1745481187843</updated>
     </task>
     <option name="localTasksCounter" value="16" />
     <servers />
@@ -281,10 +293,8 @@
     <MESSAGE value="feat(db): 重构数据库连接方式并添加 Hutool 依赖- 修改 .env 文件，将 MySQL 连接信息拆分为单独的属性&#10;- 新增 MySql 类，使用 SimpleDataSource 实现数据库连接- 在 PropCore 中集成 MySql，并在启动时进行连接测试&#10;- 添加 cn.hutool.all 依赖，以支持数据库操作等功能" />
     <MESSAGE value="refactor: 重构 StudentExtractor 类&#10;&#10;- 修改包名：从 learning.tzx.lesson4 改为 learning.step4&#10;- 更新文件路径：从 src/learning/tzx/lesson4/StudentExtractor.java 改为 src/learning/step4/StudentExtractor.java" />
     <MESSAGE value="feat(core): 初始化数据库和用户信息&#10;&#10;- 新增 DaoInit 类用于数据库初始化&#10;- 实现 IDataStorage 接口用于用户信息存储- 在 PropCore 中集成数据库初始化逻辑&#10;- 重构 UserInfo 类，添加存储方法" />
-    <MESSAGE value="feat(gui): 初始化导航条&#10;&#10;- 移除原有的简单导航条，添加更详细的菜单项&#10;- 新增系统管理、基本信息、消费指数、费用报表等菜单&#10;- 添加对应的子菜单项，如小区信息维护、楼宇信息维护等&#10;- 在菜单栏末尾添加退出选项" />
     <MESSAGE value="feat(gui): 添加主界面并实现登录功能&#10;&#10;- 新增 Index 类作为主界面窗口&#10;- 实现菜单栏和主内容面板的基本布局&#10;- 在 LoginPanel 中添加登录成功后的逻辑，关闭登录窗口并打开主界面&#10;- 更新 workspace.xml，记录新增的 Index.java 文件变更" />
-    <MESSAGE value="feat(learning): 添加社区信息维护功能&#10;&#10;- 新增 CommunityInfoPage 类实现小区信息的添加、修改、删除和查询功能&#10;- 添加 DaoInit 类用于初始化数据库和用户信息&#10;- 实现 Index 类作为系统主界面，包含菜单栏和基本功能入口&#10;- 开发 LoginPanel 类用于用户登录界面&#10;- 移除 Main 类，改为在 Index 和 CommunityInfoPage 中实现主程序入口&#10;- 新增 MySql 类用于数据库连接和操作" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(learning): 添加社区信息维护功能&#10;&#10;- 新增 CommunityInfoPage 类实现小区信息的添加、修改、删除和查询功能&#10;- 添加 DaoInit 类用于初始化数据库和用户信息&#10;- 实现 Index 类作为系统主界面，包含菜单栏和基本功能入口&#10;- 开发 LoginPanel 类用于用户登录界面&#10;- 移除 Main 类，改为在 Index 和 CommunityInfoPage 中实现主程序入口&#10;- 新增 MySql 类用于数据库连接和操作" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(gui): 添加主界面并实现登录功能&#10;&#10;- 新增 Index 类作为主界面窗口&#10;- 实现菜单栏和主内容面板的基本布局&#10;- 在 LoginPanel 中添加登录成功后的逻辑，关闭登录窗口并打开主界面&#10;- 更新 workspace.xml，记录新增的 Index.java 文件变更" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
