@@ -37,6 +37,12 @@ public class Index extends JFrame {
             communityInfoPage.setVisible(true);
         });
 
+        // Add action listener to "Query Charge Rate" menu item
+        queryRateItem.addActionListener(e -> {
+            SelectCommunityAndBuilding selectPage = new SelectCommunityAndBuilding();
+            selectPage.setVisible(true);
+        });
+
         // Add consumption index menu and its sub-menu items
         JMenu consumptionIndexMenu = new JMenu("Consumption Index");
         JMenuItem ownerIndexItem = new JMenuItem("Owner Water/Electricity/Gas Index Entry");
