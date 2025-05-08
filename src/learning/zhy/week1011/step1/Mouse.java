@@ -1,4 +1,4 @@
-package learning.mxr.week11.step1.week110.step1;
+package learning.zhy.week1011.step1;
 
 public class Mouse extends Animal {
     public Mouse(String name) {

@@ -31,6 +31,7 @@ public class CommunityInfoPage extends JFrame {
         setSize(600, 400);
         setLocationRelativeTo(null);
 
+
         // 设置布局
         setLayout(new BorderLayout());
 
