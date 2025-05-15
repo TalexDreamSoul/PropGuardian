@@ -54,6 +54,10 @@ public class Index extends JFrame {
         consumptionIndexMenu.add(publicIndexItem);
         menuBar.add(consumptionIndexMenu);
 
+        ownerIndexItem.addActionListener(e -> {
+            new SelectCommunityAndBuilding().setVisible(true);
+        });
+
         // Add fee report menu and its sub-menu items
         JMenu reportsMenu = new JMenu("Fee Reports");
         JMenuItem electricityBillItem = new JMenuItem("Electricity Billing Report");

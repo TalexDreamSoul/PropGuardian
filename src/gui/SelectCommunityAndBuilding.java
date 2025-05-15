@@ -15,43 +15,39 @@ public class SelectCommunityAndBuilding extends JFrame {
         setSize(400, 300);
         setLocationRelativeTo(null);
 
-        // 设置布局为 GridBagLayout
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(5, 5, 5, 5); // 组件之间的间距
+        gbc.insets = new Insets(5, 5, 5, 5);
 
-        // 添加标签和下拉框
         JLabel communityLabel = new JLabel("选择小区");
         gbc.gridx = 0;
         gbc.gridy = 0;
-        gbc.anchor = GridBagConstraints.EAST; // 标签靠右对齐
+        gbc.anchor = GridBagConstraints.EAST;
         add(communityLabel, gbc);
 
         communityComboBox = new JComboBox<>(new String[]{"选择小区"});
         gbc.gridx = 1;
         gbc.gridy = 0;
-        gbc.anchor = GridBagConstraints.WEST; // 下拉框靠左对齐
+        gbc.anchor = GridBagConstraints.WEST;
         add(communityComboBox, gbc);
 
         JLabel buildingLabel = new JLabel("选择楼宇");
         gbc.gridx = 0;
         gbc.gridy = 1;
-        gbc.anchor = GridBagConstraints.EAST; // 标签靠右对齐
+        gbc.anchor = GridBagConstraints.EAST;
         add(buildingLabel, gbc);
 
         buildingComboBox = new JComboBox<>(new String[]{"选择楼宇"});
         gbc.gridx = 1;
         gbc.gridy = 1;
-        gbc.anchor = GridBagConstraints.WEST; // 下拉框靠左对齐
+        gbc.anchor = GridBagConstraints.WEST;
         add(buildingComboBox, gbc);
 
-        // 创建一个面板来容纳并排的按钮
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridBagLayout());
         GridBagConstraints buttonGbc = new GridBagConstraints();
         buttonGbc.insets = new Insets(5, 5, 5, 5);
 
-        // 添加按钮到面板
         confirmButton = new JButton("确定");
         buttonGbc.gridx = 0;
         buttonGbc.gridy = 0;
@@ -62,14 +58,12 @@ public class SelectCommunityAndBuilding extends JFrame {
         buttonGbc.gridy = 0;
         buttonPanel.add(backButton, buttonGbc);
 
-        // 将按钮面板添加到主窗口
         gbc.gridx = 0;
         gbc.gridy = 2;
-        gbc.gridwidth = 2; // 面板占据两列
-        gbc.anchor = GridBagConstraints.CENTER; // 面板居中对齐
+        gbc.gridwidth = 2;
+        gbc.anchor = GridBagConstraints.CENTER;
         add(buttonPanel, gbc);
 
-        // 添加按钮事件监听器
         confirmButton.addActionListener(e -> onConfirm());
         backButton.addActionListener(e -> dispose());
 
@@ -85,9 +79,10 @@ public class SelectCommunityAndBuilding extends JFrame {
             return;
         }
 
-        // 处理确认逻辑，例如跳转到下一个页面或执行其他操作
         JOptionPane.showMessageDialog(this, "选择了: 小区 - " + selectedCommunity + ", 楼宇 - " + selectedBuilding, "成功", JOptionPane.INFORMATION_MESSAGE);
     }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> new SelectCommunityAndBuilding());
+    }
 }
-
-
