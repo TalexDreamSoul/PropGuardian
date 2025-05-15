@@ -2,14 +2,20 @@ package gui;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
+import cn.hutool.db.Db;
+import cn.hutool.db.Entity;
+import core.PropCore;
+
 public class ModifyChargeRatePage extends JFrame {
     private JTable table;
     private DefaultTableModel tableModel;
+    private Db db; // 使用 Hutool Db 工具
 
     public ModifyChargeRatePage() {
+        db = PropCore.INS.getMySql().use(); // 初始化数据库连接
+
         setTitle("Modify Charge Rate");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setSize(600, 400);
@@ -20,15 +26,12 @@ public class ModifyChargeRatePage extends JFrame {
 
         // 创建表格部分
         String[] columnNames = {"收费项目", "单位", "单价（元）"};
-        Object[][] data = {
-                {"水费", "元/吨", 3.0},
-                {"电费", "元/度", 0.5},
-                {"燃气费", "元/立方米", 2.5}
-        };
-
-        tableModel = new DefaultTableModel(data, columnNames);
+        tableModel = new DefaultTableModel(columnNames, 0); // 空模型
         table = new JTable(tableModel);
         JScrollPane scrollPane = new JScrollPane(table);
+
+        // 加载数据库数据
+        loadTableFromDatabase();
 
         // 创建按钮面板
         JPanel buttonPanel = new JPanel();
@@ -41,70 +44,116 @@ public class ModifyChargeRatePage extends JFrame {
         buttonPanel.add(deleteButton);
 
         // 为“增加”按钮添加功能
-        addButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String item = JOptionPane.showInputDialog("请输入收费项目");
-                String unit = JOptionPane.showInputDialog("请输入单位");
-                String priceStr = JOptionPane.showInputDialog("请输入单价（元）");
-                if (item != null && unit != null && priceStr != null) {
-                    try {
-                        double price = Double.parseDouble(priceStr);
-                        tableModel.addRow(new Object[]{item, unit, price});
-                    } catch (NumberFormatException ex) {
-                        JOptionPane.showMessageDialog(null, "单价输入有误，请输入数字！");
-                    }
-                }
-            }
-        });
+        addButton.addActionListener(e -> addChargeRate());
 
         // 为“修改”按钮添加功能
-        editButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int selectedRow = table.getSelectedRow();
-                if (selectedRow >= 0) {
-                    String item = JOptionPane.showInputDialog("请输入新的收费项目", table.getValueAt(selectedRow, 0));
-                    String unit = JOptionPane.showInputDialog("请输入新的单位", table.getValueAt(selectedRow, 1));
-                    String priceStr = JOptionPane.showInputDialog("请输入新的单价（元）", table.getValueAt(selectedRow, 2));
-                    if (item != null && unit != null && priceStr != null) {
-                        try {
-                            double price = Double.parseDouble(priceStr);
-                            tableModel.setValueAt(item, selectedRow, 0);
-                            tableModel.setValueAt(unit, selectedRow, 1);
-                            tableModel.setValueAt(price, selectedRow, 2);
-                        } catch (NumberFormatException ex) {
-                            JOptionPane.showMessageDialog(null, "单价输入有误，请输入数字！");
-                        }
-                    }
-                } else {
-                    JOptionPane.showMessageDialog(null, "请先选择要修改的行！");
-                }
-            }
-        });
+        editButton.addActionListener(e -> editChargeRate());
 
         // 为“删除”按钮添加功能
-        deleteButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int selectedRow = table.getSelectedRow();
-                if (selectedRow >= 0) {
-                    int option = JOptionPane.showConfirmDialog(null, "确定要删除该行吗？", "确认删除", JOptionPane.YES_NO_OPTION);
-                    if (option == JOptionPane.YES_OPTION) {
-                        tableModel.removeRow(selectedRow);
-                    }
-                } else {
-                    JOptionPane.showMessageDialog(null, "请先选择要删除的行！");
-                }
-            }
-        });
+        deleteButton.addActionListener(e -> deleteChargeRate());
 
         // 将组件添加到主面板
         mainPanel.add(scrollPane, BorderLayout.CENTER);
         mainPanel.add(buttonPanel, BorderLayout.SOUTH);
 
-        // 设置内容面板
         setContentPane(mainPanel);
+    }
+
+    // 从数据库加载数据
+    private void loadTableFromDatabase() {
+        try {
+            tableModel.setRowCount(0); // 清空现有数据
+
+            List<Entity> list = db.query("SELECT * FROM modifycharge_ratepage"); // 修改表名
+            for (Entity entity : list) {
+                Object[] row = new Object[]{
+                        entity.getStr("item"),
+                        entity.getStr("unit"),
+                        entity.getBigDecimal("price")
+                };
+                tableModel.addRow(row);
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "加载失败: " + ex.getMessage());
+        }
+    }
+
+
+    // 新增收费项目
+    private void addChargeRate() {
+        String item = JOptionPane.showInputDialog("请输入收费项目");
+        String unit = JOptionPane.showInputDialog("请输入单位");
+        String priceStr = JOptionPane.showInputDialog("请输入单价（元）");
+
+        if (item == null || unit == null || priceStr == null) return;
+
+        try {
+            double price = Double.parseDouble(priceStr);
+            db.insert(Entity.create("modifycharge_ratepage") // 修改表名
+                    .set("item", item)
+                    .set("unit", unit)
+                    .set("price", price));
+
+            loadTableFromDatabase();
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "单价输入有误，请输入数字！");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "新增失败: " + e.getMessage());
+        }
+    }
+
+    // 修改收费项目
+    private void editChargeRate() {
+        int selectedRow = table.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "请先选择要修改的行！");
+            return;
+        }
+
+        String oldItem = (String) table.getValueAt(selectedRow, 0);
+        String item = JOptionPane.showInputDialog("请输入新的收费项目", oldItem);
+        String unit = JOptionPane.showInputDialog("请输入新的单位", table.getValueAt(selectedRow, 1));
+        String priceStr = JOptionPane.showInputDialog("请输入新的单价（元）", table.getValueAt(selectedRow, 2));
+
+        if (item == null || unit == null || priceStr == null) return;
+
+        try {
+            double price = Double.parseDouble(priceStr);
+            db.update(
+                    Entity.create("modifycharge_ratepage") // 修改表名
+                            .set("item", item)
+                            .set("unit", unit)
+                            .set("price", price),
+                    Entity.create().set("item", oldItem)
+            );
+
+            loadTableFromDatabase();
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "单价输入有误，请输入数字！");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "修改失败: " + e.getMessage());
+        }
+    }
+
+    // 删除收费项目
+    private void deleteChargeRate() {
+        int selectedRow = table.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "请先选择要删除的行！");
+            return;
+        }
+
+        String item = (String) table.getValueAt(selectedRow, 0);
+        int confirm = JOptionPane.showConfirmDialog(null, "确定要删除该项目吗？", "确认删除", JOptionPane.YES_NO_OPTION);
+        if (confirm == JOptionPane.YES_OPTION) {
+            try {
+                db.del(Entity.create("modifycharge_ratepage").set("item", item)); // 修改表名
+
+                loadTableFromDatabase();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "删除失败: " + e.getMessage());
+            }
+        }
     }
 
     public static void main(String[] args) {
