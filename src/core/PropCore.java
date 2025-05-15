@@ -85,4 +85,7 @@ public class PropCore {
         });
     }
 
+    public MySql getMySql() {
+        return mySql;
+    }
 }

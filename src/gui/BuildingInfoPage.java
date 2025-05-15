@@ -1,154 +1,209 @@
 package gui;
 
+import cn.hutool.db.Db;
+import cn.hutool.db.Entity;
+import core.PropCore;
+
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.util.List;
 
 public class BuildingInfoPage extends JFrame {
 
     private JTable table;
-    private JTextField textFieldDistrictId, textFieldBuildingId, textFieldTotalStorey, textFieldTotalArea, textFieldHeight, textFieldType, textFieldStatus;
-    private JButton queryButton, addButton, editButton, deleteButton, resetButton, updateButton;
-    private JLabel loadingLabel;
+    private DefaultTableModel tableModel;
+    private JTextField[] fields;
+    private Db db;
+    private final String[] labels = {"小区ID", "楼宇编号", "层数", "面积", "高度", "类型", "状态"};
 
     public BuildingInfoPage() {
+        db = PropCore.INS.getMySql().use();
         setTitle("楼宇信息维护");
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setSize(900, 600);
+        setSize(950, 600);
         setLocationRelativeTo(null);
-        setLayout(new BorderLayout(10, 10));  // 设置间距
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setLayout(new BorderLayout());
 
-        // 顶部 Loading 提示
-        loadingLabel = new JLabel("加载中...");
-        loadingLabel.setHorizontalAlignment(JLabel.CENTER);
-        add(loadingLabel, BorderLayout.NORTH);
+        // 表格初始化
+        tableModel = new DefaultTableModel(labels, 0);
+        table = new JTable(tableModel);
+        add(new JScrollPane(table), BorderLayout.CENTER);
 
-        // 初始化表格区域
-        loadTableFromDatabase();
+        // 表单区域优化：使用 Box + Grid 更美观
+        JPanel formPanel = new JPanel();
+        formPanel.setLayout(new BoxLayout(formPanel, BoxLayout.Y_AXIS));
+        fields = new JTextField[labels.length];
 
-        // ---------- 表单输入区域 ----------
-        JPanel formPanel = new JPanel(new GridLayout(7, 2, 5, 5));
-        formPanel.setBorder(BorderFactory.createTitledBorder("楼宇信息"));
+        JPanel row1 = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        JPanel row2 = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        for (int i = 0; i < labels.length; i++) {
+            JPanel fieldPanel = new JPanel(new BorderLayout(5, 5));
+            fields[i] = new JTextField(10);
+            fieldPanel.add(new JLabel(labels[i]), BorderLayout.NORTH);
+            fieldPanel.add(fields[i], BorderLayout.CENTER);
+            if (i < 4) {
+                row1.add(fieldPanel);
+            } else {
+                row2.add(fieldPanel);
+            }
+        }
+        formPanel.add(row1);
+        formPanel.add(row2);
 
-        formPanel.add(new JLabel("小区编号:"));
-        textFieldDistrictId = new JTextField();
-        formPanel.add(textFieldDistrictId);
+        // 按钮区域
+        JPanel buttonPanel = new JPanel();
+        String[] btnNames = {"添加", "修改", "删除", "查询", "重置", "刷新"};
+        JButton[] buttons = new JButton[btnNames.length];
+        for (int i = 0; i < btnNames.length; i++) {
+            buttons[i] = new JButton(btnNames[i]);
+            buttonPanel.add(buttons[i]);
+        }
 
-        formPanel.add(new JLabel("楼宇编号:"));
-        textFieldBuildingId = new JTextField();
-        formPanel.add(textFieldBuildingId);
-
-        formPanel.add(new JLabel("楼宇层数:"));
-        textFieldTotalStorey = new JTextField();
-        formPanel.add(textFieldTotalStorey);
-
-        formPanel.add(new JLabel("产权面积:"));
-        textFieldTotalArea = new JTextField();
-        formPanel.add(textFieldTotalArea);
-
-        formPanel.add(new JLabel("楼宇高度:"));
-        textFieldHeight = new JTextField();
-        formPanel.add(textFieldHeight);
-
-        formPanel.add(new JLabel("类型:"));
-        textFieldType = new JTextField();
-        formPanel.add(textFieldType);
-
-        formPanel.add(new JLabel("楼宇状态:"));
-        textFieldStatus = new JTextField();
-        formPanel.add(textFieldStatus);
-
-        // ---------- 按钮区域 ----------
-        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
-        queryButton = new JButton("按小区查询");
-        addButton = new JButton("添加");
-        editButton = new JButton("修改");
-        deleteButton = new JButton("删除");
-        resetButton = new JButton("重置");
-        updateButton = new JButton("更新");
-
-        // 添加按钮监听
-        setupButtonListeners();
-
-        buttonPanel.add(queryButton);
-        buttonPanel.add(addButton);
-        buttonPanel.add(editButton);
-        buttonPanel.add(deleteButton);
-        buttonPanel.add(resetButton);
-        buttonPanel.add(updateButton);
-
-        // 整合底部表单 + 按钮
-        JPanel southPanel = new JPanel(new BorderLayout());
+        // 南部组合面板
+        JPanel southPanel = new JPanel(new BorderLayout(10, 10));
         southPanel.add(formPanel, BorderLayout.CENTER);
         southPanel.add(buttonPanel, BorderLayout.SOUTH);
-
         add(southPanel, BorderLayout.SOUTH);
+
+        // 数据加载
+        loadData();
+
+        // 表格选中行同步表单
+        table.getSelectionModel().addListSelectionListener(e -> {
+            if (!e.getValueIsAdjusting() && table.getSelectedRow() != -1) {
+                int row = table.getSelectedRow();
+                for (int i = 0; i < fields.length; i++) {
+                    fields[i].setText(table.getValueAt(row, i).toString());
+                }
+            }
+        });
+
+        // 按钮事件绑定
+        buttons[0].addActionListener(e -> addBuilding());
+        buttons[1].addActionListener(e -> updateBuilding());
+        buttons[2].addActionListener(e -> deleteBuilding());
+        buttons[3].addActionListener(e -> queryBuilding());
+        buttons[4].addActionListener(e -> resetForm());
+        buttons[5].addActionListener(e -> loadData());
 
         setVisible(true);
     }
 
-    private void loadTableFromDatabase() {
-        // 模拟数据
-        String[] columnNames = {"小区名称", "楼宇编号", "楼宇层数", "产权面积", "楼宇高度", "类型"};
-        Object[][] data = {
-                {"小区A", "1", "5", "1000", "30", "住宅"},
-                {"小区B", "2", "10", "2000", "50", "商业"}
-        };
-
-        table = new JTable(data, columnNames);
-        JScrollPane scrollPane = new JScrollPane(table);
-        add(scrollPane, BorderLayout.CENTER);
-
-        // 加载完毕，隐藏 loading
-        loadingLabel.setVisible(false);
+    private void loadData() {
+        try {
+            List<Entity> list = db.query("SELECT * FROM building_info");
+            updateTable(list);
+        } catch (SQLException e) {
+            showError("加载失败", e);
+        }
     }
 
-    private void setupButtonListeners() {
-        queryButton.addActionListener(e -> queryBuilding());
-        addButton.addActionListener(e -> addBuilding());
-        editButton.addActionListener(e -> editBuilding());
-        deleteButton.addActionListener(e -> deleteBuilding());
-        resetButton.addActionListener(e -> resetFields());
-        updateButton.addActionListener(e -> updateBuilding());
-    }
-
-    private void queryBuilding() {
-        // TODO: 实现按小区查询逻辑
-        JOptionPane.showMessageDialog(this, "查询功能待实现");
+    private void updateTable(List<Entity> list) {
+        tableModel.setRowCount(0);
+        for (Entity e : list) {
+            tableModel.addRow(new Object[]{
+                    e.getStr("district_id"),
+                    e.getStr("building_id"),
+                    e.getInt("total_storey"),
+                    e.getDouble("total_area"),
+                    e.getDouble("height"),
+                    e.getStr("type"),
+                    e.getStr("status")
+            });
+        }
     }
 
     private void addBuilding() {
-        // TODO: 实现添加逻辑
-        JOptionPane.showMessageDialog(this, "添加功能待实现");
-    }
-
-    private void editBuilding() {
-        // TODO: 实现编辑逻辑
-        JOptionPane.showMessageDialog(this, "修改功能待实现");
-    }
-
-    private void deleteBuilding() {
-        // TODO: 实现删除逻辑
-        JOptionPane.showMessageDialog(this, "删除功能待实现");
+        try {
+            Entity entity = Entity.create("building_info")
+                    .set("district_id", getField(0))
+                    .set("building_id", getField(1))
+                    .set("total_storey", Integer.parseInt(getField(2)))
+                    .set("total_area", Double.parseDouble(getField(3)))
+                    .set("height", Double.parseDouble(getField(4)))
+                    .set("type", getField(5))
+                    .set("status", getField(6));
+            db.insert(entity);
+            loadData();
+            resetForm();
+        } catch (Exception e) {
+            showError("添加失败", e);
+        }
     }
 
     private void updateBuilding() {
-        // TODO: 实现更新逻辑
-        JOptionPane.showMessageDialog(this, "更新功能待实现");
+        int row = table.getSelectedRow();
+        if (row == -1) {
+            showMessage("请选择要修改的行");
+            return;
+        }
+        try {
+            Entity update = Entity.create("building_info")
+                    .set("total_storey", Integer.parseInt(getField(2)))
+                    .set("total_area", Double.parseDouble(getField(3)))
+                    .set("height", Double.parseDouble(getField(4)))
+                    .set("type", getField(5))
+                    .set("status", getField(6));
+            Entity where = Entity.create()
+                    .set("district_id", getField(0))
+                    .set("building_id", getField(1));
+            db.update(update, where);
+            loadData();
+        } catch (Exception e) {
+            showError("修改失败", e);
+        }
     }
 
-    private void resetFields() {
-        textFieldDistrictId.setText("");
-        textFieldBuildingId.setText("");
-        textFieldTotalStorey.setText("");
-        textFieldTotalArea.setText("");
-        textFieldHeight.setText("");
-        textFieldType.setText("");
-        textFieldStatus.setText("");
+    private void deleteBuilding() {
+        int row = table.getSelectedRow();
+        if (row == -1) {
+            showMessage("请选择要删除的行");
+            return;
+        }
+        try {
+            Entity where = Entity.create("building_info")
+                    .set("district_id", table.getValueAt(row, 0))
+                    .set("building_id", table.getValueAt(row, 1));
+            db.del(where);
+            loadData();
+        } catch (Exception e) {
+            showError("删除失败", e);
+        }
+    }
+
+    private void queryBuilding() {
+        String districtId = getField(0);
+        if (districtId.isEmpty()) {
+            showMessage("请输入小区ID");
+            return;
+        }
+        try {
+            List<Entity> list = db.query("SELECT * FROM building_info WHERE district_id = ?", districtId);
+            updateTable(list);
+        } catch (SQLException e) {
+            showError("查询失败", e);
+        }
+    }
+
+    private void resetForm() {
+        for (JTextField f : fields) f.setText("");
+    }
+
+    private String getField(int index) {
+        return fields[index].getText().trim();
+    }
+
+    private void showError(String title, Exception e) {
+        JOptionPane.showMessageDialog(this, title + ": " + e.getMessage(), "错误", JOptionPane.ERROR_MESSAGE);
+    }
+
+    private void showMessage(String msg) {
+        JOptionPane.showMessageDialog(this, msg, "提示", JOptionPane.INFORMATION_MESSAGE);
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new BuildingInfoPage());
+        SwingUtilities.invokeLater(BuildingInfoPage::new);
     }
 }
