@@ -1,4 +1,4 @@
-package learning.zyt.step1;
+package learning.lxl.week112.step1;
 
 public class Mouse extends Animal {
     public Mouse(String name) {

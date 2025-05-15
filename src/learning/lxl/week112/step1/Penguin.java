@@ -1,4 +1,4 @@
-package learning.zyt.baby.step1;
+package learning.lxl.week112.step1;
 
 public class Penguin extends Animal {
     public Penguin(String name) {
