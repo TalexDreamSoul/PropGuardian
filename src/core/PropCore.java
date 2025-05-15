@@ -9,6 +9,10 @@ import lombok.Getter;
 import javax.swing.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Logger;
 
 @Getter
@@ -19,10 +23,8 @@ public class PropCore {
 
     private Env env;
     private MySql mySql;
-    private DaoInit daoInit = new DaoInit();
 
     public PropCore() {
-
     }
 
     public void run() {
@@ -54,8 +56,6 @@ public class PropCore {
         logger.info("Load system name as " + name);
 
         this.mysqlSetup();
-
-        this.daoInit.init(this);
     }
 
     private void mysqlSetup() {
@@ -68,6 +68,9 @@ public class PropCore {
             System.exit(1);
         }
     }
+
+    // 添加DAO初始化
+    private DaoInit daoInit = new DaoInit();
 
     public void destroy() {
         this.mySql.disconnect();
