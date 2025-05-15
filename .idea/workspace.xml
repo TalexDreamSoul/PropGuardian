@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb16c874-b67b-4014-8434-dc51bfb6e097" name="更改" comment="refactor: 重构 StudentExtractor 类&#10;&#10;- 修改包名：从 learning.tzx.lesson4 改为 learning.step4&#10;- 更新文件路径：从 src/learning/tzx/lesson4/StudentExtractor.java 改为 src/learning/step4/StudentExtractor.java">
-      <change beforePath="$PROJECT_DIR$/.idea/codestream.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codestream.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="cb16c874-b67b-4014-8434-dc51bfb6e097" name="更改" comment="refactor: 重构 StudentExtractor 类&#10;&#10;- 修改包名：从 learning.tzx.lesson4 改为 learning.step4&#10;- 更新文件路径：从 src/learning/tzx/lesson4/StudentExtractor.java 改为 src/learning/step4/StudentExtractor.java" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,7 +38,7 @@
   &quot;associatedIndex&quot;: 8
 }</component>
   <component name="ProjectId" id="2tcOkpV44KaHu1ACRkdVuwNozD6" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -86,7 +83,7 @@
       <recent name="C:\Users\lenovo\IdeaProjects\PropGuardian1\src\learning\zhy\week1011" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Index">
+  <component name="RunManager" selected="应用程序.PropLauncher">
     <configuration name="Index" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="gui.Index" />
       <module name="PropGuardian" />
@@ -153,12 +150,17 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Index" />
-      <item itemvalue="Application.LoginPanel" />
-      <item itemvalue="Application.PropLauncher" />
-      <item itemvalue="Application.SelectCommunityAndBuilding" />
-      <item itemvalue="Application.StudentExtractor" />
+      <item itemvalue="应用程序.Index" />
+      <item itemvalue="应用程序.LoginPanel" />
+      <item itemvalue="应用程序.PropLauncher" />
+      <item itemvalue="应用程序.SelectCommunityAndBuilding" />
+      <item itemvalue="应用程序.StudentExtractor" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="应用程序.PropLauncher" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
