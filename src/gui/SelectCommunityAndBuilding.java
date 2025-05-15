@@ -120,12 +120,13 @@ public class SelectCommunityAndBuilding extends JFrame {
     // 根据小区加载楼宇
     private void loadBuildings(String communityName) {
         try {
-            String sql = "SELECT building_name FROM building_info WHERE district_name = ?";
+            // 修改: 增加条件过滤，确保只查询当前选中小区的楼宇
+            String sql = "SELECT name FROM building_info WHERE community_name = ?";
             List<Entity> buildings = db.query(sql, communityName);
             buildingComboBox.removeAllItems();
             buildingComboBox.addItem("选择楼宇");
             for (Entity building : buildings) {
-                buildingComboBox.addItem(building.getStr("building_name"));
+                buildingComboBox.addItem(building.getStr("name"));
             }
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "加载楼宇失败: " + ex.getMessage(), "错误", JOptionPane.ERROR_MESSAGE);
