@@ -1,18 +1,29 @@
 package gui;
 
+import db.MySql;
+import java.sql.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Logger;
+
+import javax.swing.table.DefaultTableModel;
 
 public class BuildingInfoPage extends JFrame {
+
+    private static final Logger logger = Logger.getLogger(BuildingInfoPage.class.getName());
 
     private JTable table;
     private JTextField textFieldDistrictId, textFieldBuildingId, textFieldTotalStorey, textFieldTotalArea, textFieldHeight, textFieldType, textFieldStatus;
     private JButton queryButton, addButton, editButton, deleteButton, resetButton, updateButton;
     private JLabel loadingLabel;
+    private MySql mySql;
 
     public BuildingInfoPage() {
+        // 初始化 MySql 实例
+        this.mySql = new MySql();  // 直接初始化 MySql 实例
+
         setTitle("楼宇信息维护");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setSize(900, 600);
@@ -89,19 +100,36 @@ public class BuildingInfoPage extends JFrame {
     }
 
     private void loadTableFromDatabase() {
-        // 模拟数据
         String[] columnNames = {"小区名称", "楼宇编号", "楼宇层数", "产权面积", "楼宇高度", "类型"};
-        Object[][] data = {
-                {"小区A", "1", "5", "1000", "30", "住宅"},
-                {"小区B", "2", "10", "2000", "50", "商业"}
-        };
+        DefaultTableModel tableModel = new DefaultTableModel(columnNames, 0);
 
-        table = new JTable(data, columnNames);
+        try {
+            Connection connection = mySql.getSimpleDataSource().getConnection();
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM building_info");
+
+            while (resultSet.next()) {
+                Object[] row = new Object[table.getColumnModel().getColumnCount()];
+                row[0] = resultSet.getString("communityName");
+                row[1] = resultSet.getString("buildingId");
+                row[2] = resultSet.getInt("totalStorey");
+                row[3] = resultSet.getDouble("totalArea");
+                row[4] = resultSet.getDouble("height");
+                row[5] = resultSet.getString("type");
+                tableModel.addRow(row);
+            }
+
+            // 加载完毕，隐藏 loading
+            loadingLabel.setVisible(false);
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "数据库连接失败: " + e.getMessage(), "错误", JOptionPane.ERROR_MESSAGE);
+            logger.severe("Error connecting to MySQL: " + e.getMessage());
+        }
+
+        this.table = new JTable();  // 初始化 table 防止 NullPointerException
+        table.setModel(tableModel);
         JScrollPane scrollPane = new JScrollPane(table);
         add(scrollPane, BorderLayout.CENTER);
-
-        // 加载完毕，隐藏 loading
-        loadingLabel.setVisible(false);
     }
 
     private void setupButtonListeners() {
