@@ -9,6 +9,7 @@ import cn.hutool.db.Db;
 import cn.hutool.db.Entity;
 import core.PropCore;
 
+import java.util.Collection;
 import java.util.List;
 
 public class SelectCommunityAndBuilding extends JFrame {
@@ -82,53 +83,40 @@ public class SelectCommunityAndBuilding extends JFrame {
         gbc.anchor = GridBagConstraints.CENTER;
         add(buttonPanel, gbc);
 
-        // 加载小区数据
         loadCommunities();
 
-        // 小区选择变化时更新楼宇列表
         communityComboBox.addActionListener(e -> {
             String selected = (String) communityComboBox.getSelectedItem();
             if (selected != null && !selected.equals("选择小区")) {
-                loadBuildings(selected);
+                List<String> buildings = getBuildingFromCommunityId(selected);
+
+                buildingComboBox.removeAllItems();
+                buildingComboBox.addItem("选择楼宇");
+                if (buildings != null) {
+                    for (String building : buildings) {
+                        buildingComboBox.addItem(building);
+                    }
+                }
             }
         });
 
-        // 确定按钮点击事件
         confirmButton.addActionListener(e -> onConfirm());
 
-        // 返回按钮点击事件
         backButton.addActionListener(e -> dispose());
 
         setVisible(true);
     }
 
-    // 加载小区列表
     private void loadCommunities() {
         try {
-            List<Entity> communities = db.query("SELECT district_name FROM community_info");
+            List<Entity> communities = db.query("SELECT district_id FROM community_info");
             communityComboBox.removeAllItems();
             communityComboBox.addItem("选择小区");
             for (Entity community : communities) {
-                communityComboBox.addItem(community.getStr("district_name"));
+                communityComboBox.addItem(community.getStr("district_id"));
             }
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "加载小区失败: " + ex.getMessage(), "错误", JOptionPane.ERROR_MESSAGE);
-            ex.printStackTrace();
-        }
-    }
-
-    // 根据小区加载楼宇
-    private void loadBuildings(String communityName) {
-        try {
-            String sql = "SELECT name FROM building_info WHERE community_name = ?";
-            List<Entity> buildings = db.query(sql, communityName);
-            buildingComboBox.removeAllItems();
-            buildingComboBox.addItem("选择楼宇");
-            for (Entity building : buildings) {
-                buildingComboBox.addItem(building.getStr("name"));
-            }
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "加载楼宇失败: " + ex.getMessage(), "错误", JOptionPane.ERROR_MESSAGE);
             ex.printStackTrace();
         }
     }
@@ -164,6 +152,19 @@ public class SelectCommunityAndBuilding extends JFrame {
             backBtn.addActionListener(e -> dispose());
             add(backBtn, BorderLayout.SOUTH);
         }
+    }
+
+    private List<String> getBuildingFromCommunityId(String communityId) {
+        try {
+            String sql = "SELECT * FROM building_info WHERE district_id = ?";
+            List<Entity> results = db.query(sql, communityId);
+
+            return results.stream().map(item -> String.valueOf(item.get("building_id"))).toList();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "获取小区ID失败: " + ex.getMessage(), "错误", JOptionPane.ERROR_MESSAGE);
+            ex.printStackTrace();
+        }
+        return null;
     }
 
     public static void main(String[] args) {
