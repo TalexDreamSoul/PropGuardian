@@ -36,6 +36,9 @@ public class Index extends JFrame {
             CommunityInfoPage communityInfoPage = new CommunityInfoPage();
             communityInfoPage.setVisible(true);
         });
+        buildingInfoItem.addActionListener(e -> {
+            new BuildingInfoPage().setVisible(true);
+        });
         modifyRateItem.addActionListener(e -> {
             ModifyChargeRatePage modifyChargeRatePage = new ModifyChargeRatePage();
             modifyChargeRatePage.setVisible(true);
