@@ -120,7 +120,6 @@ public class SelectCommunityAndBuilding extends JFrame {
     // 根据小区加载楼宇
     private void loadBuildings(String communityName) {
         try {
-            // 修改: 增加条件过滤，确保只查询当前选中小区的楼宇
             String sql = "SELECT name FROM building_info WHERE community_name = ?";
             List<Entity> buildings = db.query(sql, communityName);
             buildingComboBox.removeAllItems();
