@@ -121,7 +121,6 @@ public class SelectCommunityAndBuilding extends JFrame {
         }
     }
 
-    // 确定按钮逻辑
     private void onConfirm() {
         String selectedCommunity = (String) communityComboBox.getSelectedItem();
         String selectedBuilding = (String) buildingComboBox.getSelectedItem();
@@ -131,27 +130,8 @@ public class SelectCommunityAndBuilding extends JFrame {
             return;
         }
 
-        // 跳转到新的录入页面（示例）
         new OwnerIndexEntryPage(selectedCommunity, selectedBuilding).setVisible(true);
-        dispose(); // 关闭当前窗口
-    }
-
-    // 示例目标页面（可替换为你自己的业务页面）
-    static class OwnerIndexEntryPage extends JFrame {
-        public OwnerIndexEntryPage(String community, String building) {
-            setTitle("业主用水电燃气录入");
-            setSize(400, 300);
-            setLocationRelativeTo(null);
-            setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-
-            JTextArea area = new JTextArea("已选择小区：" + community + "\n已选择楼宇：" + building);
-            area.setEditable(false);
-            add(area, BorderLayout.CENTER);
-
-            JButton backBtn = new JButton("返回");
-            backBtn.addActionListener(e -> dispose());
-            add(backBtn, BorderLayout.SOUTH);
-        }
+        dispose(); 
     }
 
     private List<String> getBuildingFromCommunityId(String communityId) {
