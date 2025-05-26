@@ -75,11 +75,13 @@ public class Index extends JFrame {
         JMenuItem waterBillItem = new JMenuItem("Water Billing Report");
         JMenuItem gasBillItem = new JMenuItem("Gas Billing Report");
         JMenuItem userBillItem = new JMenuItem("User Billing Report");
+        JMenuItem propertyBillItem = new JMenuItem("Property Billing Report");
 
         reportsMenu.add(electricityBillItem);
         reportsMenu.add(waterBillItem);
         reportsMenu.add(gasBillItem);
         reportsMenu.add(userBillItem);
+        reportsMenu.add(propertyBillItem);
 
         menuBar.add(reportsMenu);
 
