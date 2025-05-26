@@ -42,6 +42,9 @@ public class Index extends JFrame {
             houseInfoPage.setVisible(true);
         });
         // Add action listener to "Modify Charge Rate" menu item
+        buildingInfoItem.addActionListener(e -> {
+            new BuildingInfoPage().setVisible(true);
+        });
         modifyRateItem.addActionListener(e -> {
             ModifyChargeRatePage modifyChargeRatePage = new ModifyChargeRatePage();
             modifyChargeRatePage.setVisible(true);
