@@ -36,6 +36,12 @@ public class Index extends JFrame {
             CommunityInfoPage communityInfoPage = new CommunityInfoPage();
             communityInfoPage.setVisible(true);
         });
+        // Add action listener to "House Info Maintenance" menu item
+        houseInfoItem.addActionListener(e -> {
+            OwnerInfoPage houseInfoPage = new OwnerInfoPage();
+            houseInfoPage.setVisible(true);
+        });
+        // Add action listener to "Modify Charge Rate" menu item
         buildingInfoItem.addActionListener(e -> {
             new BuildingInfoPage().setVisible(true);
         });

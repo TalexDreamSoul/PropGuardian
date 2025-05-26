@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb16c874-b67b-4014-8434-dc51bfb6e097" name="更改" comment="refactor(gui): 删除 CommunityInfoManagement 类&#10;&#10;- 移除了 CommunityInfoManagement 类及其相关代码&#10;- 更新了 workspace.xml 文件，调整了项目配置&#10;- 修改了 codestream.xml 文件，更新了 CodeStream插件的设置">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="cb16c874-b67b-4014-8434-dc51bfb6e097" name="更改" comment="refactor(gui): 删除 CommunityInfoManagement 类&#10;&#10;- 移除了 CommunityInfoManagement 类及其相关代码&#10;- 更新了 workspace.xml 文件，调整了项目配置&#10;- 修改了 codestream.xml 文件，更新了 CodeStream插件的设置" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,36 +44,36 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.LoginPanel.executor&quot;: &quot;Run&quot;,
-    &quot;Application.PropLauncher.executor&quot;: &quot;Run&quot;,
-    &quot;Application.StudentExtractor.executor&quot;: &quot;Run&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/lenovo/IdeaProjects/PropGuardian1/src/learning/zhy/week11223344&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;,
-    &quot;应用程序.Index.executor&quot;: &quot;Run&quot;,
-    &quot;应用程序.LoginPanel.executor&quot;: &quot;Run&quot;,
-    &quot;应用程序.PropLauncher.executor&quot;: &quot;Run&quot;,
-    &quot;应用程序.SelectCommunityAndBuilding.executor&quot;: &quot;Run&quot;,
-    &quot;应用程序.Step1Main.executor&quot;: &quot;Run&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.LoginPanel.executor": "Run",
+    "Application.PropLauncher.executor": "Run",
+    "Application.StudentExtractor.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "true",
+    "Repository.Attach.Annotations": "true",
+    "Repository.Attach.JavaDocs": "true",
+    "Repository.Attach.Sources": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "tzx",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/lenovo/IdeaProjects/PropGuardian1/src/learning/zhy/week11223344",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.fileTypes",
+    "vue.rearranger.settings.migration": "true",
+    "应用程序.Index.executor": "Run",
+    "应用程序.LoginPanel.executor": "Run",
+    "应用程序.PropLauncher.executor": "Run",
+    "应用程序.SelectCommunityAndBuilding.executor": "Run",
+    "应用程序.Step1Main.executor": "Run"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\lenovo\IdeaProjects\PropGuardian1\src\learning\zhy\week11223344" />
