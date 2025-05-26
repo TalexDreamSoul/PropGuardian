@@ -38,6 +38,12 @@ public class Index extends JFrame {
             CommunityInfoPage communityInfoPage = new CommunityInfoPage();
             communityInfoPage.setVisible(true);
         });
+        // Add action listener to "House Info Maintenance" menu item
+        houseInfoItem.addActionListener(e -> {
+            OwnerInfoPage houseInfoPage = new OwnerInfoPage();
+            houseInfoPage.setVisible(true);
+        });
+        // Add action listener to "Modify Charge Rate" menu item
         buildingInfoItem.addActionListener(e -> {
             new BuildingInfoPage().setVisible(true);
         });
@@ -58,6 +64,10 @@ public class Index extends JFrame {
         consumptionIndexMenu.add(ownerIndexItem);
         consumptionIndexMenu.add(publicIndexItem);
         menuBar.add(consumptionIndexMenu);
+
+        ownerIndexItem.addActionListener(e -> {
+            new SelectCommunityAndBuilding().setVisible(true);
+        });
 
         // Add fee report menu and its sub-menu items
         JMenu reportsMenu = new JMenu("Fee Reports");

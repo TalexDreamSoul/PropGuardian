@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb16c874-b67b-4014-8434-dc51bfb6e097" name="更改" comment="refactor: 重构 StudentExtractor 类&#10;&#10;- 修改包名：从 learning.tzx.lesson4 改为 learning.step4&#10;- 更新文件路径：从 src/learning/tzx/lesson4/StudentExtractor.java 改为 src/learning/step4/StudentExtractor.java">
-      <change beforePath="$PROJECT_DIR$/.idea/codestream.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codestream.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="cb16c874-b67b-4014-8434-dc51bfb6e097" name="更改" comment="refactor(gui): 删除 CommunityInfoManagement 类&#10;&#10;- 移除了 CommunityInfoManagement 类及其相关代码&#10;- 更新了 workspace.xml 文件，调整了项目配置&#10;- 修改了 codestream.xml 文件，更新了 CodeStream插件的设置" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,7 +55,7 @@
     &quot;Repository.Attach.Sources&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;tzx&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/lenovo/IdeaProjects/PropGuardian1/src/learning/zhy/week11223344&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -86,7 +83,7 @@
       <recent name="C:\Users\lenovo\IdeaProjects\PropGuardian1\src\learning\zhy\week1011" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Index">
+  <component name="RunManager" selected="应用程序.Index">
     <configuration name="Index" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="gui.Index" />
       <module name="PropGuardian" />
@@ -153,18 +150,18 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Index" />
-      <item itemvalue="Application.LoginPanel" />
-      <item itemvalue="Application.PropLauncher" />
-      <item itemvalue="Application.SelectCommunityAndBuilding" />
-      <item itemvalue="Application.StudentExtractor" />
+      <item itemvalue="应用程序.Index" />
+      <item itemvalue="应用程序.LoginPanel" />
+      <item itemvalue="应用程序.PropLauncher" />
+      <item itemvalue="应用程序.SelectCommunityAndBuilding" />
+      <item itemvalue="应用程序.StudentExtractor" />
     </list>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.23774.435" />
-        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-IU-251.23774.435" />
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.25410.129" />
+        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-IU-251.25410.129" />
       </set>
     </attachedChunks>
   </component>
@@ -184,6 +181,8 @@
       <workItem from="1744869687801" duration="7478000" />
       <workItem from="1745477381146" duration="5797000" />
       <workItem from="1746682362855" duration="1908000" />
+      <workItem from="1747277568070" duration="183000" />
+      <workItem from="1747278310621" duration="2418000" />
     </task>
     <task id="LOCAL-00001" summary="feat: fix project err">
       <option name="closed" value="true" />
@@ -337,7 +336,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746695523322</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="refactor(gui): 删除 CommunityInfoManagement 类&#10;&#10;- 移除了 CommunityInfoManagement 类及其相关代码&#10;- 更新了 workspace.xml 文件，调整了项目配置&#10;- 修改了 codestream.xml 文件，更新了 CodeStream插件的设置">
+      <option name="closed" value="true" />
+      <created>1747277728424</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1747277728424</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -363,7 +370,8 @@
     <MESSAGE value="feat(core): 初始化数据库和用户信息&#10;&#10;- 新增 DaoInit 类用于数据库初始化&#10;- 实现 IDataStorage 接口用于用户信息存储- 在 PropCore 中集成数据库初始化逻辑&#10;- 重构 UserInfo 类，添加存储方法" />
     <MESSAGE value="feat(gui): 添加主界面并实现登录功能&#10;&#10;- 新增 Index 类作为主界面窗口&#10;- 实现菜单栏和主内容面板的基本布局&#10;- 在 LoginPanel 中添加登录成功后的逻辑，关闭登录窗口并打开主界面&#10;- 更新 workspace.xml，记录新增的 Index.java 文件变更" />
     <MESSAGE value="refactor: 重构 StudentExtractor 类&#10;&#10;- 修改包名：从 learning.tzx.lesson4 改为 learning.step4&#10;- 更新文件路径：从 src/learning/tzx/lesson4/StudentExtractor.java 改为 src/learning/step4/StudentExtractor.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: 重构 StudentExtractor 类&#10;&#10;- 修改包名：从 learning.tzx.lesson4 改为 learning.step4&#10;- 更新文件路径：从 src/learning/tzx/lesson4/StudentExtractor.java 改为 src/learning/step4/StudentExtractor.java" />
+    <MESSAGE value="refactor(gui): 删除 CommunityInfoManagement 类&#10;&#10;- 移除了 CommunityInfoManagement 类及其相关代码&#10;- 更新了 workspace.xml 文件，调整了项目配置&#10;- 修改了 codestream.xml 文件，更新了 CodeStream插件的设置" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor(gui): 删除 CommunityInfoManagement 类&#10;&#10;- 移除了 CommunityInfoManagement 类及其相关代码&#10;- 更新了 workspace.xml 文件，调整了项目配置&#10;- 修改了 codestream.xml 文件，更新了 CodeStream插件的设置" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
