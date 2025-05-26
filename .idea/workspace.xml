@@ -40,7 +40,7 @@
   &quot;associatedIndex&quot;: 8
 }</component>
   <component name="ProjectId" id="2tcOkpV44KaHu1ACRkdVuwNozD6" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -152,11 +152,11 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Index" />
-      <item itemvalue="Application.LoginPanel" />
-      <item itemvalue="Application.PropLauncher" />
-      <item itemvalue="Application.SelectCommunityAndBuilding" />
-      <item itemvalue="Application.StudentExtractor" />
+      <item itemvalue="应用程序.Index" />
+      <item itemvalue="应用程序.LoginPanel" />
+      <item itemvalue="应用程序.PropLauncher" />
+      <item itemvalue="应用程序.SelectCommunityAndBuilding" />
+      <item itemvalue="应用程序.StudentExtractor" />
     </list>
     <recent_temporary>
       <list>
