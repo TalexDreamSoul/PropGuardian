@@ -17,11 +17,9 @@ public class QueryChargeRate extends JFrame {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
 
-        // 创建面板并设置布局
         Container contentPane = getContentPane();
         contentPane.setLayout(new BorderLayout());
 
-        // 中间：收费单价清单
         JPanel middlePanel = new JPanel(new BorderLayout());
         String[] columnNames = {"收费项目", "单位：元"};
         Object[][] data = {
@@ -33,7 +31,6 @@ public class QueryChargeRate extends JFrame {
         JScrollPane scrollPane = new JScrollPane(table);
         middlePanel.add(scrollPane, BorderLayout.CENTER);
 
-        // 底部：按钮区域
         JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         JButton backButton = new JButton("返回");
         backButton.addActionListener(new ActionListener() {
@@ -44,7 +41,6 @@ public class QueryChargeRate extends JFrame {
         });
         bottomPanel.add(backButton);
 
-        // 布局组合
         contentPane.add(middlePanel, BorderLayout.CENTER);
         contentPane.add(bottomPanel, BorderLayout.SOUTH);
     }
