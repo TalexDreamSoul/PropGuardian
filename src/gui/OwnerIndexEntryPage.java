@@ -40,7 +40,7 @@ public class OwnerIndexEntryPage extends JFrame {
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 5, 5, 5);
 
-        JLabel inputDateLabel = new JLabel("日期(YYYYMM)");
+        JLabel inputDateLabel = new JLabel("日期(YYYY-MM-NN)");
         gbc.gridx = 1;
         gbc.gridy = 0;
         gbc.anchor = GridBagConstraints.EAST;
@@ -135,7 +135,7 @@ public class OwnerIndexEntryPage extends JFrame {
         
         // 验证日期格式（简单检查YYYYMM）
         if (!inputDate.matches("\\d{6}")) {
-            JOptionPane.showMessageDialog(this, "日期格式应为YYYYMM", "输入错误", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "日期格式应为YYYY-MM-NN", "输入错误", JOptionPane.WARNING_MESSAGE);
             return false;
         }
         
