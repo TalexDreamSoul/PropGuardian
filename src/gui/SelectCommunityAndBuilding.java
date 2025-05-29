@@ -13,12 +13,29 @@ import java.util.Collection;
 import java.util.List;
 
 public class SelectCommunityAndBuilding extends JFrame {
-    private JComboBox<String> communityComboBox;
-    private JComboBox<String> buildingComboBox;
+    // 修改下拉框为public访问权限
+    public JComboBox<String> communityComboBox;
+    public JComboBox<String> buildingComboBox;
+
     private JButton confirmButton;
     private JButton backButton;
 
     private Db db; // 数据库连接
+
+    // 添加公共方法获取选中值
+    public String getSelectedCommunity() {
+        return (String) communityComboBox.getSelectedItem();
+    }
+
+    public String getSelectedBuilding() {
+        return (String) buildingComboBox.getSelectedItem();
+    }
+
+    public boolean isConfirmed() {
+        return confirmed;
+    }
+
+    private boolean confirmed = false;
 
     public SelectCommunityAndBuilding() {
         // 初始化数据库连接
@@ -100,7 +117,20 @@ public class SelectCommunityAndBuilding extends JFrame {
             }
         });
 
-        confirmButton.addActionListener(e -> onConfirm());
+        confirmButton.addActionListener(e -> {
+            String selectedCommunity = (String) communityComboBox.getSelectedItem();
+            String selectedBuilding = (String) buildingComboBox.getSelectedItem();
+
+            if ("选择小区".equals(selectedCommunity) || "选择楼宇".equals(selectedBuilding)) {
+                JOptionPane.showMessageDialog(this, "请选择有效的小区和楼宇", "错误", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            this.confirmed = true;
+//            this.selectedCommunity = selectedCommunity;
+//            this.selectedBuilding = selectedBuilding;
+            dispose();
+        });
 
         backButton.addActionListener(e -> dispose());
 
