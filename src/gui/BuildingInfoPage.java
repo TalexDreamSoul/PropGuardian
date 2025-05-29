@@ -203,7 +203,7 @@ public class BuildingInfoPage extends JFrame {
         JOptionPane.showMessageDialog(this, msg, "提示", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(BuildingInfoPage::new);
-    }
+//    public static void main(String[] args) {
+//        SwingUtilities.invokeLater(BuildingInfoPage::new);
+//    }
 }
