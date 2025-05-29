@@ -99,9 +99,9 @@ public class ElectricityBillingReport extends JFrame {
 
         try {
             StringBuilder sqlBuilder = new StringBuilder(
-                    "SELECT district_id, building_id, room_id, date, electricity_reading " +
-                        "FROM master_use WHERE 1=1"
-        );
+                "SELECT district_id, building_id, room_id, input_date AS date, electric_reading " +
+                    "FROM meter_reading WHERE 1=1"
+            );
 
             List<Object> params = new ArrayList<>();
 
@@ -118,7 +118,7 @@ public class ElectricityBillingReport extends JFrame {
                 params.add(Integer.parseInt(roomId));
             }
             if (!date.isEmpty()) {
-                sqlBuilder.append(" AND date LIKE ?");
+                sqlBuilder.append(" AND input_date LIKE ?");
                 params.add(date + "%");
             }
 
@@ -130,18 +130,18 @@ public class ElectricityBillingReport extends JFrame {
                     entity.getInt("building_id"),
                     entity.getInt("room_id"),
                     entity.getStr("date"),
-                    entity.getDouble("electricity_reading")
-            });
+                    entity.getDouble("electric_reading")
+                });
+            }
+
+        } catch (SQLException | NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this,
+                    "查询失败: " + ex.getMessage(),
+                    "错误",
+                    JOptionPane.ERROR_MESSAGE);
         }
 
-    } catch (SQLException | NumberFormatException ex) {
-        JOptionPane.showMessageDialog(this,
-                "查询失败: " + ex.getMessage(),
-                "错误",
-                JOptionPane.ERROR_MESSAGE);
-    }
-
-    table.setModel(model);
+        table.setModel(model);
     }
 
     public static void main(String[] args) {

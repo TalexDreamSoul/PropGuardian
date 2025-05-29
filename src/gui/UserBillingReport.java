@@ -100,10 +100,9 @@ public class UserBillingReport extends JFrame {
 
         try {
             StringBuilder sqlBuilder = new StringBuilder(
-                    "SELECT district_id, building_id, room_id, date, " +
-                            "(SUM(electricity_reading) + SUM(water_reading) + SUM(gas_reading)) AS total_fees " +
-                            "FROM master_use WHERE 1=1 " +
-                            "GROUP BY district_id, building_id, room_id"
+                "SELECT district_id, building_id, room_id, input_date AS date, " + 
+                "(electric_reading + water_reading + gas_reading) AS total_fees " +
+                "FROM meter_reading WHERE 1=1"
             );
 
             List<Object> params = new ArrayList<>();
@@ -121,7 +120,7 @@ public class UserBillingReport extends JFrame {
                 params.add(Integer.parseInt(roomId));
             }
             if (!date.isEmpty()) {
-                sqlBuilder.append(" AND date LIKE ?");
+                sqlBuilder.append(" AND input_date LIKE ?");
                 params.add(date + "%");
             }
 
@@ -129,19 +128,19 @@ public class UserBillingReport extends JFrame {
 
             for (Entity entity : feesList) {
                 model.addRow(new Object[]{
-                        entity.getInt("district_id"),
-                        entity.getInt("building_id"),
-                        entity.getInt("room_id"),
-                        entity.getStr("date"),
-                        entity.getDouble("total_fees")
+                    entity.getInt("district_id"),
+                    entity.getInt("building_id"),
+                    entity.getInt("room_id"),
+                    entity.getStr("date"),
+                    entity.getDouble("total_fees")
                 });
             }
 
         } catch (SQLException | NumberFormatException ex) {
             JOptionPane.showMessageDialog(this,
-                    "查询失败: " + ex.getMessage(),
-                    "错误",
-                    JOptionPane.ERROR_MESSAGE);
+                "查询失败: " + ex.getMessage(),
+                "错误",
+                JOptionPane.ERROR_MESSAGE);
         }
 
         table.setModel(model);

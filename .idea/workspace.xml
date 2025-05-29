@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb16c874-b67b-4014-8434-dc51bfb6e097" name="更改" comment="refactor(gui): 删除 CommunityInfoManagement 类&#10;&#10;- 移除了 CommunityInfoManagement 类及其相关代码&#10;- 更新了 workspace.xml 文件，调整了项目配置&#10;- 修改了 codestream.xml 文件，更新了 CodeStream插件的设置">
-      <change afterPath="$PROJECT_DIR$/src/gui/LoginPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/QueryChargeRate.java" afterDir="false" />
+    <list default="true" id="cb16c874-b67b-4014-8434-dc51bfb6e097" name="更改" comment="feat(gui): 添加业主信息管理和指数录入功能&#10;&#10;- 新增 Animal、Mouse、Penguin 类作为学习示例&#10;- 添加业主信息管理页面，实现业主信息的查询、添加、修改和删除功能&#10;- 实现业主指数录入页面，支持水电气指数的录入和提交&#10;- 优化小区和楼宇选择界面，支持动态加载楼宇信息&#10;-移除登录面板和查询收费单价页面">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/ElectricityBillingReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ElectricityBillingReport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/GasBillingReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/GasBillingReport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/Index.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Index.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/OwnerIndexEntryPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/OwnerIndexEntryPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/SelectCommunityAndBuilding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/SelectCommunityAndBuilding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/UserBillingReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/UserBillingReport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/WaterBillingReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/WaterBillingReport.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,15 +39,15 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/TalexDreamSoul/PropGuardian&quot;,
-    &quot;accountId&quot;: &quot;a8d317a0-a618-452a-ac30-82233210993a&quot;
+    &quot;url&quot;: &quot;https://github.com/TalexDreamSoul/PropGuardian.git&quot;,
+    &quot;accountId&quot;: &quot;006b5971-7968-44a0-b7dd-1b875ccf2dbd&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
   <component name="ProjectId" id="2tcOkpV44KaHu1ACRkdVuwNozD6" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -59,7 +64,7 @@
     &quot;Repository.Attach.Sources&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;tzx&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;mxr&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/lenovo/IdeaProjects/PropGuardian1/src/learning/zhy/week11223344&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -87,7 +92,7 @@
       <recent name="C:\Users\lenovo\IdeaProjects\PropGuardian1\src\learning\zhy\week1011" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.PropLauncher">
+  <component name="RunManager" selected="应用程序.PropLauncher">
     <configuration name="Index" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="gui.Index" />
       <module name="PropGuardian" />
@@ -154,25 +159,17 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Index" />
-      <item itemvalue="Application.LoginPanel" />
-      <item itemvalue="Application.PropLauncher" />
-      <item itemvalue="Application.SelectCommunityAndBuilding" />
-      <item itemvalue="Application.StudentExtractor" />
+      <item itemvalue="应用程序.Index" />
+      <item itemvalue="应用程序.LoginPanel" />
+      <item itemvalue="应用程序.PropLauncher" />
+      <item itemvalue="应用程序.SelectCommunityAndBuilding" />
+      <item itemvalue="应用程序.StudentExtractor" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.PropLauncher" />
+        <item itemvalue="应用程序.PropLauncher" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.25410.129" />
-        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-IU-251.25410.129" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

@@ -3,8 +3,6 @@ package gui;
 import javax.swing.*;
 import java.awt.*;
 
-import gui.WaterBillingReport;
-
 public class Index extends JFrame {
 
     public Index() {
