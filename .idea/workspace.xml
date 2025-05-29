@@ -6,13 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="cb16c874-b67b-4014-8434-dc51bfb6e097" name="更改" comment="feat(gui): 添加业主信息管理和指数录入功能&#10;&#10;- 新增 Animal、Mouse、Penguin 类作为学习示例&#10;- 添加业主信息管理页面，实现业主信息的查询、添加、修改和删除功能&#10;- 实现业主指数录入页面，支持水电气指数的录入和提交&#10;- 优化小区和楼宇选择界面，支持动态加载楼宇信息&#10;-移除登录面板和查询收费单价页面">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/BuildingInfoPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/BuildingInfoPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/ElectricityBillingReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ElectricityBillingReport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/GasBillingReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/GasBillingReport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/Index.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Index.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/OwnerIndexEntryPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/OwnerIndexEntryPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/SelectCommunityAndBuilding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/SelectCommunityAndBuilding.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/UserBillingReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/UserBillingReport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/WaterBillingReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/WaterBillingReport.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
