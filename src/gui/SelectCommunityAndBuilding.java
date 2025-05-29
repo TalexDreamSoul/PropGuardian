@@ -129,6 +129,9 @@ public class SelectCommunityAndBuilding extends JFrame {
             this.confirmed = true;
 //            this.selectedCommunity = selectedCommunity;
 //            this.selectedBuilding = selectedBuilding;
+            OwnerIndexEntryPage ownerIndexEntryPage = new OwnerIndexEntryPage(selectedCommunity, selectedBuilding);
+            ownerIndexEntryPage.setVisible(true);
+
             dispose();
         });
 
