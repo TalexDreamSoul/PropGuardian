@@ -98,7 +98,7 @@ public class ModifyChargeRatePage extends JFrame {
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "单价输入有误，请输入数字！");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "新增失败: " + e.getMessage());
+            JOptionPane. showMessageDialog(null, "新增失败: " + e.getMessage());
         }
     }
 
