@@ -83,31 +83,36 @@ public class Index extends JFrame {
 
         menuBar.add(reportsMenu);
 
-        // 添加 Electricity Billing Report 的事件监听器
+        // Add action listeners for fee reports
         electricityBillItem.addActionListener(e -> {
             ElectricityBillingReport electricityBillingReport = new ElectricityBillingReport();
             electricityBillingReport.setVisible(true);
         });
 
-        // 添加 Water Billing Report 的事件监听器
         waterBillItem.addActionListener(e -> {
             WaterBillingReport waterBillingReport = new WaterBillingReport();
             waterBillingReport.setVisible(true);
         });
 
-        // 添加 Gas Billing Report 的事件监听器
         gasBillItem.addActionListener(e -> {
             GasBillingReport gasBillingReport = new GasBillingReport();
             gasBillingReport.setVisible(true);
         });
 
-        // 添加 User Billing Report 的事件监听器
         userBillItem.addActionListener(e -> {
             UserBillingReport userBillingReport = new UserBillingReport();
             userBillingReport.setVisible(true);
         });
 
-        // 添加 Exit menu item 到菜单栏
+        // Add online repair service menu item
+        JMenuItem onlineRepairItem = new JMenuItem("Online Repair Service");
+        onlineRepairItem.addActionListener(e -> {
+            OnlineRepairService onlineRepairPage = new OnlineRepairService();
+            onlineRepairPage.setVisible(true);
+        });
+        basicInfoMenu.add(onlineRepairItem);
+
+        // Add exit menu item to menu bar
         JMenuItem exitItem = new JMenuItem("Exit");
         exitItem.addActionListener(e -> System.exit(0));
         menuBar.add(exitItem);
