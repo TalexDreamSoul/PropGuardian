@@ -15,8 +15,12 @@ import core.PropCore;
 public class WaterBillingReport extends JFrame {
 
     private JTable table;
-    private JTextField ownerIdField;
-    private Db db; // 使用你封装的 db 实例
+    private JTextField roomIdField; // 保留房间ID字段
+    private JTextField dateField;   // 保留日期字段
+
+    // 移除不需要的字段定义
+
+    private Db db;
 
     public WaterBillingReport() {
         this.db = PropCore.INS.getMySql().use();
@@ -34,34 +38,21 @@ public class WaterBillingReport extends JFrame {
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.weightx = 1.0;
 
-        // 行 1：区域ID + 建筑ID
+        // 行 1：房间ID + 日期
         gbc.gridx = 0; gbc.gridy = 0;
-        inputPanel.add(new JLabel("区域ID:"), gbc);
-        gbc.gridx = 1;
-        JTextField districtIdField = new JTextField();
-        inputPanel.add(districtIdField, gbc);
-
-        gbc.gridx = 2;
-        inputPanel.add(new JLabel("建筑ID:"), gbc);
-        gbc.gridx = 3;
-        JTextField buildingIdField = new JTextField();
-        inputPanel.add(buildingIdField, gbc);
-
-        // 行 2：房间ID + 日期
-        gbc.gridx = 0; gbc.gridy = 1;
         inputPanel.add(new JLabel("房间ID:"), gbc);
         gbc.gridx = 1;
-        JTextField roomIdField = new JTextField();
+        roomIdField = new JTextField();
         inputPanel.add(roomIdField, gbc);
 
         gbc.gridx = 2;
         inputPanel.add(new JLabel("日期:"), gbc);
         gbc.gridx = 3;
-        JTextField dateField = new JTextField();
+        dateField = new JTextField();
         inputPanel.add(dateField, gbc);
 
-        // 行 3：按钮
-        gbc.gridx = 0; gbc.gridy = 2;
+        // 行 2：查询按钮
+        gbc.gridx = 0; gbc.gridy = 1;
         gbc.gridwidth = 4;
         JButton queryButton = new JButton("查询");
         inputPanel.add(queryButton, gbc);
@@ -75,47 +66,40 @@ public class WaterBillingReport extends JFrame {
 
         // 查询按钮事件
         queryButton.addActionListener((ActionEvent e) -> {
-            String districtId = districtIdField.getText().trim();
-            String buildingId = buildingIdField.getText().trim();
             String roomId = roomIdField.getText().trim();
             String date = dateField.getText().trim();
 
-            if (districtId.isEmpty() && buildingId.isEmpty() &&
-                    roomId.isEmpty() && date.isEmpty()) {
+            if (roomId.isEmpty() && date.isEmpty()) {
                 JOptionPane.showMessageDialog(WaterBillingReport.this,
                         "请至少输入一个查询条件", "提示", JOptionPane.WARNING_MESSAGE);
                 return;
             }
 
-            loadFeesData(districtId, buildingId, roomId, date);
+            loadFeesData(roomId, date); // 改为调用loadFeesData
         });
 
         setVisible(true);
+        this.loadFeesData("", ""); // 默认加载所有数据
     }
 
-    private void loadFeesData(String districtId, String buildingId, String roomId, String date) {
-        String[] columnNames = {"区域ID", "建筑ID", "房间ID", "日期", "水费读数"};
+    // 修改查询方法名称和逻辑
+    private void loadFeesData(String roomId, String date) {
+        // 更新列名以包含各单项费用
+        String[] columnNames = {"房间ID", "日期", "水表读数", "电费读数", "燃气读数"};
         DefaultTableModel model = new DefaultTableModel(columnNames, 0);
 
         try {
             StringBuilder sqlBuilder = new StringBuilder(
-                "SELECT district_id, building_id, room_id, input_date AS date, water_reading " +
-                    "FROM meter_reading WHERE 1=1"
+                    "SELECT room_number, input_date AS date, " +  // 将 room_id 改为 room_number
+                            "water_reading, electric_reading, gas_reading " +
+                            "FROM meter_reading WHERE 1=1"
             );
 
             List<Object> params = new ArrayList<>();
 
-            if (!districtId.isEmpty()) {
-                sqlBuilder.append(" AND district_id = ?");
-                params.add(Integer.parseInt(districtId));
-            }
-            if (!buildingId.isEmpty()) {
-                sqlBuilder.append(" AND building_id = ?");
-                params.add(Integer.parseInt(buildingId));
-            }
             if (!roomId.isEmpty()) {
-                sqlBuilder.append(" AND room_id = ?");
-                params.add(Integer.parseInt(roomId));
+                sqlBuilder.append(" AND room_number = ?");  // 将 room_id 改为 room_number
+                params.add(roomId);  // 移除 Integer.parseInt，直接使用 roomId
             }
             if (!date.isEmpty()) {
                 sqlBuilder.append(" AND input_date LIKE ?");
@@ -126,11 +110,11 @@ public class WaterBillingReport extends JFrame {
 
             for (Entity entity : feesList) {
                 model.addRow(new Object[]{
-                    entity.getInt("district_id"),
-                    entity.getInt("building_id"),
-                    entity.getInt("room_id"),
-                    entity.getStr("date"),
-                    entity.getDouble("water_reading")
+                        entity.getStr("room_number"),  // 将 getInt("room_id") 改为 getStr("room_number")
+                        entity.getStr("date"),
+                        entity.getDouble("water_reading"),
+                        entity.getDouble("electric_reading"),
+                        entity.getDouble("gas_reading")
                 });
             }
 
@@ -145,6 +129,7 @@ public class WaterBillingReport extends JFrame {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(WaterBillingReport::new);
+        SwingUtilities.invokeLater(() -> new WaterBillingReport());
     }
 }
+
