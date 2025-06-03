@@ -14,10 +14,8 @@ import core.PropCore; // 添加 PropCore 的导入语句
 public class UserBillingReport extends JFrame {
 
     private JTable table;
-    private JTextField districtIdField;
-    private JTextField buildingIdField;
-    private JTextField roomIdField;
-    private JTextField dateField; // 新增日期字段
+    private JTextField roomIdField; // 修改为仅保留房间ID字段
+    private JTextField dateField;   // 保留日期字段
     private Db db;
 
     public UserBillingReport() {
@@ -36,36 +34,23 @@ public class UserBillingReport extends JFrame {
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.weightx = 1.0;
 
-        // 行 1：区域ID + 建筑ID
+        // 行 1：房间ID + 日期
         gbc.gridx = 0; gbc.gridy = 0;
-        inputPanel.add(new JLabel("区域ID:"), gbc);
-        gbc.gridx = 1;
-        districtIdField = new JTextField();
-        inputPanel.add(districtIdField, gbc);
-
-        gbc.gridx = 2;
-        inputPanel.add(new JLabel("建筑ID:"), gbc);
-        gbc.gridx = 3;
-        buildingIdField = new JTextField();
-        inputPanel.add(buildingIdField, gbc);
-
-        // 行 2：房间ID + 日期
-        gbc.gridx = 0; gbc.gridy = 1;
         inputPanel.add(new JLabel("房间ID:"), gbc);
         gbc.gridx = 1;
         roomIdField = new JTextField();
         inputPanel.add(roomIdField, gbc);
 
         gbc.gridx = 2;
-        inputPanel.add(new JLabel("日期:"), gbc); // 新增日期标签
+        inputPanel.add(new JLabel("日期:"), gbc);
         gbc.gridx = 3;
-        dateField = new JTextField(); // 新增日期文本框
+        dateField = new JTextField();
         inputPanel.add(dateField, gbc);
 
-        // 行 3：按钮
-        gbc.gridx = 0; gbc.gridy = 2;
+        // 行 2：查询按钮
+        gbc.gridx = 0; gbc.gridy = 1;
         gbc.gridwidth = 4;
-        JButton queryButton = new JButton("查询总费用");
+        JButton queryButton = new JButton("查询");
         inputPanel.add(queryButton, gbc);
 
         add(inputPanel, BorderLayout.NORTH);
@@ -77,47 +62,40 @@ public class UserBillingReport extends JFrame {
 
         // 查询按钮事件
         queryButton.addActionListener((ActionEvent e) -> {
-            String districtId = districtIdField.getText().trim();
-            String buildingId = buildingIdField.getText().trim();
             String roomId = roomIdField.getText().trim();
-            String date = dateField.getText().trim(); // 获取日期值
+            String date = dateField.getText().trim();
 
-            if (districtId.isEmpty() && buildingId.isEmpty() && roomId.isEmpty() && date.isEmpty()) {
+            if (roomId.isEmpty() && date.isEmpty()) {
                 JOptionPane.showMessageDialog(UserBillingReport.this,
                         "请至少输入一个查询条件", "提示", JOptionPane.WARNING_MESSAGE);
                 return;
             }
 
-            loadTotalFeesData(districtId, buildingId, roomId, date); // 添加日期参数
+            loadFeesData(roomId, date); // 改为调用loadFeesData
         });
 
         setVisible(true);
+        this.loadFeesData("", ""); // 默认加载所有数据
     }
 
-    private void loadTotalFeesData(String districtId, String buildingId, String roomId, String date) {
-        String[] columnNames = {"区域ID", "建筑ID", "房间ID", "日期", "总费用"};
+    // 修改查询方法名称和逻辑
+    private void loadFeesData(String roomId, String date) {
+        // 更新列名以包含各单项费用
+        String[] columnNames = {"房间ID", "日期", "水表读数", "电费读数", "燃气读数"};
         DefaultTableModel model = new DefaultTableModel(columnNames, 0);
 
         try {
             StringBuilder sqlBuilder = new StringBuilder(
-                "SELECT district_id, building_id, room_id, input_date AS date, " + 
-                "(electric_reading + water_reading + gas_reading) AS total_fees " +
-                "FROM meter_reading WHERE 1=1"
+                    "SELECT room_number, input_date AS date, " +  // 将 room_id 改为 room_number
+                            "water_reading, electric_reading, gas_reading " +
+                            "FROM meter_reading WHERE 1=1"
             );
 
             List<Object> params = new ArrayList<>();
 
-            if (!districtId.isEmpty()) {
-                sqlBuilder.append(" AND district_id = ?");
-                params.add(Integer.parseInt(districtId));
-            }
-            if (!buildingId.isEmpty()) {
-                sqlBuilder.append(" AND building_id = ?");
-                params.add(Integer.parseInt(buildingId));
-            }
             if (!roomId.isEmpty()) {
-                sqlBuilder.append(" AND room_id = ?");
-                params.add(Integer.parseInt(roomId));
+                sqlBuilder.append(" AND room_number = ?");  // 将 room_id 改为 room_number
+                params.add(roomId);  // 移除 Integer.parseInt，直接使用 roomId
             }
             if (!date.isEmpty()) {
                 sqlBuilder.append(" AND input_date LIKE ?");
@@ -128,19 +106,19 @@ public class UserBillingReport extends JFrame {
 
             for (Entity entity : feesList) {
                 model.addRow(new Object[]{
-                    entity.getInt("district_id"),
-                    entity.getInt("building_id"),
-                    entity.getInt("room_id"),
-                    entity.getStr("date"),
-                    entity.getDouble("total_fees")
+                        entity.getStr("room_number"),  // 将 getInt("room_id") 改为 getStr("room_number")
+                        entity.getStr("date"),
+                        entity.getDouble("water_reading"),
+                        entity.getDouble("electric_reading"),
+                        entity.getDouble("gas_reading")
                 });
             }
 
         } catch (SQLException | NumberFormatException ex) {
             JOptionPane.showMessageDialog(this,
-                "查询失败: " + ex.getMessage(),
-                "错误",
-                JOptionPane.ERROR_MESSAGE);
+                    "查询失败: " + ex.getMessage(),
+                    "错误",
+                    JOptionPane.ERROR_MESSAGE);
         }
 
         table.setModel(model);
