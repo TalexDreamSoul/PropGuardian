@@ -4,28 +4,412 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="448fc8b8-dce2-46cb-b152-4dcdf79ec31d" name="Changes" comment="refactor(gui): 优化业主信息页面功能和布局&#10;&#10;- 移除冗余的更新按钮，简化界面布局&#10;- 修正业主信息查询、添加、修改和删除功能的 SQL 语句&#10;- 更新数据库连接库和项目依赖" />
+    <list default="true" id="ccc77131-6af0-447f-bf09-6192a51df474" name="Changes" comment="refactor(userinfo): 重构用户信息管理功能&#10;&#10;- 更新了 UserInfo 类,移除了冗余的 getter 和 setter 方法&#10;- 重写了 UserInfoPage 类,简化了用户信息的展示和操作&#10;- 修改了数据库操作逻辑,使用 Hutool 的 Entity 类进行数据处理&#10;- 优化了项目配置,更新了依赖库版本" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="#23" />
+      </map>
+    </option>
+    <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="slx" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;LarsHuang421&quot;
+  }
+}</component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="tzx" />
+                    <option name="lastUsedInstant" value="1749005264" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="#23" />
+                    <option name="lastUsedInstant" value="1749005257" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
+  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/TalexDreamSoul/PropGuardian&quot;,
+    &quot;accountId&quot;: &quot;4ae41ef0-ae20-42fe-a6b0-eb92104dccd4&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2tcOkpV44KaHu1ACRkdVuwNozD6" />
   <component name="ProjectLevelVcsManager">
+    <OptionsSetting value="false" id="Update" />
     <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "git-widget-placeholder": "tzx",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
-  }
-}]]></component>
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\lenovo\IdeaProjects\PropGuardian1\src\learning\zhy\week11223344" />
+      <recent name="C:\Users\lenovo\IdeaProjects\PropGuardian1\src\learning\zhy\week112233" />
+      <recent name="C:\Users\lenovo\IdeaProjects\PropGuardian1\src\learning\zhy\week1122" />
+      <recent name="C:\Users\lenovo\IdeaProjects\PropGuardian1\src\learning\zhy\week1234" />
+      <recent name="C:\Users\lenovo\IdeaProjects\PropGuardian1\src\learning\zhy\week1011" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.PropLauncher">
+    <configuration name="Index" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="gui.Index" />
+      <module name="PropGuardian" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="gui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginPanel" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="gui.LoginPanel" />
+      <module name="PropGuardian" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="gui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PropLauncher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="core.PropLauncher" />
+      <module name="PropGuardian" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="core.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SelectCommunityAndBuilding" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="gui.SelectCommunityAndBuilding" />
+      <module name="PropGuardian" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="gui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StudentExtractor" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="learning.step4.StudentExtractor" />
+      <module name="PropGuardian" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="learning.step4.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserInfoPage" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="gui.UserInfoPage" />
+      <module name="PropGuardian" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="gui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.UserInfoPage" />
+      <item itemvalue="Application.Index" />
+      <item itemvalue="Application.LoginPanel" />
+      <item itemvalue="Application.PropLauncher" />
+      <item itemvalue="Application.SelectCommunityAndBuilding" />
+      <item itemvalue="Application.StudentExtractor" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.PropLauncher" />
+        <item itemvalue="Application.Index" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task id="LOCAL-00001" summary="feat: fix project err">
+      <option name="closed" value="true" />
+      <created>1741249573451</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1741249573451</updated>
+    </task>
+    <task active="true" id="Default" summary="默认任务">
+      <created>1740648042909</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1740648042909</updated>
+      <workItem from="1741249602362" duration="438000" />
+      <workItem from="1743055384931" duration="1225000" />
+      <workItem from="1743057836608" duration="279000" />
+      <workItem from="1743650132126" duration="3193000" />
+      <workItem from="1743662572177" duration="84000" />
+      <workItem from="1744869687801" duration="7478000" />
+      <workItem from="1745477381146" duration="5797000" />
+      <workItem from="1746682362855" duration="1908000" />
+      <workItem from="1747277568070" duration="183000" />
+      <workItem from="1747278310621" duration="2418000" />
+    </task>
+    <task id="LOCAL-00002" summary="refactor(userinfo): 重构用户信息管理功能&#10;&#10;- 更新了 UserInfo 类,移除了冗余的 getter 和 setter 方法&#10;- 重写了 UserInfoPage 类,简化了用户信息的展示和操作&#10;- 修改了数据库操作逻辑,使用 Hutool 的 Entity 类进行数据处理&#10;- 优化了项目配置,更新了依赖库版本">
+      <option name="closed" value="true" />
+      <created>1749007192105</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1749007192105</updated>
+    </task>
+    <task id="LOCAL-00003" summary="feat: fix project err">
+      <option name="closed" value="true" />
+      <created>1741852602154</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1741852602154</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat: fix project err">
+      <option name="closed" value="true" />
+      <created>1741855563089</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1741855563089</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat: fix project err">
+      <option name="closed" value="true" />
+      <created>1742304143152</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1742304143152</updated>
+    </task>
+    <task id="LOCAL-00006" summary="build: 添加 Hutool 依赖&#10;&#10;- 在 PropGuardian.iml 文件中添加了 cn.hutool.all 库的项目级别依赖- 此修改可能为了引入 Hutool 工具库，以支持项目中的某些功能">
+      <option name="closed" value="true" />
+      <created>1742455510375</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1742455510375</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feat(db): 重构数据库连接方式并添加 Hutool 依赖- 修改 .env 文件，将 MySQL 连接信息拆分为单独的属性&#10;- 新增 MySql 类，使用 SimpleDataSource 实现数据库连接- 在 PropCore 中集成 MySql，并在启动时进行连接测试&#10;- 添加 cn.hutool.all 依赖，以支持数据库操作等功能">
+      <option name="closed" value="true" />
+      <created>1742461988621</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1742461988621</updated>
+    </task>
+    <task id="LOCAL-00008" summary="feat(db): 重构数据库连接方式并添加 Hutool 依赖- 修改 .env 文件，将 MySQL 连接信息拆分为单独的属性&#10;- 新增 MySql 类，使用 SimpleDataSource 实现数据库连接- 在 PropCore 中集成 MySql，并在启动时进行连接测试&#10;- 添加 cn.hutool.all 依赖，以支持数据库操作等功能">
+      <option name="closed" value="true" />
+      <created>1742462556044</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1742462556044</updated>
+    </task>
+    <task id="LOCAL-00009" summary="refactor: 重构 StudentExtractor 类&#10;&#10;- 修改包名：从 learning.tzx.lesson4 改为 learning.step4&#10;- 更新文件路径：从 src/learning/tzx/lesson4/StudentExtractor.java 改为 src/learning/step4/StudentExtractor.java">
+      <option name="closed" value="true" />
+      <created>1742462811938</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1742462811938</updated>
+    </task>
+    <task id="LOCAL-00010" summary="refactor: 重构 StudentExtractor 类&#10;&#10;- 修改包名：从 learning.tzx.lesson4 改为 learning.step4&#10;- 更新文件路径：从 src/learning/tzx/lesson4/StudentExtractor.java 改为 src/learning/step4/StudentExtractor.java">
+      <option name="closed" value="true" />
+      <created>1742463110485</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1742463110485</updated>
+    </task>
+    <task id="LOCAL-00011" summary="feat(core): 初始化数据库和用户信息&#10;&#10;- 新增 DaoInit 类用于数据库初始化&#10;- 实现 IDataStorage 接口用于用户信息存储- 在 PropCore 中集成数据库初始化逻辑&#10;- 重构 UserInfo 类，添加存储方法">
+      <option name="closed" value="true" />
+      <created>1743056610065</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1743056610065</updated>
+    </task>
+    <task id="LOCAL-00012" summary="feat(core): 初始化数据库和用户信息&#10;&#10;- 新增 DaoInit 类用于数据库初始化&#10;- 实现 IDataStorage 接口用于用户信息存储- 在 PropCore 中集成数据库初始化逻辑&#10;- 重构 UserInfo 类，添加存储方法">
+      <option name="closed" value="true" />
+      <created>1743656545741</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1743656545741</updated>
+    </task>
+    <task id="LOCAL-00013" summary="feat(gui): 添加主界面并实现登录功能&#10;&#10;- 新增 Index 类作为主界面窗口&#10;- 实现菜单栏和主内容面板的基本布局&#10;- 在 LoginPanel 中添加登录成功后的逻辑，关闭登录窗口并打开主界面&#10;- 更新 workspace.xml，记录新增的 Index.java 文件变更">
+      <option name="closed" value="true" />
+      <created>1744872257796</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1744872257796</updated>
+    </task>
+    <task id="LOCAL-00014" summary="feat(gui): 添加主界面并实现登录功能&#10;&#10;- 新增 Index 类作为主界面窗口&#10;- 实现菜单栏和主内容面板的基本布局&#10;- 在 LoginPanel 中添加登录成功后的逻辑，关闭登录窗口并打开主界面&#10;- 更新 workspace.xml，记录新增的 Index.java 文件变更">
+      <option name="closed" value="true" />
+      <created>1745480038841</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1745480038841</updated>
+    </task>
+    <task id="LOCAL-00015" summary="feat(gui): 添加主界面并实现登录功能&#10;&#10;- 新增 Index 类作为主界面窗口&#10;- 实现菜单栏和主内容面板的基本布局&#10;- 在 LoginPanel 中添加登录成功后的逻辑，关闭登录窗口并打开主界面&#10;- 更新 workspace.xml，记录新增的 Index.java 文件变更">
+      <option name="closed" value="true" />
+      <created>1745481187843</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1745481187843</updated>
+    </task>
+    <task id="LOCAL-00016" summary="refactor: 重构 StudentExtractor 类&#10;&#10;- 修改包名：从 learning.tzx.lesson4 改为 learning.step4&#10;- 更新文件路径：从 src/learning/tzx/lesson4/StudentExtractor.java 改为 src/learning/step4/StudentExtractor.java">
+      <option name="closed" value="true" />
+      <created>1746695008889</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1746695008889</updated>
+    </task>
+    <task id="LOCAL-00017" summary="refactor: 重构 StudentExtractor 类&#10;&#10;- 修改包名：从 learning.tzx.lesson4 改为 learning.step4&#10;- 更新文件路径：从 src/learning/tzx/lesson4/StudentExtractor.java 改为 src/learning/step4/StudentExtractor.java">
+      <option name="closed" value="true" />
+      <created>1746695224488</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1746695224488</updated>
+    </task>
+    <task id="LOCAL-00018" summary="refactor: 重构 StudentExtractor 类&#10;&#10;- 修改包名：从 learning.tzx.lesson4 改为 learning.step4&#10;- 更新文件路径：从 src/learning/tzx/lesson4/StudentExtractor.java 改为 src/learning/step4/StudentExtractor.java">
+      <option name="closed" value="true" />
+      <created>1746695400071</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1746695400071</updated>
+    </task>
+    <task id="LOCAL-00019" summary="refactor: 重构 StudentExtractor 类&#10;&#10;- 修改包名：从 learning.tzx.lesson4 改为 learning.step4&#10;- 更新文件路径：从 src/learning/tzx/lesson4/StudentExtractor.java 改为 src/learning/step4/StudentExtractor.java">
+      <option name="closed" value="true" />
+      <created>1746695523321</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1746695523322</updated>
+    </task>
+    <task id="LOCAL-00020" summary="refactor(gui): 删除 CommunityInfoManagement 类&#10;&#10;- 移除了 CommunityInfoManagement 类及其相关代码&#10;- 更新了 workspace.xml 文件，调整了项目配置&#10;- 修改了 codestream.xml 文件，更新了 CodeStream插件的设置">
+      <option name="closed" value="true" />
+      <created>1747277728424</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1747277728424</updated>
+    </task>
+    <task id="LOCAL-00021" summary="refactor(gui): 优化业主信息页面功能和布局&#10;&#10;- 移除冗余的更新按钮，简化界面布局&#10;- 修正业主信息查询、添加、修改和删除功能的 SQL 语句&#10;- 更新数据库连接库和项目依赖">
+      <option name="closed" value="true" />
+      <created>1748512196125</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1748512196125</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="refactor(learning): 重构学习代码&#10;&#10;- 新增 Main.java 文件，实现了一个简单的列表操作示例&#10;- 清空 Step1Main.java 和 Step2Main.java 文件的内容&#10;- 为 Step2Main.java 添加空行，准备后续编写代码" />
+    <MESSAGE value="refactor(learning): 移除 Hello World! 输出语句&#10;&#10;- 删除了 Main 类中的 System.out.println" />
+    <MESSAGE value="feat: fix project err" />
+    <MESSAGE value="build: 添加 Hutool 依赖&#10;&#10;- 在 PropGuardian.iml 文件中添加了 cn.hutool.all 库的项目级别依赖- 此修改可能为了引入 Hutool 工具库，以支持项目中的某些功能" />
+    <MESSAGE value="feat(db): 重构数据库连接方式并添加 Hutool 依赖- 修改 .env 文件，将 MySQL 连接信息拆分为单独的属性&#10;- 新增 MySql 类，使用 SimpleDataSource 实现数据库连接- 在 PropCore 中集成 MySql，并在启动时进行连接测试&#10;- 添加 cn.hutool.all 依赖，以支持数据库操作等功能" />
+    <MESSAGE value="feat(core): 初始化数据库和用户信息&#10;&#10;- 新增 DaoInit 类用于数据库初始化&#10;- 实现 IDataStorage 接口用于用户信息存储- 在 PropCore 中集成数据库初始化逻辑&#10;- 重构 UserInfo 类，添加存储方法" />
+    <MESSAGE value="feat(gui): 添加主界面并实现登录功能&#10;&#10;- 新增 Index 类作为主界面窗口&#10;- 实现菜单栏和主内容面板的基本布局&#10;- 在 LoginPanel 中添加登录成功后的逻辑，关闭登录窗口并打开主界面&#10;- 更新 workspace.xml，记录新增的 Index.java 文件变更" />
+    <MESSAGE value="refactor: 重构 StudentExtractor 类&#10;&#10;- 修改包名：从 learning.tzx.lesson4 改为 learning.step4&#10;- 更新文件路径：从 src/learning/tzx/lesson4/StudentExtractor.java 改为 src/learning/step4/StudentExtractor.java" />
+    <MESSAGE value="refactor(gui): 删除 CommunityInfoManagement 类&#10;&#10;- 移除了 CommunityInfoManagement 类及其相关代码&#10;- 更新了 workspace.xml 文件，调整了项目配置&#10;- 修改了 codestream.xml 文件，更新了 CodeStream插件的设置" />
+    <MESSAGE value="refactor(gui): 优化业主信息页面功能和布局&#10;&#10;- 移除冗余的更新按钮，简化界面布局&#10;- 修正业主信息查询、添加、修改和删除功能的 SQL 语句&#10;- 更新数据库连接库和项目依赖" />
+    <MESSAGE value="feat(learning): 添加动物类和业主信息管理界面&#10;&#10;- 新增 Animal、Mouse 和 Penguin 类&#10;- 实现了动物的自我介绍、吃和睡的方法&#10;- 添加了 OwnerInfoPage 类，用于管理业主信息&#10;- 实现了业主信息的查询、添加、修改、删除和更新功能&#10;- 新增 StudentExtractor 类，用于提取学生信息" />
+    <MESSAGE value="refactor(userinfo): 重构用户信息管理功能&#10;&#10;- 更新了 UserInfo 类,移除了冗余的 getter 和 setter 方法&#10;- 重写了 UserInfoPage 类,简化了用户信息的展示和操作&#10;- 修改了数据库操作逻辑,使用 Hutool 的 Entity 类进行数据处理&#10;- 优化了项目配置,更新了依赖库版本" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor(userinfo): 重构用户信息管理功能&#10;&#10;- 更新了 UserInfo 类,移除了冗余的 getter 和 setter 方法&#10;- 重写了 UserInfoPage 类,简化了用户信息的展示和操作&#10;- 修改了数据库操作逻辑,使用 Hutool 的 Entity 类进行数据处理&#10;- 优化了项目配置,更新了依赖库版本" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/dao/entity/ConsumptionIndex.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
