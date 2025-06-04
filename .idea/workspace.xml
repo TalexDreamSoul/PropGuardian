@@ -4,6 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="ccc77131-6af0-447f-bf09-6192a51df474" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PropGuardian.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PropGuardian.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/entity/UserInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/entity/UserInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/UserInfoPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/UserInfoPage.java" afterDir="false" />
+    </list>
     <list default="true" id="ccc77131-6af0-447f-bf09-6192a51df474" name="Changes" comment="refactor(userinfo): 重构用户信息管理功能&#10;&#10;- 更新了 UserInfo 类,移除了冗余的 getter 和 setter 方法&#10;- 重写了 UserInfoPage 类,简化了用户信息的展示和操作&#10;- 修改了数据库操作逻辑,使用 Hutool 的 Entity 类进行数据处理&#10;- 优化了项目配置,更新了依赖库版本" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +95,7 @@
       <recent name="C:\Users\lenovo\IdeaProjects\PropGuardian1\src\learning\zhy\week1011" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.PropLauncher">
     <configuration name="Index" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="gui.Index" />
       <module name="PropGuardian" />
