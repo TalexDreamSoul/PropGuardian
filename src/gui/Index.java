@@ -25,12 +25,30 @@ public class Index extends JFrame {
         JMenuItem userInfoItem = new JMenuItem("User Info Maintenance");
         JMenuItem modifyRateItem = new JMenuItem("Modify Charge Rate");
         JMenuItem queryRateItem = new JMenuItem("Query Charge Rate");
+        
+        // 新增：Online Repair Service 和 Notifications 子菜单项
+        JMenuItem onlineRepairItem = new JMenuItem("Online Repair Service");
+        onlineRepairItem.addActionListener(e -> {
+            OnlineRepairService repairService = new OnlineRepairService();
+            repairService.setVisible(true);
+        });
+        
+        JMenuItem notificationItem = new JMenuItem("Notifications");
+        notificationItem.addActionListener(e -> {
+            NotificationPanel notificationPanel = new NotificationPanel();
+            notificationPanel.setVisible(true);
+        });
+        
+        // 添加原有菜单项
         basicInfoMenu.add(communityInfoItem);
         basicInfoMenu.add(buildingInfoItem);
         basicInfoMenu.add(houseInfoItem);
         basicInfoMenu.add(userInfoItem);
         basicInfoMenu.add(modifyRateItem);
         basicInfoMenu.add(queryRateItem);
+        // 按顺序继续添加新菜单项，不使用分隔线
+        basicInfoMenu.add(onlineRepairItem);
+        basicInfoMenu.add(notificationItem);
         menuBar.add(basicInfoMenu);
 
         // Add action listener to "Community Info Maintenance" menu item
