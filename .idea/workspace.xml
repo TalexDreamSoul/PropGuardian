@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ccc77131-6af0-447f-bf09-6192a51df474" name="Changes" comment="refactor(gui): 优化业主信息页面功能和布局&#10;&#10;- 移除冗余的更新按钮，简化界面布局&#10;- 修正业主信息查询、添加、修改和删除功能的 SQL 语句&#10;- 更新数据库连接库和项目依赖">
-      <change beforePath="$PROJECT_DIR$/PropGuardian.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PropGuardian.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/GasBillingReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/GasBillingReport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/UserBillingReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/UserBillingReport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/WaterBillingReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/WaterBillingReport.java" afterDir="false" />
-    </list>
+    <list default="true" id="ccc77131-6af0-447f-bf09-6192a51df474" name="Changes" comment="refactor(userinfo): 重构用户信息管理功能&#10;&#10;- 更新了 UserInfo 类,移除了冗余的 getter 和 setter 方法&#10;- 重写了 UserInfoPage 类,简化了用户信息的展示和操作&#10;- 修改了数据库操作逻辑,使用 Hutool 的 Entity 类进行数据处理&#10;- 优化了项目配置,更新了依赖库版本" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,7 +19,17 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="#23" />
+      </map>
+    </option>
     <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="slx" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -33,6 +38,31 @@
     &quot;assignee&quot;: &quot;LarsHuang421&quot;
   }
 }</component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="tzx" />
+                    <option name="lastUsedInstant" value="1749005264" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="#23" />
+                    <option name="lastUsedInstant" value="1749005257" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
+  </component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/TalexDreamSoul/PropGuardian&quot;,
@@ -43,42 +73,13 @@
   &quot;associatedIndex&quot;: 8
 }</component>
   <component name="ProjectId" id="2tcOkpV44KaHu1ACRkdVuwNozD6" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectLevelVcsManager">
+    <OptionsSetting value="false" id="Update" />
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.LoginPanel.executor&quot;: &quot;Run&quot;,
-    &quot;Application.PropLauncher.executor&quot;: &quot;Run&quot;,
-    &quot;Application.StudentExtractor.executor&quot;: &quot;Run&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;tzx&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/lenovo/IdeaProjects/PropGuardian1/src/learning/zhy/week11223344&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;,
-    &quot;应用程序.Index.executor&quot;: &quot;Run&quot;,
-    &quot;应用程序.LoginPanel.executor&quot;: &quot;Run&quot;,
-    &quot;应用程序.PropLauncher.executor&quot;: &quot;Run&quot;,
-    &quot;应用程序.SelectCommunityAndBuilding.executor&quot;: &quot;Run&quot;,
-    &quot;应用程序.Step1Main.executor&quot;: &quot;Run&quot;
-  }
-}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\lenovo\IdeaProjects\PropGuardian1\src\learning\zhy\week11223344" />
@@ -88,7 +89,7 @@
       <recent name="C:\Users\lenovo\IdeaProjects\PropGuardian1\src\learning\zhy\week1011" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.PropLauncher">
+  <component name="RunManager">
     <configuration name="Index" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="gui.Index" />
       <module name="PropGuardian" />
@@ -154,7 +155,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UserInfoPage" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="gui.UserInfoPage" />
+      <module name="PropGuardian" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="gui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
+      <item itemvalue="Application.UserInfoPage" />
       <item itemvalue="Application.Index" />
       <item itemvalue="Application.LoginPanel" />
       <item itemvalue="Application.PropLauncher" />
@@ -164,21 +179,21 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.PropLauncher" />
+        <item itemvalue="Application.Index" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.25410.129" />
-        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-IU-251.25410.129" />
-      </set>
-    </attachedChunks>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task id="LOCAL-00001" summary="feat: fix project err">
+      <option name="closed" value="true" />
+      <created>1741249573451</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1741249573451</updated>
+    </task>
     <task active="true" id="Default" summary="默认任务">
-      <changelist id="ccc77131-6af0-447f-bf09-6192a51df474" name="Changes" comment="refactor(gui): 优化业主信息页面功能和布局&#10;&#10;- 移除冗余的更新按钮，简化界面布局&#10;- 修正业主信息查询、添加、修改和删除功能的 SQL 语句&#10;- 更新数据库连接库和项目依赖" />
       <created>1740648042909</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -193,24 +208,14 @@
       <workItem from="1746682362855" duration="1908000" />
       <workItem from="1747277568070" duration="183000" />
       <workItem from="1747278310621" duration="2418000" />
-      <workItem from="1748779865255" duration="1393000" />
-      <workItem from="1748959200000" duration="449000" />
     </task>
-    <task id="LOCAL-00001" summary="feat: fix project err">
+    <task id="LOCAL-00002" summary="refactor(userinfo): 重构用户信息管理功能&#10;&#10;- 更新了 UserInfo 类,移除了冗余的 getter 和 setter 方法&#10;- 重写了 UserInfoPage 类,简化了用户信息的展示和操作&#10;- 修改了数据库操作逻辑,使用 Hutool 的 Entity 类进行数据处理&#10;- 优化了项目配置,更新了依赖库版本">
       <option name="closed" value="true" />
-      <created>1741249573451</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1741249573451</updated>
-    </task>
-    <task id="LOCAL-00002" summary="feat: fix project err">
-      <option name="closed" value="true" />
-      <created>1741852525986</created>
+      <created>1749007192105</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1741852525986</updated>
+      <updated>1749007192105</updated>
     </task>
     <task id="LOCAL-00003" summary="feat: fix project err">
       <option name="closed" value="true" />
@@ -364,15 +369,7 @@
       <option name="project" value="LOCAL" />
       <updated>1748512196125</updated>
     </task>
-    <task id="LOCAL-00022" summary="refactor(gui): 优化业主信息页面功能和布局&#10;&#10;- 移除冗余的更新按钮，简化界面布局&#10;- 修正业主信息查询、添加、修改和删除功能的 SQL 语句&#10;- 更新数据库连接库和项目依赖">
-      <option name="closed" value="true" />
-      <created>1748512372241</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1748512372241</updated>
-    </task>
-    <option name="localTasksCounter" value="23" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -401,7 +398,8 @@
     <MESSAGE value="refactor(gui): 删除 CommunityInfoManagement 类&#10;&#10;- 移除了 CommunityInfoManagement 类及其相关代码&#10;- 更新了 workspace.xml 文件，调整了项目配置&#10;- 修改了 codestream.xml 文件，更新了 CodeStream插件的设置" />
     <MESSAGE value="refactor(gui): 优化业主信息页面功能和布局&#10;&#10;- 移除冗余的更新按钮，简化界面布局&#10;- 修正业主信息查询、添加、修改和删除功能的 SQL 语句&#10;- 更新数据库连接库和项目依赖" />
     <MESSAGE value="feat(learning): 添加动物类和业主信息管理界面&#10;&#10;- 新增 Animal、Mouse 和 Penguin 类&#10;- 实现了动物的自我介绍、吃和睡的方法&#10;- 添加了 OwnerInfoPage 类，用于管理业主信息&#10;- 实现了业主信息的查询、添加、修改、删除和更新功能&#10;- 新增 StudentExtractor 类，用于提取学生信息" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(learning): 添加动物类和业主信息管理界面&#10;&#10;- 新增 Animal、Mouse 和 Penguin 类&#10;- 实现了动物的自我介绍、吃和睡的方法&#10;- 添加了 OwnerInfoPage 类，用于管理业主信息&#10;- 实现了业主信息的查询、添加、修改、删除和更新功能&#10;- 新增 StudentExtractor 类，用于提取学生信息" />
+    <MESSAGE value="refactor(userinfo): 重构用户信息管理功能&#10;&#10;- 更新了 UserInfo 类,移除了冗余的 getter 和 setter 方法&#10;- 重写了 UserInfoPage 类,简化了用户信息的展示和操作&#10;- 修改了数据库操作逻辑,使用 Hutool 的 Entity 类进行数据处理&#10;- 优化了项目配置,更新了依赖库版本" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor(userinfo): 重构用户信息管理功能&#10;&#10;- 更新了 UserInfo 类,移除了冗余的 getter 和 setter 方法&#10;- 重写了 UserInfoPage 类,简化了用户信息的展示和操作&#10;- 修改了数据库操作逻辑,使用 Hutool 的 Entity 类进行数据处理&#10;- 优化了项目配置,更新了依赖库版本" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
