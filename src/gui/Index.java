@@ -22,11 +22,13 @@ public class Index extends JFrame {
         JMenuItem communityInfoItem = new JMenuItem("Community Info Maintenance");
         JMenuItem buildingInfoItem = new JMenuItem("Building Info Maintenance");
         JMenuItem houseInfoItem = new JMenuItem("House Info Maintenance");
+        JMenuItem userInfoItem = new JMenuItem("User Info Maintenance");
         JMenuItem modifyRateItem = new JMenuItem("Modify Charge Rate");
         JMenuItem queryRateItem = new JMenuItem("Query Charge Rate");
         basicInfoMenu.add(communityInfoItem);
         basicInfoMenu.add(buildingInfoItem);
         basicInfoMenu.add(houseInfoItem);
+        basicInfoMenu.add(userInfoItem);
         basicInfoMenu.add(modifyRateItem);
         basicInfoMenu.add(queryRateItem);
         menuBar.add(basicInfoMenu);
@@ -40,6 +42,11 @@ public class Index extends JFrame {
         houseInfoItem.addActionListener(e -> {
             OwnerInfoPage houseInfoPage = new OwnerInfoPage();
             houseInfoPage.setVisible(true);
+        });
+        // Add action listener to "User Info Maintenance" menu item
+        userInfoItem.addActionListener(e -> {
+            UserInfoPage userInfoPage = new UserInfoPage();
+            userInfoPage.setVisible(true);
         });
         // Add action listener to "Modify Charge Rate" menu item
         buildingInfoItem.addActionListener(e -> {
@@ -83,36 +90,44 @@ public class Index extends JFrame {
 
         menuBar.add(reportsMenu);
 
-        // Add action listeners for fee reports
+        // 添加 Electricity Billing Report 的事件监听器
         electricityBillItem.addActionListener(e -> {
             ElectricityBillingReport electricityBillingReport = new ElectricityBillingReport();
             electricityBillingReport.setVisible(true);
         });
 
+        // 添加 Water Billing Report 的事件监听器
         waterBillItem.addActionListener(e -> {
             WaterBillingReport waterBillingReport = new WaterBillingReport();
             waterBillingReport.setVisible(true);
         });
 
+        // 添加 Gas Billing Report 的事件监听器
         gasBillItem.addActionListener(e -> {
             GasBillingReport gasBillingReport = new GasBillingReport();
             gasBillingReport.setVisible(true);
         });
 
+        // 添加 User Billing Report 的事件监听器
         userBillItem.addActionListener(e -> {
             UserBillingReport userBillingReport = new UserBillingReport();
             userBillingReport.setVisible(true);
         });
 
-        // Add online repair service menu item
-        JMenuItem onlineRepairItem = new JMenuItem("Online Repair Service");
-        onlineRepairItem.addActionListener(e -> {
-            OnlineRepairService onlineRepairPage = new OnlineRepairService();
-            onlineRepairPage.setVisible(true);
-        });
-        basicInfoMenu.add(onlineRepairItem);
+        // Add user information management menu and its sub-menu items
+        JMenu userInfoMenu = new JMenu("User Information Management");
+        JMenuItem manageUserInfoItem = new JMenuItem("Manage User Information");
 
-        // Add exit menu item to menu bar
+        userInfoMenu.add(manageUserInfoItem);
+        menuBar.add(userInfoMenu);
+
+        // Add action listener to "Manage User Information" menu item
+        manageUserInfoItem.addActionListener(e -> {
+            UserInfoPage userInfoPage = new UserInfoPage();
+            userInfoPage.setVisible(true);
+        });
+
+        // Add Exit menu item 到菜单栏
         JMenuItem exitItem = new JMenuItem("Exit");
         exitItem.addActionListener(e -> System.exit(0));
         menuBar.add(exitItem);
