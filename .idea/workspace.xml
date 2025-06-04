@@ -89,7 +89,7 @@
       <recent name="C:\Users\lenovo\IdeaProjects\PropGuardian1\src\learning\zhy\week1011" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.PropLauncher">
+  <component name="RunManager">
     <configuration name="Index" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="gui.Index" />
       <module name="PropGuardian" />
