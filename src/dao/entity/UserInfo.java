@@ -5,11 +5,13 @@ import cn.hutool.db.Entity;
 import cn.hutool.db.SqlConnRunner;
 import dao.upper.IDataStorage;
 import db.MySql;
+import lombok.Getter;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.logging.Logger;
 
+@Getter
 public class UserInfo implements IDataStorage {
 
     private String uname;
@@ -25,31 +27,6 @@ public class UserInfo implements IDataStorage {
         this.purview = purview;
     }
 
-    // getter 和 setter 方法
-    public String getUname() {
-        return uname;
-    }
-
-    public void setUname(String uname) {
-        this.uname = uname;
-    }
-
-    public String getPaswrd() {
-        return paswrd;
-    }
-
-    public void setPaswrd(String paswrd) {
-        this.paswrd = paswrd;
-    }
-
-    public int getPurview() {
-        return purview;
-    }
-
-    public void setPurview(int purview) {
-        this.purview = purview;
-    }
-
     @Override
     public String toString() {
         return "UserInfo{" +
@@ -62,11 +39,6 @@ public class UserInfo implements IDataStorage {
     @SneakyThrows
     @Override
     public boolean storage(MySql mysql) {
-        // none -> add / has -> on update duplicate process
-        // INSERT INTO test VALUES (1,'b4','c4') ON DUPLICATE KEY UPDATE b=VALUES(b),c=VALUES(c);
-
-        String sql = "INSERT INTO `userinfo` VALUES (?, ?, ?)";
-
         int i = mysql.use().insertOrUpdate(
                 Entity.create("userinfo")
                         .set("uname", this.uname)
