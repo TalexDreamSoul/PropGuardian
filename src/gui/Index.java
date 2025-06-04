@@ -113,6 +113,10 @@ public class Index extends JFrame {
             UserBillingReport userBillingReport = new UserBillingReport();
             userBillingReport.setVisible(true);
         });
+        propertyBillItem.addActionListener(e -> {
+            new PropertyBillingReport().setVisible(true);
+        });
+        // 添加 Exit menu item 到菜单栏
 
         // Add user information management menu and its sub-menu items
         JMenu userInfoMenu = new JMenu("User Information Management");
