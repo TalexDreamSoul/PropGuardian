@@ -1,6 +1,7 @@
 package gui;
 
 import cn.hutool.db.Db;
+import cn.hutool.db.Entity;
 import core.PropCore;
 import dao.entity.UserInfo;
 import lombok.SneakyThrows;
@@ -16,9 +17,7 @@ public class UserInfoPage extends JFrame {
     private JTable table;
     private Db db;
     private DefaultTableModel tableModel;
-    private JTextField nameField, genderField, birthDateField, idCardField, contactPhoneField,
-            householdAddressField, currentAddressField, moveInTimeField, relationshipField,
-            workUnitField, remarkField;
+    private JTextField nameField, paswrdField, purviewField;
 
     public UserInfoPage() {
         setTitle("用户信息管理");
@@ -34,22 +33,14 @@ public class UserInfoPage extends JFrame {
             return;
         }
 
-        String[] columnNames = {"姓名", "性别", "出生日期", "身份证号", "联系电话", "户籍地址", "现住地址", "入住时间", "与户主关系", "工作单位", "备注"};
+        String[] columnNames = {"姓名", "密码", "权限"};
         tableModel = new DefaultTableModel(columnNames, 0);
         table = new JTable(tableModel);
         JScrollPane scrollPane = new JScrollPane(table);
 
         nameField = new JTextField(10);
-        genderField = new JTextField(10);
-        birthDateField = new JTextField(10);
-        idCardField = new JTextField(10);
-        contactPhoneField = new JTextField(10);
-        householdAddressField = new JTextField(10);
-        currentAddressField = new JTextField(10);
-        moveInTimeField = new JTextField(10);
-        relationshipField = new JTextField(10);
-        workUnitField = new JTextField(10);
-        remarkField = new JTextField(10);
+        paswrdField = new JTextField(10);
+        purviewField = new JTextField(10);
 
         JButton queryByNameBtn = new JButton("姓名查询");
         JButton addBtn = new JButton("添加");
@@ -57,18 +48,10 @@ public class UserInfoPage extends JFrame {
         JButton deleteBtn = new JButton("删除");
         JButton resetBtn = new JButton("重置");
 
-        JPanel inputPanel = new JPanel(new GridLayout(11, 2));
+        JPanel inputPanel = new JPanel(new GridLayout(3, 2));
         inputPanel.add(new JLabel("姓名")); inputPanel.add(nameField);
-        inputPanel.add(new JLabel("性别")); inputPanel.add(genderField);
-        inputPanel.add(new JLabel("出生日期")); inputPanel.add(birthDateField);
-        inputPanel.add(new JLabel("身份证号")); inputPanel.add(idCardField);
-        inputPanel.add(new JLabel("联系电话")); inputPanel.add(contactPhoneField);
-        inputPanel.add(new JLabel("户籍地址")); inputPanel.add(householdAddressField);
-        inputPanel.add(new JLabel("现住地址")); inputPanel.add(currentAddressField);
-        inputPanel.add(new JLabel("入住时间")); inputPanel.add(moveInTimeField);
-        inputPanel.add(new JLabel("与户主关系")); inputPanel.add(relationshipField);
-        inputPanel.add(new JLabel("工作单位")); inputPanel.add(workUnitField);
-        inputPanel.add(new JLabel("备注")); inputPanel.add(remarkField);
+        inputPanel.add(new JLabel("密码")); inputPanel.add(paswrdField);
+        inputPanel.add(new JLabel("权限")); inputPanel.add(purviewField);
 
         JPanel buttonPanel = new JPanel();
         buttonPanel.add(queryByNameBtn);
@@ -89,7 +72,7 @@ public class UserInfoPage extends JFrame {
                 return;
             }
             try {
-                String sql = "SELECT * FROM user_info WHERE name = ?";
+                String sql = "SELECT * FROM userinfo WHERE name = ?";
                 List<UserInfo> results = db.query(sql, UserInfo.class, name);
                 updateTable(results);
             } catch (Exception ex) {
@@ -100,29 +83,25 @@ public class UserInfoPage extends JFrame {
 
         addBtn.addActionListener(e -> {
             String name = nameField.getText();
-            String gender = genderField.getText();
-            String birthDate = birthDateField.getText();
-            String idCard = idCardField.getText();
-            String contactPhone = contactPhoneField.getText();
-            String householdAddress = householdAddressField.getText();
-            String currentAddress = currentAddressField.getText();
-            String moveInTime = moveInTimeField.getText();
-            String relationship = relationshipField.getText();
-            String workUnit = workUnitField.getText();
-            String remark = remarkField.getText();
-
-            if (name.isEmpty() || gender.isEmpty() || birthDate.isEmpty() || idCard.isEmpty() || contactPhone.isEmpty()
-                    || householdAddress.isEmpty() || currentAddress.isEmpty() || moveInTime.isEmpty() || relationship.isEmpty()
-                    || workUnit.isEmpty() || remark.isEmpty()) {
+            String paswrd = paswrdField.getText();
+            String purviewStr = purviewField.getText();
+            
+            if (name.isEmpty() || paswrd.isEmpty() || purviewStr.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "请填写完整信息！");
                 return;
             }
-
-            String sql = "INSERT INTO user_info(name, gender, birth_date, id_card, contact_phone, household_address, " +
-                    "current_address, move_in_time, relationship, work_unit, remark) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+            
+            int purview;
             try {
-                int result = db.execute(sql, name, gender, birthDate, idCard, contactPhone, householdAddress,
-                        currentAddress, moveInTime, relationship, workUnit, remark);
+                purview = Integer.parseInt(purviewStr);
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(this, "权限必须为数字！");
+                return;
+            }
+
+            String sql = "INSERT INTO userinfo(name, paswrd, purview) VALUES(?,?,?)";
+            try {
+                int result = db.execute(sql, name, paswrd, purview);
 
                 if (result > 0) {
                     JOptionPane.showMessageDialog(this, "添加成功！");
@@ -145,29 +124,25 @@ public class UserInfoPage extends JFrame {
 
             int userId = (int) tableModel.getValueAt(selectedRow, 0);
             String name = nameField.getText();
-            String gender = genderField.getText();
-            String birthDate = birthDateField.getText();
-            String idCard = idCardField.getText();
-            String contactPhone = contactPhoneField.getText();
-            String householdAddress = householdAddressField.getText();
-            String currentAddress = currentAddressField.getText();
-            String moveInTime = moveInTimeField.getText();
-            String relationship = relationshipField.getText();
-            String workUnit = workUnitField.getText();
-            String remark = remarkField.getText();
-
-            if (name.isEmpty() || gender.isEmpty() || birthDate.isEmpty() || idCard.isEmpty() || contactPhone.isEmpty()
-                    || householdAddress.isEmpty() || currentAddress.isEmpty() || moveInTime.isEmpty() || relationship.isEmpty()
-                    || workUnit.isEmpty() || remark.isEmpty()) {
+            String paswrd = paswrdField.getText();
+            String purviewStr = purviewField.getText();
+            
+            if (name.isEmpty() || paswrd.isEmpty() || purviewStr.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "请填写完整信息！");
                 return;
             }
-
-            String sql = "UPDATE user_info SET name=?, gender=?, birth_date=?, id_card=?, contact_phone=?, " +
-                    "household_address=?, current_address=?, move_in_time=?, relationship=?, work_unit=?, remark=? WHERE id=?";
+            
+            int purview;
             try {
-                int result = db.execute(sql, name, gender, birthDate, idCard, contactPhone, householdAddress,
-                        currentAddress, moveInTime, relationship, workUnit, remark, userId);
+                purview = Integer.parseInt(purviewStr);
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(this, "权限必须为数字！");
+                return;
+            }
+
+            String sql = "UPDATE userinfo SET name=?, paswrd=?, purview=? WHERE id=?";
+            try {
+                int result = db.execute(sql, name, paswrd, purview, userId);
 
                 if (result > 0) {
                     JOptionPane.showMessageDialog(this, "修改成功！");
@@ -188,7 +163,7 @@ public class UserInfoPage extends JFrame {
                 return;
             }
             int userId = (int) tableModel.getValueAt(selectedRow, 0);
-            String sql = "DELETE FROM user_info WHERE id=?";
+            String sql = "DELETE FROM userinfo WHERE id=?";
             try {
                 int result = db.execute(sql, userId);
                 if (result > 0) {
@@ -205,16 +180,8 @@ public class UserInfoPage extends JFrame {
 
         resetBtn.addActionListener(e -> {
             nameField.setText("");
-            genderField.setText("");
-            birthDateField.setText("");
-            idCardField.setText("");
-            contactPhoneField.setText("");
-            householdAddressField.setText("");
-            currentAddressField.setText("");
-            moveInTimeField.setText("");
-            relationshipField.setText("");
-            workUnitField.setText("");
-            remarkField.setText("");
+            paswrdField.setText("");
+            purviewField.setText("");
         });
 
         // 默认加载所有数据到表格中
@@ -230,7 +197,8 @@ public class UserInfoPage extends JFrame {
 
     private void refreshTable() {
         try {
-            List<UserInfo> allData = db.query("SELECT * FROM user_info", UserInfo.class);
+            List<Entity> query = db.query("SELECT * FROM userinfo");
+            List<UserInfo> allData = query.stream().map(entity -> new UserInfo(entity.getStr("uname"), entity.getStr("paswrd"), entity.getInt("purview"))).toList();
             updateTable(allData);
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "数据加载失败: " + ex.getMessage(), "错误", JOptionPane.ERROR_MESSAGE);
@@ -242,10 +210,8 @@ public class UserInfoPage extends JFrame {
         if (results != null) {
             for (UserInfo info : results) {
                 tableModel.addRow(new Object[] {
-                    info.getname(), // 修改: 将 getUserName() 替换为 getName()
-                    info.getgender(), info.getbirthdate(), info.getidcard(),
-                    info.getcontactphone(), info.gethouseholdaddress(), info.getcurrentaddress(),
-                    info.getmoveIntime(), info.getrelationship(), info.getworkunit(), info.getremark()
+                    info.getUname(),
+                    info.getPaswrd(), info.getPurview()
                 });
             }
         }
