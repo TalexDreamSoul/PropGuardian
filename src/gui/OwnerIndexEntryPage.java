@@ -19,6 +19,7 @@ public class OwnerIndexEntryPage extends JFrame {
     private JTextField gasReadingField2;
     private JButton submitButton;
     private JButton cancelButton;
+    private JButton queryButton;  // 确保 queryButton 在类的顶部声明
     private Db db;
 
     // 在类顶部添加字段
@@ -40,7 +41,7 @@ public class OwnerIndexEntryPage extends JFrame {
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 5, 5, 5);
 
-        JLabel inputDateLabel = new JLabel("日期(YYYY-MM-NN)");
+        JLabel inputDateLabel = new JLabel("日期(YYYY-MM)");
         gbc.gridx = 1;
         gbc.gridy = 0;
         gbc.anchor = GridBagConstraints.EAST;
@@ -121,6 +122,21 @@ public class OwnerIndexEntryPage extends JFrame {
             }
         });
 
+        // 新增查询按钮
+        queryButton = new JButton("查询");
+        gbc.gridx = 3;
+        gbc.gridy = 4;
+        gbc.anchor = GridBagConstraints.EAST;
+        add(queryButton, gbc);
+
+        // 查询按钮事件监听器
+        queryButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                handleQuery();
+            }
+        });
+
         setVisible(true);
     }
 
@@ -133,9 +149,9 @@ public class OwnerIndexEntryPage extends JFrame {
             return false;
         }
         
-        // 验证日期格式（简单检查YYYYMM）
-        if (!inputDate.matches("\\d{6}")) {
-            JOptionPane.showMessageDialog(this, "日期格式应为YYYY-MM-NN", "输入错误", JOptionPane.WARNING_MESSAGE);
+        // 修改日期格式验证为 YYYY-MM
+        if (!inputDate.matches("\\d{4}-\\d{2}")) {
+            JOptionPane.showMessageDialog(this, "日期格式应为YYYY-MM", "输入错误", JOptionPane.WARNING_MESSAGE);
             return false;
         }
         
@@ -181,11 +197,11 @@ public class OwnerIndexEntryPage extends JFrame {
                     .set("electric_reading", Double.parseDouble(electricReading1))
                     .set("gas_reading", Double.parseDouble(gasReading1));
             
-            // 添加社区和楼宇信息
-            if (community != null && !community.isEmpty()) {
+            // 添加社区和楼宇信息，确保它们是有效的数字字符串
+            if (community != null && !community.isEmpty() && community.matches("\\d+")) {
                 entity1.set("district_id", Integer.parseInt(community));
             }
-            if (building != null && !building.isEmpty()) {
+            if (building != null && !building.isEmpty() && building.matches("\\d+")) {
                 entity1.set("building_id", Integer.parseInt(building));
             }
             
@@ -199,11 +215,11 @@ public class OwnerIndexEntryPage extends JFrame {
                     .set("electric_reading", Double.parseDouble(electricReading2))
                     .set("gas_reading", Double.parseDouble(gasReading2));
             
-            // 添加社区和楼宇信息
-            if (community != null && !community.isEmpty()) {
+            // 添加社区和楼宇信息，确保它们是有效的数字字符串
+            if (community != null && !community.isEmpty() && community.matches("\\d+")) {
                 entity2.set("district_id", Integer.parseInt(community));
             }
-            if (building != null && !building.isEmpty()) {
+            if (building != null && !building.isEmpty() && building.matches("\\d+")) {
                 entity2.set("building_id", Integer.parseInt(building));
             }
             
@@ -211,12 +227,20 @@ public class OwnerIndexEntryPage extends JFrame {
 
             JOptionPane.showMessageDialog(this, "数据已成功保存到数据库！", "提示", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
+            // 捕获详细异常信息并显示
             JOptionPane.showMessageDialog(this, "保存失败: " + e.getMessage(), "错误", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace(); // 打印堆栈信息以便调试
         }
     }
 
     private void handleCancel() {
         dispose();
+    }
+
+    // 新增查询按钮处理方法
+    private void handleQuery() {
+        dispose(); // 关闭当前页面
+        new IndexManagementPage(community, building); // 跳转到新页面
     }
 
     public static void main(String[] args) {
