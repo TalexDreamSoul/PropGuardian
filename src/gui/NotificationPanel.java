@@ -21,33 +21,33 @@ public class NotificationPanel extends JFrame {
     private JTextField customCommunityField;
 
     public NotificationPanel() {
-        mySql = new MySql(); // Initialize database connection
-        setTitle("Notification System");
+        mySql = new MySql(); // 初始化数据库连接
+        setTitle("通知系统");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setSize(800, 600);
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
 
-        // Panel for notification details
+        // 面板用于显示通知详细信息
         JPanel detailsPanel = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 5, 5, 5);
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
-        // Title field
+        // 标题字段
         gbc.gridx = 0;
         gbc.gridy = 0;
-        detailsPanel.add(new JLabel("Title:"), gbc);
+        detailsPanel.add(new JLabel("标题:"), gbc);
 
         gbc.gridx = 1;
         gbc.gridy = 0;
         titleField = new JTextField(20);
         detailsPanel.add(titleField, gbc);
 
-        // Message area
+        // 消息区域
         gbc.gridx = 0;
         gbc.gridy = 1;
-        detailsPanel.add(new JLabel("Message:"), gbc);
+        detailsPanel.add(new JLabel("消息:"), gbc);
 
         gbc.gridx = 1;
         gbc.gridy = 1;
@@ -55,42 +55,42 @@ public class NotificationPanel extends JFrame {
         JScrollPane scrollPane = new JScrollPane(messageArea);
         detailsPanel.add(scrollPane, gbc);
 
-        // Community field
+        // 小区字段
         gbc.gridx = 0;
         gbc.gridy = 2;
-        detailsPanel.add(new JLabel("Community:"), gbc);
+        detailsPanel.add(new JLabel("小区:"), gbc);
 
         gbc.gridx = 1;
         gbc.gridy = 2;
         customCommunityField = new JTextField(20);
         detailsPanel.add(customCommunityField, gbc);
 
-        // Urgent checkbox
+        // 紧急复选框
         gbc.gridx = 0;
         gbc.gridy = 3;
         gbc.gridwidth = 2;
-        urgentCheckBox = new JCheckBox("Urgent Notification");
+        urgentCheckBox = new JCheckBox("紧急通知");
         detailsPanel.add(urgentCheckBox, gbc);
 
         add(detailsPanel, BorderLayout.NORTH);
 
-        // Table for notification status and feedback
-        String[] columnNames = {"Community", "Title", "Message"};
+        // 表格用于显示通知状态和反馈
+        String[] columnNames = {"小区", "标题", "消息"};
         tableModel = new DefaultTableModel(columnNames, 0) {
             @Override
             public boolean isCellEditable(int row, int column) {
-                return false; // Make table non-editable
+                return false; // 使表格不可编辑
             }
         };
         statusTable = new JTable(tableModel);
         JScrollPane tableScrollPane = new JScrollPane(statusTable);
         add(tableScrollPane, BorderLayout.CENTER);
 
-        // Buttons panel
+        // 按钮面板
         JPanel buttonsPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
 
-        // Send button
-        sendButton = new JButton("Send Notification");
+        // 发送按钮
+        sendButton = new JButton("发送通知");
         sendButton.addActionListener(e -> {
             String title = titleField.getText().trim();
             String message = messageArea.getText().trim();
@@ -98,14 +98,14 @@ public class NotificationPanel extends JFrame {
 
             if (title.isEmpty() || message.isEmpty() || community.isEmpty()) {
                 JOptionPane.showMessageDialog(this,
-                        "Please fill in all fields",
-                        "Error",
+                        "请填写所有字段",
+                        "错误",
                         JOptionPane.ERROR_MESSAGE);
                 return;
             }
 
             try {
-                // Insert into database
+                // 插入到数据库
                 mySql.use().insert(
                         Entity.create("notification_panel")
                                 .set("community", community)
@@ -113,37 +113,37 @@ public class NotificationPanel extends JFrame {
                                 .set("message", message)
                 );
 
-                // Clear fields
+                // 清空字段
                 titleField.setText("");
                 messageArea.setText("");
                 customCommunityField.setText("");
 
-                // Refresh table
+                // 刷新表格
                 loadNotifications();
 
                 JOptionPane.showMessageDialog(this,
-                        "Notification sent successfully",
-                        "Success",
+                        "通知发送成功",
+                        "成功",
                         JOptionPane.INFORMATION_MESSAGE);
 
             } catch (Exception ex) {
                 ex.printStackTrace();
                 JOptionPane.showMessageDialog(this,
-                        "Error saving notification: " + ex.getMessage(),
-                        "Error",
+                        "保存通知时出错: " + ex.getMessage(),
+                        "错误",
                         JOptionPane.ERROR_MESSAGE);
             }
         });
         buttonsPanel.add(sendButton);
 
-        // Delete button
-        JButton deleteButton = new JButton("Delete Selected");
+        // 删除按钮
+        JButton deleteButton = new JButton("删除所选");
         deleteButton.addActionListener(e -> {
             int selectedRow = statusTable.getSelectedRow();
             if (selectedRow == -1) {
                 JOptionPane.showMessageDialog(this,
-                        "Please select a notification to delete",
-                        "Error",
+                        "请选择要删除的通知",
+                        "错误",
                         JOptionPane.ERROR_MESSAGE);
                 return;
             }
@@ -152,7 +152,7 @@ public class NotificationPanel extends JFrame {
             String title = (String) tableModel.getValueAt(selectedRow, 1);
 
             try {
-                // Delete from database
+                // 从数据库中删除
                 int deleted = mySql.use().del(
                         Entity.create("notification_panel")
                                 .set("community", community)
@@ -162,43 +162,43 @@ public class NotificationPanel extends JFrame {
                 if (deleted > 0) {
                     loadNotifications();
                     JOptionPane.showMessageDialog(this,
-                            "Notification deleted successfully",
-                            "Success",
+                            "通知删除成功",
+                            "成功",
                             JOptionPane.INFORMATION_MESSAGE);
                 } else {
                     JOptionPane.showMessageDialog(this,
-                            "Notification not found in database",
-                            "Error",
+                            "未在数据库中找到通知",
+                            "错误",
                             JOptionPane.ERROR_MESSAGE);
                 }
             } catch (Exception ex) {
                 ex.printStackTrace();
                 JOptionPane.showMessageDialog(this,
-                        "Error deleting notification: " + ex.getMessage(),
-                        "Error",
+                        "删除通知时出错: " + ex.getMessage(),
+                        "错误",
                         JOptionPane.ERROR_MESSAGE);
             }
         });
         buttonsPanel.add(deleteButton);
 
-        // Refresh button
-        JButton refreshButton = new JButton("Refresh");
+        // 刷新按钮
+        JButton refreshButton = new JButton("刷新");
         refreshButton.addActionListener(e -> loadNotifications());
         buttonsPanel.add(refreshButton);
 
         add(buttonsPanel, BorderLayout.SOUTH);
 
-        // Load initial data
+        // 加载初始数据
         loadNotifications();
     }
 
     /**
-     * Loads notifications from the database and displays them in the table
+     * 从数据库加载通知并在表格中显示
      */
     private void loadNotifications() {
         try {
             List<Entity> records = mySql.use().findAll("notification_panel");
-            tableModel.setRowCount(0); // Clear existing data
+            tableModel.setRowCount(0); // 清除现有数据
 
             for (Entity record : records) {
                 tableModel.addRow(new Object[]{
@@ -210,8 +210,8 @@ public class NotificationPanel extends JFrame {
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this,
-                    "Error loading notifications: " + e.getMessage(),
-                    "Error",
+                    "加载通知时出错: " + e.getMessage(),
+                    "错误",
                     JOptionPane.ERROR_MESSAGE);
         }
     }
