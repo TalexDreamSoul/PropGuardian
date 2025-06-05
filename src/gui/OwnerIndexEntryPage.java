@@ -176,7 +176,7 @@ public class OwnerIndexEntryPage extends JFrame {
             return;
         }
         
-        String inputDate = inputDateField.getText();
+        String inputDate = inputDateField.getText() + "-01";
         String waterReading1 = waterReadingField1.getText();
         String electricReading1 = electricReadingField1.getText();
         String gasReading1 = gasReadingField1.getText();

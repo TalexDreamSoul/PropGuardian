@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ccc77131-6af0-447f-bf09-6192a51df474" name="Changes" comment="">
+    <list default="true" id="ccc77131-6af0-447f-bf09-6192a51df474" name="Changes" comment="refactor(learning): 重构学习代码目录结构&#10;&#10;- 修改 Animal 类的包名和文件路径&#10;- 新增 Mouse、Penguin 类和对应的主程序类&#10;- 添加 StudentExtractor 类用于数据库操作&#10;- 更新 IDE 工作空间配置">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PropGuardian.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PropGuardian.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/entity/UserInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/entity/UserInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/UserInfoPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/UserInfoPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/OwnerIndexEntryPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/OwnerIndexEntryPage.java" afterDir="false" />
     </list>
-    <list default="true" id="ccc77131-6af0-447f-bf09-6192a51df474" name="Changes" comment="refactor(userinfo): 重构用户信息管理功能&#10;&#10;- 更新了 UserInfo 类,移除了冗余的 getter 和 setter 方法&#10;- 重写了 UserInfoPage 类,简化了用户信息的展示和操作&#10;- 修改了数据库操作逻辑,使用 Hutool 的 Entity 类进行数据处理&#10;- 优化了项目配置,更新了依赖库版本" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,15 +23,23 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="#23" />
-      </map>
-    </option>
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="tzx" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="slx" />
+        <entry key="$PROJECT_DIR$" value="tzx" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -53,12 +59,16 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="tzx" />
-                    <option name="lastUsedInstant" value="1749005264" />
+                    <option name="branchName" value="#22" />
+                    <option name="lastUsedInstant" value="1749107080" />
                   </RecentBranch>
                   <RecentBranch>
-                    <option name="branchName" value="#23" />
-                    <option name="lastUsedInstant" value="1749005257" />
+                    <option name="branchName" value="tzx" />
+                    <option name="lastUsedInstant" value="1749106223" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="master" />
+                    <option name="lastUsedInstant" value="1749009535" />
                   </RecentBranch>
                 </list>
               </option>
@@ -72,7 +82,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/TalexDreamSoul/PropGuardian&quot;,
-    &quot;accountId&quot;: &quot;4ae41ef0-ae20-42fe-a6b0-eb92104dccd4&quot;
+    &quot;accountId&quot;: &quot;a8d317a0-a618-452a-ac30-82233210993a&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -86,6 +96,21 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.PropLauncher.executor": "Run",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "#32 on #22",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.20574713",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\lenovo\IdeaProjects\PropGuardian1\src\learning\zhy\week11223344" />
@@ -161,21 +186,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserInfoPage" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="gui.UserInfoPage" />
-      <module name="PropGuardian" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="gui.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
-      <item itemvalue="Application.UserInfoPage" />
       <item itemvalue="Application.Index" />
       <item itemvalue="Application.LoginPanel" />
       <item itemvalue="Application.PropLauncher" />
@@ -185,9 +196,20 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.PropLauncher" />
+        <item itemvalue="Application.StudentExtractor" />
+        <item itemvalue="Application.SelectCommunityAndBuilding" />
+        <item itemvalue="Application.LoginPanel" />
         <item itemvalue="Application.Index" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.25410.129" />
+        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-IU-251.25410.129" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -200,6 +222,7 @@
       <updated>1741249573451</updated>
     </task>
     <task active="true" id="Default" summary="默认任务">
+      <changelist id="ccc77131-6af0-447f-bf09-6192a51df474" name="Changes" comment="refactor(learning): 重构学习代码目录结构&#10;&#10;- 修改 Animal 类的包名和文件路径&#10;- 新增 Mouse、Penguin 类和对应的主程序类&#10;- 添加 StudentExtractor 类用于数据库操作&#10;- 更新 IDE 工作空间配置" />
       <created>1740648042909</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -214,6 +237,7 @@
       <workItem from="1746682362855" duration="1908000" />
       <workItem from="1747277568070" duration="183000" />
       <workItem from="1747278310621" duration="2418000" />
+      <workItem from="1749106009551" duration="1563000" />
     </task>
     <task id="LOCAL-00002" summary="refactor(userinfo): 重构用户信息管理功能&#10;&#10;- 更新了 UserInfo 类,移除了冗余的 getter 和 setter 方法&#10;- 重写了 UserInfoPage 类,简化了用户信息的展示和操作&#10;- 修改了数据库操作逻辑,使用 Hutool 的 Entity 类进行数据处理&#10;- 优化了项目配置,更新了依赖库版本">
       <option name="closed" value="true" />
@@ -386,7 +410,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -406,16 +442,5 @@
     <MESSAGE value="feat(learning): 添加动物类和业主信息管理界面&#10;&#10;- 新增 Animal、Mouse 和 Penguin 类&#10;- 实现了动物的自我介绍、吃和睡的方法&#10;- 添加了 OwnerInfoPage 类，用于管理业主信息&#10;- 实现了业主信息的查询、添加、修改、删除和更新功能&#10;- 新增 StudentExtractor 类，用于提取学生信息" />
     <MESSAGE value="refactor(userinfo): 重构用户信息管理功能&#10;&#10;- 更新了 UserInfo 类,移除了冗余的 getter 和 setter 方法&#10;- 重写了 UserInfoPage 类,简化了用户信息的展示和操作&#10;- 修改了数据库操作逻辑,使用 Hutool 的 Entity 类进行数据处理&#10;- 优化了项目配置,更新了依赖库版本" />
     <option name="LAST_COMMIT_MESSAGE" value="refactor(userinfo): 重构用户信息管理功能&#10;&#10;- 更新了 UserInfo 类,移除了冗余的 getter 和 setter 方法&#10;- 重写了 UserInfoPage 类,简化了用户信息的展示和操作&#10;- 修改了数据库操作逻辑,使用 Hutool 的 Entity 类进行数据处理&#10;- 优化了项目配置,更新了依赖库版本" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/dao/entity/ConsumptionIndex.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
