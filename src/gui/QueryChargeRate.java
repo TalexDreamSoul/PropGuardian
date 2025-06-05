@@ -9,12 +9,10 @@ import cn.hutool.db.Entity;
 import db.MySql;
 import java.sql.SQLException;
 import java.util.List;
+import core.PropCore;
 
 public class QueryChargeRate extends JFrame {
-    private MySql mySql; // 数据库连接实例
-
     public QueryChargeRate() {
-        mySql = new MySql(); // 初始化数据库连接
         initUI();
     }
 
@@ -75,14 +73,14 @@ public class QueryChargeRate extends JFrame {
     // 从数据库查询收费单价数据
     private List<Entity> getChargeRatesFromDatabase() {
         try {
-            return mySql.use().query("SELECT * FROM modifycharge_ratepage", Entity.create());
+            return PropCore.INS.getMySql().use().query("SELECT * FROM modifycharge_ratepage", Entity.create());
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(this, "数据库查询错误: " + e.getMessage(), "错误", JOptionPane.ERROR_MESSAGE);
             return null;
         }
     }
 
- public static void main(String[] args) {
+    public static void main(String[] args) {
         EventQueue.invokeLater(() -> {
             QueryChargeRate ex = new QueryChargeRate();
             ex.setVisible(true);

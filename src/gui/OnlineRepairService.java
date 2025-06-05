@@ -7,230 +7,275 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import cn.hutool.db.Db;
 import cn.hutool.db.Entity;
+import core.PropCore;
 import db.MySql;
 import java.sql.SQLException;
+import java.util.List;
 
 public class OnlineRepairService extends JFrame {
     private final JTable repairTable;
     private DefaultTableModel tableModel;
     private JTextField communityField;
     private JTextField ownerField;
-    private MySql mySql; // 新增：数据库连接实例
 
-    public   OnlineRepairService() {
-        mySql = new MySql(); // 初始化数据库连接
-        setTitle("Online Repair Service");
+    public OnlineRepairService() {
+        setTitle("在线报修服务");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setSize(900, 600);
+        setSize(950, 650);
         setLocationRelativeTo(null);
 
-        // Create main panel with border layout
+        // 主面板
         JPanel mainPanel = new JPanel(new BorderLayout());
+        mainPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-        // Create top panel with form for submitting repair requests
-        JPanel topPanel = new JPanel();
-        GridBagLayout gridBag = new GridBagLayout();
-        GridBagConstraints constraints = new GridBagConstraints();
-        topPanel.setLayout(gridBag);
-
-        // 设置内边距
-        constraints.insets = new Insets(5, 5, 5, 5);
-
-        // 小区名称标签和输入框
-        JLabel communityLabel = new JLabel("Community:");
-        communityField = new JTextField(20);
-
-        constraints.gridx = 0;
-        constraints.gridy = 0;
-        constraints.anchor = GridBagConstraints.EAST;
-        topPanel.add(communityLabel, constraints);
-
-        constraints.gridx = 1;
-        constraints.gridy = 0;
-        constraints.anchor = GridBagConstraints.WEST;
-        topPanel.add(communityField, constraints);
-
-        // 业主姓名标签和输入框
-        JLabel ownerLabel = new JLabel("Owner:");
-        ownerField = new JTextField(20);
-
-        constraints.gridx = 2;
-        constraints.gridy = 0;
-        constraints.anchor = GridBagConstraints.EAST;
-        topPanel.add(ownerLabel, constraints);
-
-        constraints.gridx = 3;
-        constraints.gridy = 0;
-        constraints.anchor = GridBagConstraints.WEST;
-        topPanel.add(ownerField, constraints);
-
-        // 报修类别标签和下拉框
-        JLabel typeLabel = new JLabel("Repair Type:");
-        String[] repairTypes = {"请选择", "水电维修", "设施维修", "其他"};
-        JComboBox<String> typeComboBox = new JComboBox<>(repairTypes);
-
-        constraints.gridx = 0;
-        constraints.gridy = 1;
-        constraints.anchor = GridBagConstraints.EAST;
-        topPanel.add(typeLabel, constraints);
-
-        constraints.gridx = 1;
-        constraints.gridy = 1;
-        constraints.anchor = GridBagConstraints.WEST;
-        topPanel.add(typeComboBox, constraints);
-
-        // 问题描述标签和文本域
-        JLabel descriptionLabel = new JLabel("Problem Description:");
-
-        constraints.gridx = 0;
-        constraints.gridy = 2;
-        constraints.gridwidth = 1;
-        constraints.anchor = GridBagConstraints.NORTHEAST;
-        topPanel.add(descriptionLabel, constraints);
-
-        JTextArea descriptionArea = new JTextArea(4, 40);
-        JScrollPane descriptionScrollPane = new JScrollPane(descriptionArea);
-
-        constraints.gridx = 1;
-        constraints.gridy = 2;
-        constraints.gridwidth = 3;
-        constraints.fill = GridBagConstraints.HORIZONTAL;
-        topPanel.add(descriptionScrollPane, constraints);
-
-        // 提交按钮
-        JButton submitButton = new JButton("Submit");
-
-        constraints.gridx = 4;
-        constraints.gridy = 2;
-        constraints.anchor = GridBagConstraints.WEST;
-        topPanel.add(submitButton, constraints);
-
-        // 添加表单到顶部面板
-        topPanel.setBorder(BorderFactory.createTitledBorder("Submit Repair Request"));
+        // 顶部表单面板
+        JPanel topPanel = createFormPanel();
         mainPanel.add(topPanel, BorderLayout.NORTH);
 
-        // 创建表格模型和表格
-        tableModel = new DefaultTableModel(new Object[]{"ID", "Community", "Owner", "Type", "Description", "Status"}, 0);
+        // 创建表格
+        tableModel = new DefaultTableModel(new Object[]{"小区", "业主", "类别", "描述", "状态"}, 0);
         repairTable = new JTable(tableModel);
+        repairTable.setRowHeight(25); // 增加行高提升可读性
         JScrollPane tableScrollPane = new JScrollPane(repairTable);
 
         // 表格操作按钮面板
-        JPanel tableButtonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        JPanel tableButtonPanel = createTableButtonPanel();
 
-        // 删除所选按钮
-        JButton deleteSelectedBtn = new JButton("Delete Selected");
-        deleteSelectedBtn.addActionListener(e -> {
-            int selectedRow = repairTable.getSelectedRow();
-            if (selectedRow >= 0) {
-                tableModel.removeRow(selectedRow);
-            } else {
-                JOptionPane.showMessageDialog(OnlineRepairService.this, "Please select a row to delete.", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-        });
-        tableButtonPanel.add(deleteSelectedBtn);
-
-        // 标记为完成按钮
-        JButton markCompletedBtn = new JButton("Mark as Completed");
-        markCompletedBtn.addActionListener(e -> {
-            int selectedRow = repairTable.getSelectedRow();
-            if (selectedRow >= 0) {
-                // 更新界面状态
-                tableModel.setValueAt("Completed", selectedRow, 5);
-
-                // 获取选中的行数据
-                String community = tableModel.getValueAt(selectedRow, 1).toString();
-                String owner = tableModel.getValueAt(selectedRow, 2).toString();
-                String type = tableModel.getValueAt(selectedRow, 3).toString();
-                String description = tableModel.getValueAt(selectedRow, 4).toString();
-
-                try {
-                    // 更新数据库状态
-                    mySql.use().update(
-                        Entity.create("onlinerepair_service")
-                            .set("status", "Completed"),
-                        Entity.create("onlinerepair_service")
-                            .set("community", community)
-                            .set("owner", owner)
-                            .set("type", type)
-                            .set("description", description)
-                            .set("status", "Pending") // 假设初始状态为"Pending"
-                    );
-                } catch (SQLException ex) {
-                    JOptionPane.showMessageDialog(OnlineRepairService.this, "数据库更新错误: " + ex.getMessage(), "错误", JOptionPane.ERROR_MESSAGE);
-                }
-            } else {
-                JOptionPane.showMessageDialog(OnlineRepairService.this, "Please select a row to mark as completed.", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-        });
-        tableButtonPanel.add(markCompletedBtn);
-
-        // 创建底部面板并添加表格和按钮
+        // 底部面板
         JPanel bottomPanel = new JPanel(new BorderLayout());
         bottomPanel.add(tableButtonPanel, BorderLayout.SOUTH);
         bottomPanel.add(tableScrollPane, BorderLayout.CENTER);
 
-        // 添加表格面板到底部区域
         mainPanel.add(bottomPanel, BorderLayout.CENTER);
 
-        // 添加动作监听器到提交按钮
-        submitButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String community = communityField.getText();
-                String owner = ownerField.getText();
-                String type = (String)typeComboBox.getSelectedItem();
-                String description = descriptionArea.getText();
+        // 加载初始数据
+        refreshTableFromDatabase();
 
-                System.out.println("Submitted data:");
-                System.out.println("Community: " + community);
-                System.out.println("Owner: " + owner);
-                System.out.println("Repair Type: " + type);
-                System.out.println("Description: " + description);
+        add(mainPanel);
+    }
 
-                if (!community.isEmpty() && !owner.isEmpty() && !description.isEmpty() && !type.equals("请选择")) {
-                    try {
-                        // 插入数据库
-                        mySql.use().insert(
-                            Entity.create("onlinerepair_service")
+    private JPanel createFormPanel() {
+        JPanel panel = new JPanel(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(8, 8, 8, 8);
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+
+        // 小区名称
+        JLabel communityLabel = new JLabel("小区名称:");
+        communityField = new JTextField(20);
+        addComponent(panel, communityLabel, gbc, 0, 0, GridBagConstraints.EAST);
+        addComponent(panel, communityField, gbc, 1, 0, GridBagConstraints.WEST);
+
+        // 业主姓名
+        JLabel ownerLabel = new JLabel("业主姓名:");
+        ownerField = new JTextField(20);
+        addComponent(panel, ownerLabel, gbc, 2, 0, GridBagConstraints.EAST);
+        addComponent(panel, ownerField, gbc, 3, 0, GridBagConstraints.WEST);
+
+        // 报修类别
+        JLabel typeLabel = new JLabel("报修类别:");
+        String[] repairTypes = {"请选择", "水电维修", "设施维修", "其他"};
+        JComboBox<String> typeComboBox = new JComboBox<>(repairTypes);
+        addComponent(panel, typeLabel, gbc, 0, 1, GridBagConstraints.EAST);
+        addComponent(panel, typeComboBox, gbc, 1, 1, GridBagConstraints.WEST);
+
+        // 问题描述
+        JLabel descriptionLabel = new JLabel("问题描述:");
+        JTextArea descriptionArea = new JTextArea(4, 40);
+        descriptionArea.setLineWrap(true);
+        descriptionArea.setWrapStyleWord(true);
+        JScrollPane descriptionScrollPane = new JScrollPane(descriptionArea);
+        gbc.gridwidth = 1;
+        gbc.anchor = GridBagConstraints.NORTHEAST;
+        panel.add(descriptionLabel, gbc);
+        gbc.gridx = 1;
+        gbc.gridwidth = 3;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        panel.add(descriptionScrollPane, gbc);
+
+        // 提交按钮
+        JButton submitButton = new JButton("提交");
+        submitButton.setPreferredSize(new Dimension(100, 30));
+        submitButton.setBackground(new Color(70, 130, 180));
+        submitButton.setForeground(Color.WHITE);
+        submitButton.setFocusPainted(false);
+        submitButton.addActionListener(e -> handleSubmit(
+                communityField.getText(),
+                ownerField.getText(),
+                (String) typeComboBox.getSelectedItem(),
+                descriptionArea.getText(),
+                communityField,
+                ownerField,
+                typeComboBox,
+                descriptionArea
+        ));
+        gbc.gridx = 4;
+        gbc.gridy = 2;
+        gbc.anchor = GridBagConstraints.WEST;
+        panel.add(submitButton, gbc);
+
+        panel.setBorder(BorderFactory.createTitledBorder("提交报修请求"));
+        return panel;
+    }
+
+    private JPanel createTableButtonPanel() {
+        JPanel panel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+
+        // 查看全部记录按钮
+        JButton viewAllBtn = new JButton("查看全部记录");
+        viewAllBtn.addActionListener(e -> {
+            refreshTableFromDatabase();
+            JOptionPane.showMessageDialog(this, "已从数据库加载最新记录", "提示", JOptionPane.INFORMATION_MESSAGE);
+        });
+        panel.add(viewAllBtn);
+
+        // 删除所选按钮
+        JButton deleteSelectedBtn = new JButton("删除所选");
+        deleteSelectedBtn.addActionListener(e -> deleteSelectedRecord());
+        panel.add(deleteSelectedBtn);
+
+        // 标记为完成按钮
+        JButton markCompletedBtn = new JButton("标记为完成");
+        markCompletedBtn.addActionListener(e -> markAsCompleted());
+        panel.add(markCompletedBtn);
+
+        return panel;
+    }
+
+    private void handleSubmit(String community, String owner, String type,
+                              String description, JTextField communityField,
+                              JTextField ownerField, JComboBox<String> typeComboBox,
+                              JTextArea descriptionArea) {
+        if (validateInput(community, owner, type, description)) {
+            try {
+                Entity entity = Entity.create("onlinerepair_service")
+                        .set("community", community)
+                        .set("owner", owner)
+                        .set("type", type)
+                        .set("description", description)
+                        .set("status", "待处理");
+
+                int result = PropCore.INS.getMySql().use().insert(entity);
+                if (result > 0) {
+                    tableModel.addRow(new Object[]{
+                            community,
+                            owner,
+                            type,
+                            description,
+                            "待处理"
+                    });
+                    clearForm(communityField, ownerField, typeComboBox, descriptionArea);
+                }
+            } catch (SQLException ex) {
+                showError("数据库插入错误: " + ex.getMessage());
+            }
+        } else {
+            showError("请填写所有字段并选择报修类型。");
+        }
+    }
+
+    private boolean validateInput(String community, String owner, String type, String description) {
+        return !community.isEmpty() && !owner.isEmpty()
+                && !description.isEmpty() && !type.equals("请选择");
+    }
+
+    private void clearForm(JTextField communityField, JTextField ownerField,
+                           JComboBox<String> typeComboBox, JTextArea descriptionArea) {
+        communityField.setText("");
+        ownerField.setText("");
+        typeComboBox.setSelectedIndex(0);
+        descriptionArea.setText("");
+    }
+
+    private void markAsCompleted() {
+        int selectedRow = repairTable.getSelectedRow();
+        if (selectedRow >= 0) {
+            String community = (String) tableModel.getValueAt(selectedRow, 0);
+            String owner = (String) tableModel.getValueAt(selectedRow, 1);
+            String type = (String) tableModel.getValueAt(selectedRow, 2);
+            String description = (String) tableModel.getValueAt(selectedRow, 3);
+
+            try {
+                String sql = "UPDATE onlinerepair_service SET status = ? WHERE community = ? AND owner = ? AND type = ? AND description = ?";
+                int updated = PropCore.INS.getMySql().use().execute(sql, "已完成", community, owner, type, description);
+
+                if (updated > 0) {
+                    tableModel.setValueAt("已完成", selectedRow, 4);
+                    JOptionPane.showMessageDialog(this, "状态已更新为‘已完成’", "提示", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(this, "未找到对应记录，请刷新后重试", "错误", JOptionPane.ERROR_MESSAGE);
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+                showError("数据库更新错误: " + ex.getMessage());
+            }
+        } else {
+            showError("请选择要标记为完成的行。");
+        }
+    }
+
+    private void deleteSelectedRecord() {
+        int selectedRow = repairTable.getSelectedRow();
+        if (selectedRow >= 0) {
+            String community = (String) tableModel.getValueAt(selectedRow, 0);
+            String owner = (String) tableModel.getValueAt(selectedRow, 1);
+            String type = (String) tableModel.getValueAt(selectedRow, 2);
+            String description = (String) tableModel.getValueAt(selectedRow, 3);
+
+            try {
+                int deleted = PropCore.INS.getMySql().use().del(
+                        Entity.create("onlinerepair_service")
                                 .set("community", community)
                                 .set("owner", owner)
                                 .set("type", type)
                                 .set("description", description)
-                                .set("status", "Pending")
-                        );
-                    } catch (SQLException ex) {
-                        JOptionPane.showMessageDialog(OnlineRepairService.this, "数据库插入错误: " + ex.getMessage(), "错误", JOptionPane.ERROR_MESSAGE);
-                    }
-
-                    // 更新表格
-                    tableModel.addRow(new Object[]{
-                        tableModel.getRowCount() + 1,
-                        community,
-                        owner,
-                        type,
-                        description,
-                        "Pending"
-                    });
-
-                    // 清空表单
-                    communityField.setText("");
-                    ownerField.setText("");
-                    typeComboBox.setSelectedIndex(0);
-                    descriptionArea.setText("");
-                } else {
-                    JOptionPane.showMessageDialog(OnlineRepairService.this, "Please fill all fields and select a repair type.", "Error", JOptionPane.ERROR_MESSAGE);
+                );
+                if (deleted > 0) {
+                    tableModel.removeRow(selectedRow);
                 }
+            } catch (SQLException ex) {
+                showError("数据库删除错误: " + ex.getMessage());
             }
-        });
+        } else {
+            showError("请选择要删除的行。");
+        }
+    }
 
-        // 设置主面板到窗口
-        add(mainPanel);
+    private void refreshTableFromDatabase() {
+        tableModel.setRowCount(0);
+        try {
+            List<Entity> requests = PropCore.INS.getMySql().use().query(
+                    "SELECT * FROM onlinerepair_service ORDER BY community DESC");
+            for (Entity request : requests) {
+                tableModel.addRow(new Object[]{
+                        request.get("community"),
+                        request.get("owner"),
+                        request.get("type"),
+                        request.get("description"),
+                        request.get("status")
+                });
+            }
+        } catch (SQLException ex) {
+            showError("数据库查询错误: " + ex.getMessage());
+        }
+    }
+
+    private void addComponent(JPanel panel, Component comp,
+                              GridBagConstraints gbc, int x, int y, int anchor) {
+        gbc.gridx = x;
+        gbc.gridy = y;
+        gbc.anchor = anchor;
+        panel.add(comp, gbc);
+    }
+
+    private void showError(String message) {
+        JOptionPane.showMessageDialog(this, message, "错误", JOptionPane.ERROR_MESSAGE);
     }
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            OnlineRepairService onlineRepairService = new OnlineRepairService();
-            onlineRepairService.setVisible(true);
+            OnlineRepairService service = new OnlineRepairService();
+            service.setVisible(true);
         });
     }
 }
