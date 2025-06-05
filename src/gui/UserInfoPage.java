@@ -99,7 +99,7 @@ public class UserInfoPage extends JFrame {
                 return;
             }
 
-            String sql = "INSERT INTO userinfo(name, paswrd, purview) VALUES(?,?,?)";
+            String sql = "INSERT INTO userinfo(uname, paswrd, purview) VALUES(?,?,?)";
             try {
                 int result = db.execute(sql, name, paswrd, purview);
 
@@ -140,7 +140,7 @@ public class UserInfoPage extends JFrame {
                 return;
             }
 
-            String sql = "UPDATE userinfo SET name=?, paswrd=?, purview=? WHERE id=?";
+            String sql = "UPDATE userinfo SET uname=?, paswrd=?, purview=? WHERE id=?";
             try {
                 int result = db.execute(sql, name, paswrd, purview, userId);
 
