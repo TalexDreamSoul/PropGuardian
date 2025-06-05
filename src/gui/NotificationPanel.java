@@ -6,9 +6,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.List;
 
-import db.MySql;
 import cn.hutool.db.Db;
 import cn.hutool.db.Entity;
+import core.PropCore;
 
 public class NotificationPanel extends JFrame {
     private JTextArea messageArea;
@@ -17,11 +17,9 @@ public class NotificationPanel extends JFrame {
     private DefaultTableModel tableModel;
     private JTable statusTable;
     private JButton sendButton;
-    private MySql mySql;
     private JTextField customCommunityField;
 
     public NotificationPanel() {
-        mySql = new MySql(); // 初始化数据库连接
         setTitle("通知系统");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setSize(800, 600);
@@ -106,7 +104,7 @@ public class NotificationPanel extends JFrame {
 
             try {
                 // 插入到数据库
-                mySql.use().insert(
+                PropCore.INS.getMySql().use().insert(
                         Entity.create("notification_panel")
                                 .set("community", community)
                                 .set("title", title)
@@ -153,7 +151,7 @@ public class NotificationPanel extends JFrame {
 
             try {
                 // 从数据库中删除
-                int deleted = mySql.use().del(
+                int deleted = PropCore.INS.getMySql().use().del(
                         Entity.create("notification_panel")
                                 .set("community", community)
                                 .set("title", title)
@@ -197,7 +195,7 @@ public class NotificationPanel extends JFrame {
      */
     private void loadNotifications() {
         try {
-            List<Entity> records = mySql.use().findAll("notification_panel");
+            List<Entity> records = PropCore.INS.getMySql().use().findAll("notification_panel");
             tableModel.setRowCount(0); // 清除现有数据
 
             for (Entity record : records) {

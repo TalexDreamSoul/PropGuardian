@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import cn.hutool.db.Db;
 import cn.hutool.db.Entity;
+import core.PropCore;
 import db.MySql;
 import java.sql.SQLException;
 import java.util.List;
@@ -16,10 +17,8 @@ public class OnlineRepairService extends JFrame {
     private DefaultTableModel tableModel;
     private JTextField communityField;
     private JTextField ownerField;
-    private MySql mySql;
 
     public OnlineRepairService() {
-        mySql = new MySql();
         setTitle("在线报修服务");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setSize(950, 650);
@@ -156,7 +155,7 @@ public class OnlineRepairService extends JFrame {
                         .set("description", description)
                         .set("status", "待处理");
 
-                int result = mySql.use().insert(entity);
+                int result = PropCore.INS.getMySql().use().insert(entity);
                 if (result > 0) {
                     tableModel.addRow(new Object[]{
                             community,
@@ -198,7 +197,7 @@ public class OnlineRepairService extends JFrame {
 
             try {
                 String sql = "UPDATE onlinerepair_service SET status = ? WHERE community = ? AND owner = ? AND type = ? AND description = ?";
-                int updated = mySql.use().execute(sql, "已完成", community, owner, type, description);
+                int updated = PropCore.INS.getMySql().use().execute(sql, "已完成", community, owner, type, description);
 
                 if (updated > 0) {
                     tableModel.setValueAt("已完成", selectedRow, 4);
@@ -224,7 +223,7 @@ public class OnlineRepairService extends JFrame {
             String description = (String) tableModel.getValueAt(selectedRow, 3);
 
             try {
-                int deleted = mySql.use().del(
+                int deleted = PropCore.INS.getMySql().use().del(
                         Entity.create("onlinerepair_service")
                                 .set("community", community)
                                 .set("owner", owner)
@@ -245,7 +244,7 @@ public class OnlineRepairService extends JFrame {
     private void refreshTableFromDatabase() {
         tableModel.setRowCount(0);
         try {
-            List<Entity> requests = mySql.use().query(
+            List<Entity> requests = PropCore.INS.getMySql().use().query(
                     "SELECT * FROM onlinerepair_service ORDER BY community DESC");
             for (Entity request : requests) {
                 tableModel.addRow(new Object[]{
