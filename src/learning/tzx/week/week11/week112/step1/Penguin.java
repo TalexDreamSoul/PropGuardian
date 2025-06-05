@@ -1,6 +1,4 @@
-package learning.tzx.week11.step1;
-
-import learning.lxl.week112.step1.Animal;
+package learning.tzx.week.week11.week112.step1;
 
 public class Penguin extends Animal {
     public Penguin(String name) {

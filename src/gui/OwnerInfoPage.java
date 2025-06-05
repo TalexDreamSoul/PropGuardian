@@ -53,7 +53,6 @@ public class OwnerInfoPage extends JFrame {
         JButton modifyBtn = new JButton("修改");
         JButton deleteBtn = new JButton("删除");
         JButton resetBtn = new JButton("重置");
-        JButton updateBtn = new JButton("更新");
 
         JPanel inputPanel = new JPanel(new GridLayout(3, 4));
         inputPanel.add(new JLabel("小区号")); inputPanel.add(communityNoField);
@@ -72,7 +71,6 @@ public class OwnerInfoPage extends JFrame {
         buttonPanel.add(modifyBtn);
         buttonPanel.add(deleteBtn);
         buttonPanel.add(resetBtn);
-        buttonPanel.add(updateBtn);
 
         setLayout(new BorderLayout());
         add(scrollPane, BorderLayout.CENTER);
@@ -112,8 +110,7 @@ public class OwnerInfoPage extends JFrame {
                 return;
             }
 
-            String sql = "INSERT INTO owner_info(district_id, building_id, room_id, area, status, purpose, oname, sex, id_Num, address, phone) " +
-                    "VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO owner_info(district_id, building_id, room_id, area, status, purpose, oname, sex, id_Num, address, phone) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
             try {
                 int result = db.execute(sql,
                         Integer.parseInt(communityNo),
@@ -164,7 +161,7 @@ public class OwnerInfoPage extends JFrame {
                 return;
             }
 
-            String sql = "UPDATE owner_info SET district_id=?, building_id=?, room_id=?, area=?, status=?, purpose=?, oname=?, sex=?, id_num=?, address=?, phone=? WHERE district_id=?";
+            String sql = "UPDATE owner_info SET district_id=?, building_id=?, room_id=?, area=?, status=?, purpose=?, oname=?, sex=?, id_num=?, address=?, phone=? WHERE room_id=?";
             try {
                 int result = db.execute(sql,
                         Integer.parseInt(communityNo),
@@ -199,7 +196,7 @@ public class OwnerInfoPage extends JFrame {
                 return;
             }
             int ownerId = (int) tableModel.getValueAt(selectedRow, 0);
-            String sql = "DELETE FROM owner_info WHERE district_id=?";
+            String sql = "DELETE FROM owner_info WHERE room_id=?";
             try {
                 int result = db.execute(sql, ownerId);
                 if (result > 0) {
@@ -226,14 +223,8 @@ public class OwnerInfoPage extends JFrame {
             contactPhoneField.setText("");
         });
 
-        updateBtn.addActionListener(new ActionListener() {
-            @SneakyThrows
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                List<OwnerInfo> data = db.query("SELECT * FROM owner_info", OwnerInfo.class);
-                updateTable(data);
-            }
-        });
+        // 默认加载所有数据到表格中
+        refreshTable();
     }
 
     public static void main(String[] args) {
@@ -259,7 +250,7 @@ public class OwnerInfoPage extends JFrame {
                 tableModel.addRow(new Object[] {
                         info.getDistrictId(), info.getBuildingId(), info.getRoomId(), info.getArea(),
                         info.getStatus(), info.getPurpose(), info.getOname(), info.getSex(), info.getIdNum(),
-                        info.getAddress(), info.getPhone()
+                        info.getAddress(), String.valueOf(info.getPhone())
                 });
             }
         }
