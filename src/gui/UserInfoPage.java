@@ -5,6 +5,7 @@ import cn.hutool.db.Entity;
 import core.PropCore;
 import dao.entity.UserInfo;
 import lombok.SneakyThrows;
+import utils.MentionUtil;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -66,7 +67,7 @@ public class UserInfoPage extends JFrame {
 
             UserInfo userInfo = new UserInfo();
             Entity uname = userInfo.getQueryEntity("uname", name);
-            List<UserInfo> allData = userInfo.loadAll(uname).stream().map(entity -> new UserInfo(entity.getStr("uname"), entity.getStr("paswrd"), entity.getInt("purview"))).toList();
+            List<UserInfo> allData = userInfo.loadAllByEntity(uname, UserInfo.class);
             updateTable(allData);
         });
 
@@ -89,12 +90,7 @@ public class UserInfoPage extends JFrame {
             }
 
             boolean storage = new UserInfo(name, paswrd, purview).storage();
-            if (storage) {
-                JOptionPane.showMessageDialog(this, "添加成功！");
-                refreshTable();
-            } else {
-                JOptionPane.showMessageDialog(this, "添加失败！", "错误", JOptionPane.ERROR_MESSAGE);
-            }
+            MentionUtil.mentionForAdd(storage, this, this::refreshTable);
         });
 
         modifyBtn.addActionListener(e -> {
@@ -139,18 +135,7 @@ public class UserInfoPage extends JFrame {
         });
 
         deleteBtn.addActionListener(e -> {
-            int selectedRow = table.getSelectedRow();
-            if (selectedRow == -1) {
-                JOptionPane.showMessageDialog(this, "请选择要删除的行！");
-                return;
-            }
-            boolean success = new UserInfo().delete("id", (String) tableModel.getValueAt(selectedRow, 0));
-            if (success) {
-                JOptionPane.showMessageDialog(this, "删除成功！");
-                refreshTable();
-            } else {
-                JOptionPane.showMessageDialog(this, "删除失败！", "错误", JOptionPane.ERROR_MESSAGE);
-            }
+            new UserInfo().deleteFixed("id", table.getSelectedRow(), this::refreshTable, this);
         });
 
         resetBtn.addActionListener(e -> {
@@ -164,9 +149,7 @@ public class UserInfoPage extends JFrame {
     }
 
     private void refreshTable() {
-        List<Entity> query = new UserInfo().loadAll();
-        List<UserInfo> allData = query.stream().map(entity -> new UserInfo(entity.getStr("uname"), entity.getStr("paswrd"), entity.getInt("purview"))).toList();
-        updateTable(allData);
+        updateTable(new UserInfo().loadAllByEntity(UserInfo.class));
     }
 
     private void updateTable(List<UserInfo> results) {
