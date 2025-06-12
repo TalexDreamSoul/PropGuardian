@@ -1,7 +1,5 @@
 package utils;
 
-import dao.entity.UserInfo;
-
 import javax.swing.*;
 
 public class MentionUtil {

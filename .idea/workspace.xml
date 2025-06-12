@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ccc77131-6af0-447f-bf09-6192a51df474" name="Changes" comment="refactor(dao): 新增 BaseEntity 类，重构 IDataStorage 接口&#10;&#10;- 新增 BaseEntity 类，实现 IDataStorage 接口的通用方法&#10;- 重构 IDataStorage 接口，新增 getDatabaseName 和 loadAll 方法&#10;- 更新 Building 和 UserInfo 类，使其继承 BaseEntity&#10;- 修改相关 GUI 类，使用新接口方法进行数据库操作&#10;- 更新项目依赖，明确指定 hutool 和 mysql 连接器版本">
-      <change afterPath="$PROJECT_DIR$/src/utils/MentionUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/BaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/BaseEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/UserInfoPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/UserInfoPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/MentionUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/MentionUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -263,7 +260,7 @@
       <workItem from="1749469118570" duration="3956000" />
       <workItem from="1749476545459" duration="3638000" />
       <workItem from="1749557204327" duration="3725000" />
-      <workItem from="1749710168782" duration="5373000" />
+      <workItem from="1749710168782" duration="5465000" />
     </task>
     <task id="LOCAL-00002" summary="refactor(userinfo): 重构用户信息管理功能&#10;&#10;- 更新了 UserInfo 类,移除了冗余的 getter 和 setter 方法&#10;- 重写了 UserInfoPage 类,简化了用户信息的展示和操作&#10;- 修改了数据库操作逻辑,使用 Hutool 的 Entity 类进行数据处理&#10;- 优化了项目配置,更新了依赖库版本">
       <option name="closed" value="true" />
@@ -289,13 +286,13 @@
       <option name="project" value="LOCAL" />
       <updated>1749715002925</updated>
     </task>
-    <task id="LOCAL-00005" summary="feat: fix project err">
+    <task id="LOCAL-00005" summary="refactor(dao): 新增 BaseEntity 类，重构 IDataStorage 接口&#10;&#10;- 新增 BaseEntity 类，实现 IDataStorage 接口的通用方法&#10;- 重构 IDataStorage 接口，新增 getDatabaseName 和 loadAll 方法&#10;- 更新 Building 和 UserInfo 类，使其继承 BaseEntity&#10;- 修改相关 GUI 类，使用新接口方法进行数据库操作&#10;- 更新项目依赖，明确指定 hutool 和 mysql 连接器版本">
       <option name="closed" value="true" />
-      <created>1742304143152</created>
+      <created>1749716435242</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1742304143152</updated>
+      <updated>1749716435242</updated>
     </task>
     <task id="LOCAL-00006" summary="build: 添加 Hutool 依赖&#10;&#10;- 在 PropGuardian.iml 文件中添加了 cn.hutool.all 库的项目级别依赖- 此修改可能为了引入 Hutool 工具库，以支持项目中的某些功能">
       <option name="closed" value="true" />
@@ -425,7 +422,7 @@
       <option name="project" value="LOCAL" />
       <updated>1748512196125</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
