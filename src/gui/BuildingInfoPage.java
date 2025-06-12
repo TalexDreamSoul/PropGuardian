@@ -4,8 +4,11 @@ import cn.hutool.db.Db;
 import cn.hutool.db.Entity;
 import core.PropCore;
 import dao.entity.Building;
+import dao.entity.UserInfo;
+import utils.MentionUtil;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.sql.SQLException;
@@ -148,8 +151,8 @@ public class BuildingInfoPage extends JFrame {
                 showError("面积不能为负数，请输入正确的面积值");
                 return;
             }
-//            BuildingInfo
-            Entity update = Entity.create("building_info")
+            Building building = new Building();
+            Entity update = building.getEntity()
                     .set("total_storey", Integer.parseInt(getField(2)))
                     .set("total_area", area)
                     .set("height", Double.parseDouble(getField(4)))
@@ -158,7 +161,7 @@ public class BuildingInfoPage extends JFrame {
             Entity where = Entity.create()
                     .set("district_id", getField(0))
                     .set("building_id", getField(1));
-            db.update(update, where);
+            building.getMySql().use().update(update, where);
             loadData();
         } catch (Exception e) {
             showError("修改失败", e);
@@ -172,11 +175,12 @@ public class BuildingInfoPage extends JFrame {
             return;
         }
         try {
-            Entity where = Entity.create("building_info")
+            Building building = new Building();
+            Entity set = building.getEntity()
                     .set("district_id", table.getValueAt(row, 0))
                     .set("building_id", table.getValueAt(row, 1));
-            db.del(where);
-            loadData();
+            int rowDeleted = building.getMySql().use().del(set);
+            MentionUtil.mentionForDelete(rowDeleted > 0, this, this::loadData);
         } catch (Exception e) {
             showError("删除失败", e);
         }
@@ -188,12 +192,8 @@ public class BuildingInfoPage extends JFrame {
             showMessage("请输入小区ID");
             return;
         }
-        try {
-            List<Entity> list = db.query("SELECT * FROM building_info WHERE district_id = ?", districtId);
-            updateTable(list);
-        } catch (SQLException e) {
-            showError("查询失败", e);
-        }
+
+        updateTable(new Building().loadAll(new Building().getQueryEntity("district_id", districtId)));
     }
 
     private void resetForm() {
