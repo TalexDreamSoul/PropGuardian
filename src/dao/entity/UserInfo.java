@@ -1,9 +1,6 @@
 package dao.entity;
 
-import cn.hutool.db.Entity;
 import dao.BaseEntity;
-import dao.upper.IDataStorage;
-import db.MySql;
 import lombok.Getter;
 import lombok.SneakyThrows;
 
@@ -29,15 +26,6 @@ public class UserInfo extends BaseEntity {
 
     public UserInfo() {
         super("userinfo");
-    }
-
-    @Override
-    public String toString() {
-        return "UserInfo{" +
-                "uname='" + uname + '\'' +
-                ", paswrd='" + paswrd + '\'' +
-                ", purview=" + purview +
-                '}';
     }
 
     @SneakyThrows
