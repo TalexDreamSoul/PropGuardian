@@ -1,63 +1,25 @@
 package dao.entity;
 
+import lombok.Data;
+import lombok.SneakyThrows;
+@Data
 public class CommunityInfo {
     // 小区ID
-    private long districtId;
+    private long district_id;
     // 小区名称
-    private String districtName;
+    private String district_name;
     // 地址
+
     private String address;
     // 小区面积
-    private double floorSpace;
+    private double floor_space;
 
     // 构造函数
-    public CommunityInfo(long districtId, String districtName, String address, double floorSpace) {
-        this.districtId = districtId;
-        this.districtName = districtName;
+    public CommunityInfo(long districtId, String district_name, String address, double floor_space) {
+        this.district_id = district_id;
+        this.district_name = district_name;
         this.address = address;
-        this.floorSpace = floorSpace;
-    }
-
-    // Getter 和 Setter 方法
-    public long getDistrictId() {
-        return districtId;
-    }
-
-    public void setDistrictId(long districtId) {
-        this.districtId = districtId;
-    }
-
-    public String getDistrictName() {
-        return districtName;
-    }
-
-    public void setDistrictName(String districtName) {
-        this.districtName = districtName;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public double getFloorSpace() {
-        return floorSpace;
-    }
-
-    public void setFloorSpace(double floorSpace) {
-        this.floorSpace = floorSpace;
-    }
-
-    // toString 方法，用于打印对象信
-    public String toString() {
-        return "CommunityInfo{" +
-                "districtId=" + districtId +
-                ", districtName='" + districtName + '\'' +
-                ", address='" + address + '\'' +
-                ", floorSpace=" + floorSpace +
-                '}';
+        this.floor_space = floor_space;
     }
 }
+
