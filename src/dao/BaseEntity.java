@@ -150,7 +150,7 @@ public abstract class BaseEntity implements IDataStorage {
     }
 
     /**
-     * 固定查询方法 自动处理键值删除
+     * 固定删除方法 自动处理键值删除
      */
     @SneakyThrows
     public void deleteFixed(String key, Object value, Runnable runnable, JFrame jFrame) {
@@ -169,5 +169,21 @@ public abstract class BaseEntity implements IDataStorage {
                 JOptionPane.showMessageDialog(jFrame, e.getMessage());
             }
         }
+    }
+
+    /**
+     * 固定修改方法 自动处理键值修改
+     */
+    @SneakyThrows
+    public <T extends BaseEntity> void updateFixed(T value, Runnable runnable, JFrame jFrame) {
+        MentionUtil.mentionForDelete(value.storage(), jFrame, runnable);
+    }
+
+    /**
+     * 固定修改方法 自动处理键值修改
+     */
+    @SneakyThrows
+    public <T extends BaseEntity> void updateFixedSelf(Runnable runnable, JFrame jFrame) {
+        MentionUtil.mentionForDelete(this.storage(), jFrame, runnable);
     }
 }
