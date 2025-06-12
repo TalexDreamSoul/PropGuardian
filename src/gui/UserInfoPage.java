@@ -14,7 +14,6 @@ import java.util.List;
 
 public class UserInfoPage extends JFrame {
     private JTable table;
-    private Db db;
     private DefaultTableModel tableModel;
     private JTextField nameField, paswrdField, purviewField;
 
@@ -23,8 +22,6 @@ public class UserInfoPage extends JFrame {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setSize(900, 600);
         setLocationRelativeTo(null);
-
-        this.db = PropCore.INS.getMySql().use();
 
         String[] columnNames = {"姓名", "密码", "权限"};
         tableModel = new DefaultTableModel(columnNames, 0);
