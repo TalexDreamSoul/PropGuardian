@@ -13,7 +13,7 @@ import cn.hutool.db.Db;
 import cn.hutool.db.Entity;
 import core.PropCore;
 
-public class PropertyBillingReport extends JFrame {
+public class PropertyBillingReportPage extends JFrame {
 
     private JTable table;
     private JTextField propertyIdField;
@@ -22,7 +22,7 @@ public class PropertyBillingReport extends JFrame {
     private Db db;
     private DefaultTableModel model; // 用于操作表格数据
 
-    public PropertyBillingReport() {
+    public PropertyBillingReportPage() {
         this.db = PropCore.INS.getMySql().use();
 
         setTitle("Property Billing Report");
@@ -100,7 +100,7 @@ public class PropertyBillingReport extends JFrame {
             String date = dateField.getText().trim();
 
             if (propertyId.isEmpty() && ownerId.isEmpty() && date.isEmpty()) {
-                JOptionPane.showMessageDialog(PropertyBillingReport.this,
+                JOptionPane.showMessageDialog(PropertyBillingReportPage.this,
                         "请至少输入一个查询条件", "提示", JOptionPane.WARNING_MESSAGE);
                 return;
             }
@@ -124,6 +124,7 @@ public class PropertyBillingReport extends JFrame {
                 String billingDate = dateField.getText().trim();
                 String amountStr = JOptionPane.showInputDialog(this, "请输入金额:");
                 double amount = Double.parseDouble(amountStr);
+
 
                 this.db.insert(
                         Entity.create("property_billing")
@@ -258,6 +259,6 @@ public class PropertyBillingReport extends JFrame {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new PropertyBillingReport());
+        SwingUtilities.invokeLater(() -> new PropertyBillingReportPage());
     }
 }

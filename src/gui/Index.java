@@ -115,7 +115,7 @@ public class Index extends JFrame {
             userBillingReport.setVisible(true);
         });
         propertyBillItem.addActionListener(e -> {
-            new PropertyBillingReport().setVisible(true);
+            new PropertyBillingReportPage().setVisible(true);
         });
         // 添加 Exit menu item 到菜单栏
 
