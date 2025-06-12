@@ -1,17 +1,12 @@
 package gui;
 
-import cn.hutool.db.Db;
 import cn.hutool.db.Entity;
-import core.PropCore;
 import dao.entity.Building;
-import dao.entity.UserInfo;
 import utils.MentionUtil;
 
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.sql.SQLException;
 import java.util.List;
 
 public class BuildingInfoPage extends JFrame {
