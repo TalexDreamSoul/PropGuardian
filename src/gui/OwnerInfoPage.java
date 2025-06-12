@@ -3,13 +3,10 @@ package gui;
 import cn.hutool.db.Db;
 import core.PropCore;
 import dao.entity.OwnerInfo;
-import lombok.SneakyThrows;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.List;
 
 public class OwnerInfoPage extends JFrame {
@@ -250,8 +247,8 @@ public class OwnerInfoPage extends JFrame {
         if (results != null) {
             for (OwnerInfo info : results) {
                 tableModel.addRow(new Object[] {
-                        info.getDistrictId(), info.getBuildingId(), info.getRoomId(), info.getArea(),
-                        info.getStatus(), info.getPurpose(), info.getOname(), info.getSex(), info.getIdNum(),
+                        info.getDistrict_id(), info.getBuilding_id(), info.getRoom_id(), info.getArea(),
+                        info.getStatus(), info.getPurpose(), info.getOname(), info.getSex(), info.getId_num(),
                         info.getAddress(), String.valueOf(info.getPhone())
                 });
             }
