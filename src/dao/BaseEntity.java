@@ -168,6 +168,8 @@ public abstract class BaseEntity implements IDataStorage {
             } else {
                 JOptionPane.showMessageDialog(jFrame, e.getMessage());
             }
+
+            e.printStackTrace();
         }
     }
 
@@ -181,6 +183,8 @@ public abstract class BaseEntity implements IDataStorage {
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(jFrame, e.getMessage());
+
+            e.printStackTrace();
         }
     }
 
