@@ -1,13 +1,15 @@
 package dao.entity;
 
-import lombok.Data;
+import dao.BaseEntity;
 import lombok.SneakyThrows;
+import lombok.Data;
+import java.util.logging.Logger;
 
 @Data
-public class OwnerInfo {
-    private int district_id;   // 小区ID
-    private int building_id;   // 楼宇ID
-    private int room_id;       // 业主ID
+public class OwnerInfo extends BaseEntity {
+    private short district_id;   // 小区ID
+    private short building_id;   // 楼宇ID
+    private short room_id;       // 业主ID
     private double area;      // 面积
     private String status;    // 状态
     private String purpose;   // 用途
@@ -18,7 +20,8 @@ public class OwnerInfo {
     private String phone;     // 电话
 
     // 构造函数
-    public OwnerInfo(int district_id, int building_id, int room_id, double area, String status, String purpose, String oname, String sex, String id_num, String address, String phone) {
+    public OwnerInfo(short district_id, short building_id, short room_id, double area, String status, String purpose, String oname, String sex, String id_num, String address, String phone) {
+        super("ownerinfo");
         this.district_id = district_id;
         this.building_id = building_id;
         this.room_id = room_id;
@@ -31,24 +34,26 @@ public class OwnerInfo {
         this.address = address;
         this.phone = phone;
     }
+    // Getter 和 Setter 方法
+    private final Logger logger = Logger.getLogger("Ownerinfo");
+
+    public OwnerInfo() {super("ownerinfo");}
+
+
     @SneakyThrows
     @Override
-    // Getter 和 Setter 方法
+    public boolean storage() {
+        int i = insertOrUpdate(
+                getEntity()
+                        .set("district_id", this.district_id)
+                        .set("building_id", this.building_id)
+                        .set("status", this.status)
+        );
 
+        if ( i > 1 ) {
+            logger.warning("[Storage] Take effects to multiple rows, attention pls!");
+        }
 
-    public String toString() {
-        return "OwnerInfo{" +
-                "districtId=" + district_id +
-                ", buildingId=" + building_id +
-                ", roomId=" + room_id +
-                ", area=" + area +
-                ", status='" + status + '\'' +
-                ", purpose='" + purpose + '\'' +
-                ", oname='" + oname + '\'' +
-                ", sex='" + sex + '\'' +
-                ", idNum='" + id_num + '\'' +
-                ", address='" + address + '\'' +
-                ", phone='" + phone + '\'' +
-                '}';
+        return i == 1;
     }
 }
