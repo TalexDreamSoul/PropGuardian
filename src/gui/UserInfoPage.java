@@ -9,8 +9,6 @@ import lombok.SneakyThrows;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.List;
 
 public class UserInfoPage extends JFrame {
@@ -25,13 +23,7 @@ public class UserInfoPage extends JFrame {
         setSize(900, 600);
         setLocationRelativeTo(null);
 
-        try {
-            this.db = PropCore.INS.getMySql().use();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "数据库连接失败: " + e.getMessage(), "错误", JOptionPane.ERROR_MESSAGE);
-            e.printStackTrace();
-            return;
-        }
+        this.db = PropCore.INS.getMySql().use();
 
         String[] columnNames = {"姓名", "密码", "权限"};
         tableModel = new DefaultTableModel(columnNames, 0);
@@ -71,14 +63,11 @@ public class UserInfoPage extends JFrame {
                 JOptionPane.showMessageDialog(this, "请输入姓名进行查询！");
                 return;
             }
-            try {
-                String sql = "SELECT * FROM userinfo WHERE name = ?";
-                List<UserInfo> results = db.query(sql, UserInfo.class, name);
-                updateTable(results);
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(this, "查询失败: " + ex.getMessage(), "错误", JOptionPane.ERROR_MESSAGE);
-                ex.printStackTrace();
-            }
+
+            UserInfo userInfo = new UserInfo();
+            Entity uname = userInfo.getQueryEntity("uname", name);
+            List<UserInfo> allData = userInfo.loadAll(uname).stream().map(entity -> new UserInfo(entity.getStr("uname"), entity.getStr("paswrd"), entity.getInt("purview"))).toList();
+            updateTable(allData);
         });
 
         addBtn.addActionListener(e -> {
@@ -99,19 +88,12 @@ public class UserInfoPage extends JFrame {
                 return;
             }
 
-            String sql = "INSERT INTO userinfo(uname, paswrd, purview) VALUES(?,?,?)";
-            try {
-                int result = db.execute(sql, name, paswrd, purview);
-
-                if (result > 0) {
-                    JOptionPane.showMessageDialog(this, "添加成功！");
-                    refreshTable();
-                } else {
-                    JOptionPane.showMessageDialog(this, "添加失败！", "错误", JOptionPane.ERROR_MESSAGE);
-                }
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(this, "添加失败: " + ex.getMessage(), "错误", JOptionPane.ERROR_MESSAGE);
-                ex.printStackTrace();
+            boolean storage = new UserInfo(name, paswrd, purview).storage();
+            if (storage) {
+                JOptionPane.showMessageDialog(this, "添加成功！");
+                refreshTable();
+            } else {
+                JOptionPane.showMessageDialog(this, "添加失败！", "错误", JOptionPane.ERROR_MESSAGE);
             }
         });
 
@@ -162,19 +144,12 @@ public class UserInfoPage extends JFrame {
                 JOptionPane.showMessageDialog(this, "请选择要删除的行！");
                 return;
             }
-            int userId = (int) tableModel.getValueAt(selectedRow, 0);
-            String sql = "DELETE FROM userinfo WHERE id=?";
-            try {
-                int result = db.execute(sql, userId);
-                if (result > 0) {
-                    JOptionPane.showMessageDialog(this, "删除成功！");
-                    refreshTable();
-                } else {
-                    JOptionPane.showMessageDialog(this, "删除失败！", "错误", JOptionPane.ERROR_MESSAGE);
-                }
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(this, "删除失败: " + ex.getMessage(), "错误", JOptionPane.ERROR_MESSAGE);
-                ex.printStackTrace();
+            boolean success = new UserInfo().delete("id", (String) tableModel.getValueAt(selectedRow, 0));
+            if (success) {
+                JOptionPane.showMessageDialog(this, "删除成功！");
+                refreshTable();
+            } else {
+                JOptionPane.showMessageDialog(this, "删除失败！", "错误", JOptionPane.ERROR_MESSAGE);
             }
         });
 
@@ -188,21 +163,10 @@ public class UserInfoPage extends JFrame {
         refreshTable();
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            UserInfoPage userInfoPage = new UserInfoPage();
-            userInfoPage.setVisible(true);
-        });
-    }
-
     private void refreshTable() {
-        try {
-            List<Entity> query = db.query("SELECT * FROM userinfo");
-            List<UserInfo> allData = query.stream().map(entity -> new UserInfo(entity.getStr("uname"), entity.getStr("paswrd"), entity.getInt("purview"))).toList();
-            updateTable(allData);
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "数据加载失败: " + ex.getMessage(), "错误", JOptionPane.ERROR_MESSAGE);
-        }
+        List<Entity> query = new UserInfo().loadAll();
+        List<UserInfo> allData = query.stream().map(entity -> new UserInfo(entity.getStr("uname"), entity.getStr("paswrd"), entity.getInt("purview"))).toList();
+        updateTable(allData);
     }
 
     private void updateTable(List<UserInfo> results) {

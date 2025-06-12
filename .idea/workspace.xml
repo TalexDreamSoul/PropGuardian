@@ -4,10 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ccc77131-6af0-447f-bf09-6192a51df474" name="Changes" comment="refactor(learning): 重构学习代码目录结构&#10;&#10;- 修改 Animal 类的包名和文件路径&#10;- 新增 Mouse、Penguin 类和对应的主程序类&#10;- 添加 StudentExtractor 类用于数据库操作&#10;- 更新 IDE 工作空间配置">
+    <list default="true" id="ccc77131-6af0-447f-bf09-6192a51df474" name="Changes" comment="refactor(gui): 重构业主指数录入页面&#10;&#10;- 在 OwnerIndexEntryPage 中，将输入日期格式统一为 yyyy-MM-dd，末尾自动添加 &quot;-01&quot;&#10;- 更新 PropGuardian.iml 文件，明确指定依赖库版本&#10;- 修改 .idea/workspace.xml，优化工作空间配置">
+      <change afterPath="$PROJECT_DIR$/src/dao/BaseEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PropGuardian.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PropGuardian.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/DaoInit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/DaoInit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/entity/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/entity/Building.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/entity/UserInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/entity/UserInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/upper/IDataStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/upper/IDataStorage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/BuildingInfoPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/BuildingInfoPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/OwnerIndexEntryPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/OwnerIndexEntryPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/OwnerInfoPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/OwnerInfoPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/UserInfoPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/UserInfoPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +47,7 @@
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="tzx" />
+        <entry key="$PROJECT_DIR$" value="#22" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -51,6 +59,25 @@
   }
 }</component>
   <component name="GitToolBoxStore">
+    <option name="branchesCleanupHistory">
+      <BranchesCleanupHistory>
+        <option name="history">
+          <list>
+            <BranchCleanupEntry>
+              <option name="deletions">
+                <list>
+                  <BranchDeletion>
+                    <option name="hash" value="b85d850de6914fd6350c2ad53bb8dcc58e454786" />
+                    <option name="name" value="pack" />
+                  </BranchDeletion>
+                </list>
+              </option>
+              <option name="timestamp" value="1749479430673" />
+            </BranchCleanupEntry>
+          </list>
+        </option>
+      </BranchesCleanupHistory>
+    </option>
     <option name="recentBranches">
       <RecentBranches>
         <option name="branchesForRepo">
@@ -59,12 +86,12 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="#22" />
-                    <option name="lastUsedInstant" value="1749107080" />
+                    <option name="branchName" value="tzx" />
+                    <option name="lastUsedInstant" value="1749109870" />
                   </RecentBranch>
                   <RecentBranch>
-                    <option name="branchName" value="tzx" />
-                    <option name="lastUsedInstant" value="1749106223" />
+                    <option name="branchName" value="#22" />
+                    <option name="lastUsedInstant" value="1749107080" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="master" />
@@ -96,21 +123,21 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.PropLauncher.executor": "Run",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "#32 on #22",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.20574713",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.PropLauncher.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;tzx&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.20574713&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\lenovo\IdeaProjects\PropGuardian1\src\learning\zhy\week11223344" />
@@ -237,7 +264,13 @@
       <workItem from="1746682362855" duration="1908000" />
       <workItem from="1747277568070" duration="183000" />
       <workItem from="1747278310621" duration="2418000" />
-      <workItem from="1749106009551" duration="1563000" />
+      <workItem from="1749106009551" duration="5306000" />
+      <workItem from="1749366721430" duration="323000" />
+      <workItem from="1749367547329" duration="1279000" />
+      <workItem from="1749469118570" duration="3956000" />
+      <workItem from="1749476545459" duration="3638000" />
+      <workItem from="1749557204327" duration="3725000" />
+      <workItem from="1749710168782" duration="3928000" />
     </task>
     <task id="LOCAL-00002" summary="refactor(userinfo): 重构用户信息管理功能&#10;&#10;- 更新了 UserInfo 类,移除了冗余的 getter 和 setter 方法&#10;- 重写了 UserInfoPage 类,简化了用户信息的展示和操作&#10;- 修改了数据库操作逻辑,使用 Hutool 的 Entity 类进行数据处理&#10;- 优化了项目配置,更新了依赖库版本">
       <option name="closed" value="true" />
@@ -247,13 +280,13 @@
       <option name="project" value="LOCAL" />
       <updated>1749007192105</updated>
     </task>
-    <task id="LOCAL-00003" summary="feat: fix project err">
+    <task id="LOCAL-00003" summary="refactor(gui): 重构业主指数录入页面&#10;&#10;- 在 OwnerIndexEntryPage 中，将输入日期格式统一为 yyyy-MM-dd，末尾自动添加 &quot;-01&quot;&#10;- 更新 PropGuardian.iml 文件，明确指定依赖库版本&#10;- 修改 .idea/workspace.xml，优化工作空间配置">
       <option name="closed" value="true" />
-      <created>1741852602154</created>
+      <created>1749107708630</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1741852602154</updated>
+      <updated>1749107708630</updated>
     </task>
     <task id="LOCAL-00004" summary="feat: fix project err">
       <option name="closed" value="true" />
@@ -399,7 +432,7 @@
       <option name="project" value="LOCAL" />
       <updated>1748512196125</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -441,6 +474,7 @@
     <MESSAGE value="refactor(gui): 优化业主信息页面功能和布局&#10;&#10;- 移除冗余的更新按钮，简化界面布局&#10;- 修正业主信息查询、添加、修改和删除功能的 SQL 语句&#10;- 更新数据库连接库和项目依赖" />
     <MESSAGE value="feat(learning): 添加动物类和业主信息管理界面&#10;&#10;- 新增 Animal、Mouse 和 Penguin 类&#10;- 实现了动物的自我介绍、吃和睡的方法&#10;- 添加了 OwnerInfoPage 类，用于管理业主信息&#10;- 实现了业主信息的查询、添加、修改、删除和更新功能&#10;- 新增 StudentExtractor 类，用于提取学生信息" />
     <MESSAGE value="refactor(userinfo): 重构用户信息管理功能&#10;&#10;- 更新了 UserInfo 类,移除了冗余的 getter 和 setter 方法&#10;- 重写了 UserInfoPage 类,简化了用户信息的展示和操作&#10;- 修改了数据库操作逻辑,使用 Hutool 的 Entity 类进行数据处理&#10;- 优化了项目配置,更新了依赖库版本" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor(userinfo): 重构用户信息管理功能&#10;&#10;- 更新了 UserInfo 类,移除了冗余的 getter 和 setter 方法&#10;- 重写了 UserInfoPage 类,简化了用户信息的展示和操作&#10;- 修改了数据库操作逻辑,使用 Hutool 的 Entity 类进行数据处理&#10;- 优化了项目配置,更新了依赖库版本" />
+    <MESSAGE value="refactor(gui): 重构业主指数录入页面&#10;&#10;- 在 OwnerIndexEntryPage 中，将输入日期格式统一为 yyyy-MM-dd，末尾自动添加 &quot;-01&quot;&#10;- 更新 PropGuardian.iml 文件，明确指定依赖库版本&#10;- 修改 .idea/workspace.xml，优化工作空间配置" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor(gui): 重构业主指数录入页面&#10;&#10;- 在 OwnerIndexEntryPage 中，将输入日期格式统一为 yyyy-MM-dd，末尾自动添加 &quot;-01&quot;&#10;- 更新 PropGuardian.iml 文件，明确指定依赖库版本&#10;- 修改 .idea/workspace.xml，优化工作空间配置" />
   </component>
 </project>
