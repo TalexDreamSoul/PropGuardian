@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ccc77131-6af0-447f-bf09-6192a51df474" name="Changes" comment="refactor(gui): 优化 UserInfoPage 类的导入和布局&#10;&#10;-移除了未使用的导入语句，简化了代码结构&#10;-调整了类和方法的布局，提高了代码可读性">
+    <list default="true" id="ccc77131-6af0-447f-bf09-6192a51df474" name="Changes" comment="refactor(dao): 新增删除和插入方法并优化更新逻辑- 在 BaseEntity 类中添加 deleteFixedEntity、insertFixed 和 insertFixedSelf 方法&#10;- 优化 updateFixed 和 updateFixedSelf 方法的实现&#10;- 修改 deleteFixed 方法的注释，明确其功能为自动处理键值删除&#10;- 在 MentionUtil 类中添加 mentionForUpdate 方法，用于处理更新操作的提示">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PropGuardian.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PropGuardian.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/BaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/BaseEntity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -264,7 +265,7 @@
       <workItem from="1749469118570" duration="3956000" />
       <workItem from="1749476545459" duration="3638000" />
       <workItem from="1749557204327" duration="3725000" />
-      <workItem from="1749710168782" duration="9460000" />
+      <workItem from="1749710168782" duration="10598000" />
     </task>
     <task id="LOCAL-00002" summary="refactor(userinfo): 重构用户信息管理功能&#10;&#10;- 更新了 UserInfo 类,移除了冗余的 getter 和 setter 方法&#10;- 重写了 UserInfoPage 类,简化了用户信息的展示和操作&#10;- 修改了数据库操作逻辑,使用 Hutool 的 Entity 类进行数据处理&#10;- 优化了项目配置,更新了依赖库版本">
       <option name="closed" value="true" />
@@ -330,13 +331,13 @@
       <option name="project" value="LOCAL" />
       <updated>1749718291839</updated>
     </task>
-    <task id="LOCAL-00010" summary="refactor: 重构 StudentExtractor 类&#10;&#10;- 修改包名：从 learning.tzx.lesson4 改为 learning.step4&#10;- 更新文件路径：从 src/learning/tzx/lesson4/StudentExtractor.java 改为 src/learning/step4/StudentExtractor.java">
+    <task id="LOCAL-00010" summary="refactor(dao): 新增删除和插入方法并优化更新逻辑- 在 BaseEntity 类中添加 deleteFixedEntity、insertFixed 和 insertFixedSelf 方法&#10;- 优化 updateFixed 和 updateFixedSelf 方法的实现&#10;- 修改 deleteFixed 方法的注释，明确其功能为自动处理键值删除&#10;- 在 MentionUtil 类中添加 mentionForUpdate 方法，用于处理更新操作的提示">
       <option name="closed" value="true" />
-      <created>1742463110485</created>
+      <created>1749721085976</created>
       <option name="number" value="00010" />
       <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
-      <updated>1742463110485</updated>
+      <updated>1749721085976</updated>
     </task>
     <task id="LOCAL-00011" summary="feat(core): 初始化数据库和用户信息&#10;&#10;- 新增 DaoInit 类用于数据库初始化&#10;- 实现 IDataStorage 接口用于用户信息存储- 在 PropCore 中集成数据库初始化逻辑&#10;- 重构 UserInfo 类，添加存储方法">
       <option name="closed" value="true" />
@@ -426,7 +427,7 @@
       <option name="project" value="LOCAL" />
       <updated>1748512196125</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -473,6 +474,8 @@
     <MESSAGE value="refactor(utils): 移除 MentionUtil 类中未使用的导入&#10;&#10;- 删除了 MentionUtil.java 中未使用的 UserInfo 导入&#10;- 优化了代码结构，提高了代码的可读性和维护性" />
     <MESSAGE value="refactor(dao): 新增更新方法并优化删除逻辑&#10;&#10;- 在 BaseEntity 类中添加 updateFixed 和 updateFixedSelf 方法，用于处理键值更新&#10;- 修改 deleteFixed 方法的注释，明确其功能为自动处理键值删除&#10;- 在 MentionUtil 类中添加 mentionForUpdate 方法，用于处理更新操作的提示- 优化 UserInfoPage 中的更新逻辑，使用新增的 updateFixedSelf 方法" />
     <MESSAGE value="refactor(gui): 优化 UserInfoPage 类的导入和布局&#10;&#10;-移除了未使用的导入语句，简化了代码结构&#10;-调整了类和方法的布局，提高了代码可读性" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor(gui): 优化 UserInfoPage 类的导入和布局&#10;&#10;-移除了未使用的导入语句，简化了代码结构&#10;-调整了类和方法的布局，提高了代码可读性" />
+    <MESSAGE value="refactor(dao): 新增删除和插入方法并优化更新逻辑- 在 BaseEntity 类中添加 deleteFixedEntity、insertFixed 和 insertFixedSelf 方法&#10;- 优化 updateFixed 和 updateFixedSelf 方法的实现&#10;- 修改 deleteFixed 方法的注释，明确其功能为自动处理键值删除&#10;- 在 MentionUtil 类中添加 mentionForUpdate 方法，用于处理" />
+    <MESSAGE value="refactor(dao): 新增删除和插入方法并优化更新逻辑- 在 BaseEntity 类中添加 deleteFixedEntity、insertFixed 和 insertFixedSelf 方法&#10;- 优化 updateFixed 和 updateFixedSelf 方法的实现&#10;- 修改 deleteFixed 方法的注释，明确其功能为自动处理键值删除&#10;- 在 MentionUtil 类中添加 mentionForUpdate 方法，用于处理更新操作的提示" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor(dao): 新增删除和插入方法并优化更新逻辑- 在 BaseEntity 类中添加 deleteFixedEntity、insertFixed 和 insertFixedSelf 方法&#10;- 优化 updateFixed 和 updateFixedSelf 方法的实现&#10;- 修改 deleteFixed 方法的注释，明确其功能为自动处理键值删除&#10;- 在 MentionUtil 类中添加 mentionForUpdate 方法，用于处理更新操作的提示" />
   </component>
 </project>
