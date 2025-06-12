@@ -1,92 +1,54 @@
 package dao.entity;
 
-public class ConsumptionIndex {
-    private long districtId; // 小区ID
-    private long buildingId; // 楼宇ID
-    private long roomId;     // 业主ID
+import dao.BaseEntity;
+import lombok.Data;
+
+import java.util.logging.Logger;
+
+@Data
+public class ConsumptionIndex extends BaseEntity {
+    private long district_id; // 小区ID
+    private long building_id; // 楼宇ID
+    private long room_id;     // 业主ID
     private int date;        // 日期
-    private double waterReading; // 用水量
-    private double elecReading;  // 用电量
-    private double gasReading;   // 用气量
+    private double water_reading; // 用水量
+    private double elec_reading;  // 用电量
+    private double gas_reading;   // 用气量
 
-    // 构造函数
-    public ConsumptionIndex(long districtId, long buildingId, long roomId, int date, double waterReading, double elecReading, double gasReading) {
-        this.districtId = districtId;
-        this.buildingId = buildingId;
-        this.roomId = roomId;
+    private final Logger logger = Logger.getLogger("ConsumptionIndex");
+
+    public ConsumptionIndex() {
+        super("consumptionindex");
+    }
+
+    public ConsumptionIndex(long district_id, long building_id, long room_id, int date, double water_reading, double elec_reading, double gas_reading) {
+        super("consumptionindex");
+        this.district_id = district_id;
+        this.building_id = building_id;
+        this.room_id = room_id;
         this.date = date;
-        this.waterReading = waterReading;
-        this.elecReading = elecReading;
-        this.gasReading = gasReading;
-    }
-
-    // Getter 和 Setter 方法
-    public long getDistrictId() {
-        return districtId;
-    }
-
-    public void setDistrictId(long districtId) {
-        this.districtId = districtId;
-    }
-
-    public long getBuildingId() {
-        return buildingId;
-    }
-
-    public void setBuildingId(long buildingId) {
-        this.buildingId = buildingId;
-    }
-
-    public long getRoomId() {
-        return roomId;
-    }
-
-    public void setRoomId(long roomId) {
-        this.roomId = roomId;
-    }
-
-    public int getDate() {
-        return date;
-    }
-
-    public void setDate(int date) {
-        this.date = date;
-    }
-
-    public double getWaterReading() {
-        return waterReading;
-    }
-
-    public void setWaterReading(double waterReading) {
-        this.waterReading = waterReading;
-    }
-
-    public double getElecReading() {
-        return elecReading;
-    }
-
-    public void setElecReading(double elecReading) {
-        this.elecReading = elecReading;
-    }
-
-    public double getGasReading() {
-        return gasReading;
-    }
-
-    public void setGasReading(double gasReading) {
-        this.gasReading = gasReading;
+        this.water_reading = water_reading;
+        this.elec_reading = elec_reading;
+        this.gas_reading = gas_reading;
     }
 
     @Override
-    public String toString() {
-        return "ConsumptionIndex{" +
-                "districtId=" + districtId +
-                ", buildingId=" + buildingId +
-                ", roomId=" + roomId +
-                ", date=" + date +
-                ", waterReading=" + waterReading +
-                ", elecReading=" + elecReading +
-                ", gasReading=" + gasReading +
-                '}';
+    public boolean storage() {
+        int i = insertOrUpdate(
+                getEntity()
+                        .set("district_id", this.district_id)
+                        .set("building_id", this.building_id)
+                        .set("room_id", this.room_id)
+                        .set("date", this.date)
+                        .set("water_reading", this.water_reading)
+                        .set("elec_reading", this.elec_reading)
+                        .set("gas_reading", this.gas_reading)
+        );
+
+        if ( i > 1 ) {
+            logger.warning("[Storage] Take effects to multiple rows, attention pls!");
+        }
+
+        return i == 1;
     }
 }
