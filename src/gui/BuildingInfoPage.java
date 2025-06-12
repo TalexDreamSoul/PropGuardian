@@ -1,12 +1,18 @@
 package gui;
 
+import cn.hutool.db.Db;
 import cn.hutool.db.Entity;
+import core.PropCore;
 import dao.entity.Building;
+import dao.entity.UserInfo;
+import lombok.SneakyThrows;
 import utils.MentionUtil;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.sql.SQLException;
 import java.util.List;
 
 public class BuildingInfoPage extends JFrame {
@@ -28,7 +34,6 @@ public class BuildingInfoPage extends JFrame {
         table = new JTable(tableModel);
         add(new JScrollPane(table), BorderLayout.CENTER);
 
-        // 表单区域优化：使用 Box + Grid 更美观
         JPanel formPanel = new JPanel();
         formPanel.setLayout(new BoxLayout(formPanel, BoxLayout.Y_AXIS));
         fields = new JTextField[labels.length];
@@ -134,33 +139,32 @@ public class BuildingInfoPage extends JFrame {
         }
     }
 
+    @SneakyThrows
     private void updateBuilding() {
         int row = table.getSelectedRow();
         if (row == -1) {
             showMessage("请选择要修改的行");
             return;
         }
-        try {
-            double area = Double.parseDouble(getField(3));
-            if (area < 0) { // 添加面积校验
-                showError("面积不能为负数，请输入正确的面积值");
-                return;
-            }
-            Building building = new Building();
-            Entity update = building.getEntity()
-                    .set("total_storey", Integer.parseInt(getField(2)))
-                    .set("total_area", area)
-                    .set("height", Double.parseDouble(getField(4)))
-                    .set("type", getField(5))
-                    .set("status", getField(6));
-            Entity where = Entity.create()
-                    .set("district_id", getField(0))
-                    .set("building_id", getField(1));
-            building.getMySql().use().update(update, where);
-            loadData();
-        } catch (Exception e) {
-            showError("修改失败", e);
+
+        double area = Double.parseDouble(getField(3));
+        if (area < 0) {
+            showError("面积不能为负数，请输入正确的面积值");
+            return;
         }
+
+        Building building = new Building();
+        Entity update = building.getEntity()
+                .set("total_storey", Integer.parseInt(getField(2)))
+                .set("total_area", area)
+                .set("height", Double.parseDouble(getField(4)))
+                .set("type", getField(5))
+                .set("status", getField(6));
+        Entity where = Entity.create()
+                .set("district_id", getField(0))
+                .set("building_id", getField(1));
+        building.getMySql().use().update(update, where);
+        loadData();
     }
 
     private void deleteBuilding() {
@@ -210,8 +214,4 @@ public class BuildingInfoPage extends JFrame {
     private void showMessage(String msg) {
         JOptionPane.showMessageDialog(this, msg, "提示", JOptionPane.INFORMATION_MESSAGE);
     }
-
-//    public static void main(String[] args) {
-//        SwingUtilities.invokeLater(BuildingInfoPage::new);
-//    }
 }

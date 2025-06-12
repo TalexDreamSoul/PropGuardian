@@ -8,6 +8,7 @@ import java.util.List;
 import cn.hutool.db.Db;
 import cn.hutool.db.Entity;
 import core.PropCore;
+import dao.entity.MeterReading;
 
 public class IndexManagementPage extends JFrame {
     private Db db;
@@ -75,7 +76,11 @@ public class IndexManagementPage extends JFrame {
                 throw new IllegalArgumentException("楼宇ID必须为有效的数字字符串");
             }
 
-            List<Entity> results = db.query("SELECT input_date, room_number, water_reading, electric_reading, gas_reading FROM meter_reading WHERE district_id = ? AND building_id = ?", Integer.parseInt(community), Integer.parseInt(building));
+            MeterReading meterReading = new MeterReading();
+            Entity set = meterReading.getEntity()
+                    .set("district_id", Integer.parseInt(community))
+                    .set("building_id", Integer.parseInt(building));
+            List<Entity> results = meterReading.loadAll(set);
             if (results.isEmpty()) {
                 System.out.println("数据库中没有找到符合条件的数据");
             }
@@ -156,19 +161,5 @@ public class IndexManagementPage extends JFrame {
             JOptionPane.showMessageDialog(this, "更新失败: " + e.getMessage(), "错误", JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
         }
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            try {
-                // 使用示例参数启动页面
-                String community = "1"; // 示例社区ID
-                String building = "1"; // 示例楼宇ID
-                new IndexManagementPage(community, building);
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "程序启动失败: " + e.getMessage(), "错误", JOptionPane.ERROR_MESSAGE);
-                e.printStackTrace();
-            }
-        });
     }
 }
