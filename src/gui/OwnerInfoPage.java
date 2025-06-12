@@ -195,10 +195,12 @@ public class OwnerInfoPage extends JFrame {
                 JOptionPane.showMessageDialog(this, "请选择要删除的行！");
                 return;
             }
-            int ownerId = (int) tableModel.getValueAt(selectedRow, 0);
-            String sql = "DELETE FROM owner_info WHERE room_id=?";
+            int district_id = (int) tableModel.getValueAt(selectedRow, 0);
+            int building_id = (int) tableModel.getValueAt(selectedRow, 1);
+            int room_id = (int) tableModel.getValueAt(selectedRow, 2);
+            String sql = "DELETE FROM owner_info WHERE district_id = ? AND building_id = ? AND room_id = ?";
             try {
-                int result = db.execute(sql, ownerId);
+                int result = db.execute(sql, district_id, building_id, room_id);
                 if (result > 0) {
                     JOptionPane.showMessageDialog(this, "删除成功！");
                     refreshTable();

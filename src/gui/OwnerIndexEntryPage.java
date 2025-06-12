@@ -10,26 +10,26 @@ import cn.hutool.db.Entity;
 import core.PropCore;
 
 public class OwnerIndexEntryPage extends JFrame {
-    private JTextField inputDateField;//输入框
+    private JTextField inputDateField;
     private JTextField waterReadingField1;
     private JTextField electricReadingField1;
     private JTextField gasReadingField1;
     private JTextField waterReadingField2;
     private JTextField electricReadingField2;
     private JTextField gasReadingField2;
-    private JButton submitButton;//按钮
+    private JButton submitButton;
     private JButton cancelButton;
     private JButton queryButton;  // 确保 queryButton 在类的顶部声明
-    private Db db;//db 是 Hutool 的数据库操作对象，用于执行数据库插入等操作。
+    private Db db;
 
-    // 在类顶部添加字段，存储社区和楼宇信息，用于后续数据库操作
+    // 在类顶部添加字段
     private String community;
     private String building;
-    //构造函数接收两个参数：community（社区名称）和 building（楼宇名称），并将其保存为类成员变量。
+
     public OwnerIndexEntryPage(String community, String building) {
         this.community = community;
         this.building = building;
-        //设置窗口标题
+        
         setTitle("业主水/电/气指数录入");
         setSize(700, 300);
         setLocationRelativeTo(null);//设置窗口在屏幕中央显示。
@@ -39,7 +39,7 @@ public class OwnerIndexEntryPage extends JFrame {
 
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(5, 5, 5, 5);//设置每个组件之间的间距（上、左、下、右各 5 像素）。
+        gbc.insets = new Insets(5, 5, 5, 5);
 
         JLabel inputDateLabel = new JLabel("日期(YYYY-MM)");
         gbc.gridx = 1;
@@ -108,19 +108,9 @@ public class OwnerIndexEntryPage extends JFrame {
         gbc.anchor = GridBagConstraints.WEST;
         add(buttonPanel, gbc);
 
-        submitButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                handleSubmit();
-            }
-        });
+        submitButton.addActionListener(e -> handleSubmit());
 
-        cancelButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                handleCancel();
-            }
-        });
+        cancelButton.addActionListener(e -> handleCancel());
 
         // 新增查询按钮
         queryButton = new JButton("查询");
@@ -130,12 +120,7 @@ public class OwnerIndexEntryPage extends JFrame {
         add(queryButton, gbc);
 
         // 查询按钮事件监听器
-        queryButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                handleQuery();
-            }
-        });
+        queryButton.addActionListener(e -> handleQuery());
 
         setVisible(true);
     }

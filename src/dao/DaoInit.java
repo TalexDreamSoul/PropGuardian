@@ -37,7 +37,7 @@ public class DaoInit {
             // Create New User
             UserInfo info = new UserInfo("admin", "123456", 1);
 
-            info.storage(mySql);
+            info.storage();
 
             logger.info("[DaoInit] Init base user info done!");
         }
