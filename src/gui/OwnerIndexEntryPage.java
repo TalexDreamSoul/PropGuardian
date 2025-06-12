@@ -29,7 +29,7 @@ public class OwnerIndexEntryPage extends JFrame {
     public OwnerIndexEntryPage(String community, String building) {
         this.community = community;
         this.building = building;
-        
+
         setTitle("业主水/电/气指数录入");
         setSize(700, 300);
         setLocationRelativeTo(null);//设置窗口在屏幕中央显示。
@@ -128,18 +128,18 @@ public class OwnerIndexEntryPage extends JFrame {
     // 添加验证方法
     private boolean validateInput() {
         String inputDate = inputDateField.getText().trim();
-        
+
         if (inputDate.isEmpty()) {
             JOptionPane.showMessageDialog(this, "日期不能为空", "输入错误", JOptionPane.WARNING_MESSAGE);
             return false;
         }
-        
+
         // 修改日期格式验证为 YYYY-MM
         if (!inputDate.matches("\\d{4}-\\d{2}")) {
             JOptionPane.showMessageDialog(this, "日期格式应为YYYY-MM", "输入错误", JOptionPane.WARNING_MESSAGE);
             return false;
         }
-        
+
         // 验证读数是否为有效数字
         try {
             Double.parseDouble(waterReadingField1.getText());
@@ -152,7 +152,7 @@ public class OwnerIndexEntryPage extends JFrame {
             JOptionPane.showMessageDialog(this, "请输入有效的数字格式", "输入错误", JOptionPane.WARNING_MESSAGE);
             return false;
         }
-        
+
         return true;
     }
 
@@ -160,7 +160,7 @@ public class OwnerIndexEntryPage extends JFrame {
         if (!validateInput()) {
             return;
         }
-        
+
         String inputDate = inputDateField.getText() + "-01";
         String waterReading1 = waterReadingField1.getText();
         String electricReading1 = electricReadingField1.getText();
@@ -181,7 +181,7 @@ public class OwnerIndexEntryPage extends JFrame {
                     .set("water_reading", Double.parseDouble(waterReading1))
                     .set("electric_reading", Double.parseDouble(electricReading1))
                     .set("gas_reading", Double.parseDouble(gasReading1));
-            
+
             // 添加社区和楼宇信息，确保它们是有效的数字字符串
             if (community != null && !community.isEmpty() && community.matches("\\d+")) {
                 entity1.set("district_id", Integer.parseInt(community));
@@ -189,7 +189,7 @@ public class OwnerIndexEntryPage extends JFrame {
             if (building != null && !building.isEmpty() && building.matches("\\d+")) {
                 entity1.set("building_id", Integer.parseInt(building));
             }
-            
+
             db.insert(entity1);
 
             // 插入1102房间数据
@@ -199,7 +199,7 @@ public class OwnerIndexEntryPage extends JFrame {
                     .set("water_reading", Double.parseDouble(waterReading2))
                     .set("electric_reading", Double.parseDouble(electricReading2))
                     .set("gas_reading", Double.parseDouble(gasReading2));
-            
+
             // 添加社区和楼宇信息，确保它们是有效的数字字符串
             if (community != null && !community.isEmpty() && community.matches("\\d+")) {
                 entity2.set("district_id", Integer.parseInt(community));
@@ -207,7 +207,7 @@ public class OwnerIndexEntryPage extends JFrame {
             if (building != null && !building.isEmpty() && building.matches("\\d+")) {
                 entity2.set("building_id", Integer.parseInt(building));
             }
-            
+
             db.insert(entity2);
 
             JOptionPane.showMessageDialog(this, "数据已成功保存到数据库！", "提示", JOptionPane.INFORMATION_MESSAGE);
@@ -228,7 +228,4 @@ public class OwnerIndexEntryPage extends JFrame {
         new IndexManagementPage(community, building); // 跳转到新页面
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new OwnerIndexEntryPage("社区示例", "楼宇示例"));
-    }
 }
