@@ -100,7 +100,6 @@ public class UserInfoPage extends JFrame {
                 return;
             }
 
-            int userId = (int) tableModel.getValueAt(selectedRow, 0);
             String name = nameField.getText();
             String paswrd = paswrdField.getText();
             String purviewStr = purviewField.getText();
@@ -118,20 +117,7 @@ public class UserInfoPage extends JFrame {
                 return;
             }
 
-            String sql = "UPDATE userinfo SET uname=?, paswrd=?, purview=? WHERE id=?";
-            try {
-                int result = db.execute(sql, name, paswrd, purview, userId);
-
-                if (result > 0) {
-                    JOptionPane.showMessageDialog(this, "修改成功！");
-                    refreshTable();
-                } else {
-                    JOptionPane.showMessageDialog(this, "修改失败！", "错误", JOptionPane.ERROR_MESSAGE);
-                }
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(this, "修改失败: " + ex.getMessage(), "错误", JOptionPane.ERROR_MESSAGE);
-                ex.printStackTrace();
-            }
+            new UserInfo(name, paswrd, purview).updateFixedSelf(this::refreshTable, this);
         });
 
         deleteBtn.addActionListener(e -> {
