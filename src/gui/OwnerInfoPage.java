@@ -5,6 +5,7 @@ import cn.hutool.db.Entity;
 import core.PropCore;
 import dao.entity.OwnerInfo;
 import dao.entity.UserInfo;
+import utils.ParserUtil;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -174,22 +175,21 @@ public class OwnerInfoPage extends JFrame {
                 JOptionPane.showMessageDialog(this, "请选择要删除的行！");
                 return;
             }
-            int district_id = (int) tableModel.getValueAt(selectedRow, 0);
-            int building_id = (int) tableModel.getValueAt(selectedRow, 1);
-            int room_id = (int) tableModel.getValueAt(selectedRow, 2);
-            String sql = "DELETE FROM owner_info WHERE district_id = ? AND building_id = ? AND room_id = ?";
-            try {
-                int result = db.execute(sql, district_id, building_id, room_id);
-                if (result > 0) {
-                    JOptionPane.showMessageDialog(this, "删除成功！");
-                    refreshTable();
-                } else {
-                    JOptionPane.showMessageDialog(this, "删除失败！", "错误", JOptionPane.ERROR_MESSAGE);
-                }
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(this, "删除失败: " + ex.getMessage(), "错误", JOptionPane.ERROR_MESSAGE);
-                ex.printStackTrace();
-            }
+
+            OwnerInfo ownerInfo = new OwnerInfo();
+
+            short district_id = ParserUtil.parseToShort(tableModel.getValueAt(selectedRow, 0));
+            short building_id = ParserUtil.parseToShort(tableModel.getValueAt(selectedRow, 1));
+            short room_id = ParserUtil.parseToShort(tableModel.getValueAt(selectedRow, 2));
+
+            ownerInfo.deleteFixedEntity(
+                    ownerInfo.getEntity()
+                            .set("district_id", district_id)
+                            .set("building_id", building_id)
+                            .set("room_id", room_id),
+                    this::refreshTable,
+                    this
+            );
         });
 
         resetBtn.addActionListener(e -> {

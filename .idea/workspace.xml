@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ccc77131-6af0-447f-bf09-6192a51df474" name="Changes" comment="refactor(dao): 新增删除和插入方法并优化更新逻辑- 在 BaseEntity 类中添加 deleteFixedEntity、insertFixed 和 insertFixedSelf 方法&#10;- 优化 updateFixed 和 updateFixedSelf 方法的实现&#10;- 修改 deleteFixed 方法的注释，明确其功能为自动处理键值删除&#10;- 在 MentionUtil 类中添加 mentionForUpdate 方法，用于处理更新操作的提示">
+    <list default="true" id="ccc77131-6af0-447f-bf09-6192a51df474" name="Changes" comment="refactor(gui): 重构小区信息和用户计费报表功能&#10;&#10;- 更新了 BuildingInfoPage 类，优化了小区信息的展示和操作- 重写了 UserBillingReport 类，简化了用户计费报表的查询和展示&#10;- 修改了数据库操作逻辑，使用 Hutool 的 Entity 类进行数据处理&#10;-优化了项目配置，更新了依赖库版本">
+      <change afterPath="$PROJECT_DIR$/src/utils/ParserUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/entity/CommunityInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/entity/CommunityInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/entity/UserInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/entity/UserInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/BuildingInfoPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/BuildingInfoPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/UserBillingReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/UserBillingReport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/UserInfoPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/UserInfoPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/OwnerInfoPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/OwnerInfoPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -269,7 +266,7 @@
       <workItem from="1749476545459" duration="3638000" />
       <workItem from="1749557204327" duration="3725000" />
       <workItem from="1749710168782" duration="13651000" />
-      <workItem from="1749738043806" duration="848000" />
+      <workItem from="1749738043806" duration="1188000" />
     </task>
     <task id="LOCAL-00002" summary="refactor(userinfo): 重构用户信息管理功能&#10;&#10;- 更新了 UserInfo 类,移除了冗余的 getter 和 setter 方法&#10;- 重写了 UserInfoPage 类,简化了用户信息的展示和操作&#10;- 修改了数据库操作逻辑,使用 Hutool 的 Entity 类进行数据处理&#10;- 优化了项目配置,更新了依赖库版本">
       <option name="closed" value="true" />
@@ -351,13 +348,13 @@
       <option name="project" value="LOCAL" />
       <updated>1749722229496</updated>
     </task>
-    <task id="LOCAL-00012" summary="feat(core): 初始化数据库和用户信息&#10;&#10;- 新增 DaoInit 类用于数据库初始化&#10;- 实现 IDataStorage 接口用于用户信息存储- 在 PropCore 中集成数据库初始化逻辑&#10;- 重构 UserInfo 类，添加存储方法">
+    <task id="LOCAL-00012" summary="refactor(gui): 重构小区信息和用户计费报表功能&#10;&#10;- 更新了 BuildingInfoPage 类，优化了小区信息的展示和操作- 重写了 UserBillingReport 类，简化了用户计费报表的查询和展示&#10;- 修改了数据库操作逻辑，使用 Hutool 的 Entity 类进行数据处理&#10;-优化了项目配置，更新了依赖库版本">
       <option name="closed" value="true" />
-      <created>1743656545741</created>
+      <created>1749738908945</created>
       <option name="number" value="00012" />
       <option name="presentableId" value="LOCAL-00012" />
       <option name="project" value="LOCAL" />
-      <updated>1743656545741</updated>
+      <updated>1749738908945</updated>
     </task>
     <task id="LOCAL-00013" summary="feat(gui): 添加主界面并实现登录功能&#10;&#10;- 新增 Index 类作为主界面窗口&#10;- 实现菜单栏和主内容面板的基本布局&#10;- 在 LoginPanel 中添加登录成功后的逻辑，关闭登录窗口并打开主界面&#10;- 更新 workspace.xml，记录新增的 Index.java 文件变更">
       <option name="closed" value="true" />
@@ -431,7 +428,7 @@
       <option name="project" value="LOCAL" />
       <updated>1748512196125</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -480,6 +477,7 @@
     <MESSAGE value="refactor(gui): 优化 UserInfoPage 类的导入和布局&#10;&#10;-移除了未使用的导入语句，简化了代码结构&#10;-调整了类和方法的布局，提高了代码可读性" />
     <MESSAGE value="refactor(dao): 新增删除和插入方法并优化更新逻辑- 在 BaseEntity 类中添加 deleteFixedEntity、insertFixed 和 insertFixedSelf 方法&#10;- 优化 updateFixed 和 updateFixedSelf 方法的实现&#10;- 修改 deleteFixed 方法的注释，明确其功能为自动处理键值删除&#10;- 在 MentionUtil 类中添加 mentionForUpdate 方法，用于处理" />
     <MESSAGE value="refactor(dao): 新增删除和插入方法并优化更新逻辑- 在 BaseEntity 类中添加 deleteFixedEntity、insertFixed 和 insertFixedSelf 方法&#10;- 优化 updateFixed 和 updateFixedSelf 方法的实现&#10;- 修改 deleteFixed 方法的注释，明确其功能为自动处理键值删除&#10;- 在 MentionUtil 类中添加 mentionForUpdate 方法，用于处理更新操作的提示" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor(dao): 新增删除和插入方法并优化更新逻辑- 在 BaseEntity 类中添加 deleteFixedEntity、insertFixed 和 insertFixedSelf 方法&#10;- 优化 updateFixed 和 updateFixedSelf 方法的实现&#10;- 修改 deleteFixed 方法的注释，明确其功能为自动处理键值删除&#10;- 在 MentionUtil 类中添加 mentionForUpdate 方法，用于处理更新操作的提示" />
+    <MESSAGE value="refactor(gui): 重构小区信息和用户计费报表功能&#10;&#10;- 更新了 BuildingInfoPage 类，优化了小区信息的展示和操作- 重写了 UserBillingReport 类，简化了用户计费报表的查询和展示&#10;- 修改了数据库操作逻辑，使用 Hutool 的 Entity 类进行数据处理&#10;-优化了项目配置，更新了依赖库版本" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor(gui): 重构小区信息和用户计费报表功能&#10;&#10;- 更新了 BuildingInfoPage 类，优化了小区信息的展示和操作- 重写了 UserBillingReport 类，简化了用户计费报表的查询和展示&#10;- 修改了数据库操作逻辑，使用 Hutool 的 Entity 类进行数据处理&#10;-优化了项目配置，更新了依赖库版本" />
   </component>
 </project>
