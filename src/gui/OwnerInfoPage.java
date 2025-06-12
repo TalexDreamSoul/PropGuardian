@@ -22,13 +22,9 @@ public class OwnerInfoPage extends JFrame {
         setSize(900, 600);
         setLocationRelativeTo(null);
 
-        try {
+
             this.db = PropCore.INS.getMySql().use();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "数据库连接失败: " + e.getMessage(), "错误", JOptionPane.ERROR_MESSAGE);
-            e.printStackTrace();
-            return;
-        }
+
 
         String[] columnNames = {"小区号", "楼号", "房号", "产权面积", "状态", "用途", "姓名", "性别", "身份证", "联系地址", "联系电话"};
         tableModel = new DefaultTableModel(columnNames, 0);
@@ -226,12 +222,12 @@ public class OwnerInfoPage extends JFrame {
         refreshTable();
     }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             OwnerInfoPage houseInfoPage = new OwnerInfoPage();
             houseInfoPage.setVisible(true);
         });
-    }
+    }*/
 
     private void refreshTable() {
         try {
