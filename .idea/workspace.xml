@@ -4,17 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ccc77131-6af0-447f-bf09-6192a51df474" name="Changes" comment="refactor(gui): 重构业主指数录入页面&#10;&#10;- 在 OwnerIndexEntryPage 中，将输入日期格式统一为 yyyy-MM-dd，末尾自动添加 &quot;-01&quot;&#10;- 更新 PropGuardian.iml 文件，明确指定依赖库版本&#10;- 修改 .idea/workspace.xml，优化工作空间配置">
-      <change afterPath="$PROJECT_DIR$/src/dao/BaseEntity.java" afterDir="false" />
+    <list default="true" id="ccc77131-6af0-447f-bf09-6192a51df474" name="Changes" comment="refactor(dao): 新增 BaseEntity 类，重构 IDataStorage 接口&#10;&#10;- 新增 BaseEntity 类，实现 IDataStorage 接口的通用方法&#10;- 重构 IDataStorage 接口，新增 getDatabaseName 和 loadAll 方法&#10;- 更新 Building 和 UserInfo 类，使其继承 BaseEntity&#10;- 修改相关 GUI 类，使用新接口方法进行数据库操作&#10;- 更新项目依赖，明确指定 hutool 和 mysql 连接器版本">
+      <change afterPath="$PROJECT_DIR$/src/utils/MentionUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PropGuardian.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PropGuardian.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/DaoInit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/DaoInit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/entity/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/entity/Building.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/entity/UserInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/entity/UserInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/upper/IDataStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/upper/IDataStorage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/BuildingInfoPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/BuildingInfoPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/OwnerIndexEntryPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/OwnerIndexEntryPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/OwnerInfoPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/OwnerInfoPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/BaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/BaseEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/UserInfoPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/UserInfoPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -270,7 +263,7 @@
       <workItem from="1749469118570" duration="3956000" />
       <workItem from="1749476545459" duration="3638000" />
       <workItem from="1749557204327" duration="3725000" />
-      <workItem from="1749710168782" duration="3928000" />
+      <workItem from="1749710168782" duration="5373000" />
     </task>
     <task id="LOCAL-00002" summary="refactor(userinfo): 重构用户信息管理功能&#10;&#10;- 更新了 UserInfo 类,移除了冗余的 getter 和 setter 方法&#10;- 重写了 UserInfoPage 类,简化了用户信息的展示和操作&#10;- 修改了数据库操作逻辑,使用 Hutool 的 Entity 类进行数据处理&#10;- 优化了项目配置,更新了依赖库版本">
       <option name="closed" value="true" />
@@ -288,13 +281,13 @@
       <option name="project" value="LOCAL" />
       <updated>1749107708630</updated>
     </task>
-    <task id="LOCAL-00004" summary="feat: fix project err">
+    <task id="LOCAL-00004" summary="refactor(dao): 新增 BaseEntity 类，重构 IDataStorage 接口&#10;&#10;- 新增 BaseEntity 类，实现 IDataStorage 接口的通用方法&#10;- 重构 IDataStorage 接口，新增 getDatabaseName 和 loadAll 方法&#10;- 更新 Building 和 UserInfo 类，使其继承 BaseEntity&#10;- 修改相关 GUI 类，使用新接口方法进行数据库操作&#10;- 更新项目依赖，明确指定 hutool 和 mysql 连接器版本">
       <option name="closed" value="true" />
-      <created>1741855563089</created>
+      <created>1749715002925</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1741855563089</updated>
+      <updated>1749715002925</updated>
     </task>
     <task id="LOCAL-00005" summary="feat: fix project err">
       <option name="closed" value="true" />
@@ -432,7 +425,7 @@
       <option name="project" value="LOCAL" />
       <updated>1748512196125</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -475,6 +468,7 @@
     <MESSAGE value="feat(learning): 添加动物类和业主信息管理界面&#10;&#10;- 新增 Animal、Mouse 和 Penguin 类&#10;- 实现了动物的自我介绍、吃和睡的方法&#10;- 添加了 OwnerInfoPage 类，用于管理业主信息&#10;- 实现了业主信息的查询、添加、修改、删除和更新功能&#10;- 新增 StudentExtractor 类，用于提取学生信息" />
     <MESSAGE value="refactor(userinfo): 重构用户信息管理功能&#10;&#10;- 更新了 UserInfo 类,移除了冗余的 getter 和 setter 方法&#10;- 重写了 UserInfoPage 类,简化了用户信息的展示和操作&#10;- 修改了数据库操作逻辑,使用 Hutool 的 Entity 类进行数据处理&#10;- 优化了项目配置,更新了依赖库版本" />
     <MESSAGE value="refactor(gui): 重构业主指数录入页面&#10;&#10;- 在 OwnerIndexEntryPage 中，将输入日期格式统一为 yyyy-MM-dd，末尾自动添加 &quot;-01&quot;&#10;- 更新 PropGuardian.iml 文件，明确指定依赖库版本&#10;- 修改 .idea/workspace.xml，优化工作空间配置" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor(gui): 重构业主指数录入页面&#10;&#10;- 在 OwnerIndexEntryPage 中，将输入日期格式统一为 yyyy-MM-dd，末尾自动添加 &quot;-01&quot;&#10;- 更新 PropGuardian.iml 文件，明确指定依赖库版本&#10;- 修改 .idea/workspace.xml，优化工作空间配置" />
+    <MESSAGE value="refactor(dao): 新增 BaseEntity 类，重构 IDataStorage 接口&#10;&#10;- 新增 BaseEntity 类，实现 IDataStorage 接口的通用方法&#10;- 重构 IDataStorage 接口，新增 getDatabaseName 和 loadAll 方法&#10;- 更新 Building 和 UserInfo 类，使其继承 BaseEntity&#10;- 修改相关 GUI 类，使用新接口方法进行数据库操作&#10;- 更新项目依赖，明确指定 hutool 和 mysql 连接器版本" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor(dao): 新增 BaseEntity 类，重构 IDataStorage 接口&#10;&#10;- 新增 BaseEntity 类，实现 IDataStorage 接口的通用方法&#10;- 重构 IDataStorage 接口，新增 getDatabaseName 和 loadAll 方法&#10;- 更新 Building 和 UserInfo 类，使其继承 BaseEntity&#10;- 修改相关 GUI 类，使用新接口方法进行数据库操作&#10;- 更新项目依赖，明确指定 hutool 和 mysql 连接器版本" />
   </component>
 </project>
