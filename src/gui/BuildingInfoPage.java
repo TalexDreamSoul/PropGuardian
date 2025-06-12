@@ -129,7 +129,7 @@ public class BuildingInfoPage extends JFrame {
                     getField(6)
             );
 
-            building.storage(PropCore.INS.getMySql());
+            building.storage();
 
             loadData();
             resetForm();

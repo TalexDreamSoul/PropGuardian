@@ -1,5 +1,6 @@
 package dao.entity;
 
+import lombok.Data;
 import lombok.SneakyThrows;
 
 @Data
