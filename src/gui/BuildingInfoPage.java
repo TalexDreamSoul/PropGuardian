@@ -16,11 +16,9 @@ public class BuildingInfoPage extends JFrame {
     private JTable table;
     private DefaultTableModel tableModel;
     private JTextField[] fields;
-    private Db db;
     private final String[] labels = {"小区ID", "楼宇编号", "层数", "面积", "高度", "类型", "状态"};
 
     public BuildingInfoPage() {
-        db = PropCore.INS.getMySql().use();
         setTitle("楼宇信息维护");
         setSize(950, 600);
         setLocationRelativeTo(null);
@@ -111,7 +109,7 @@ public class BuildingInfoPage extends JFrame {
         }
     }
 
-    private void addBuilding() {
+    private void addBuilding( ) {
         try {
             double totalArea = Double.parseDouble(getField(3));
             if (totalArea < 0) { // 添加面积校验
@@ -129,7 +127,7 @@ public class BuildingInfoPage extends JFrame {
                     getField(6)
             );
 
-            building.storage(PropCore.INS.getMySql());
+            building.storage();
 
             loadData();
             resetForm();
@@ -150,6 +148,7 @@ public class BuildingInfoPage extends JFrame {
                 showError("面积不能为负数，请输入正确的面积值");
                 return;
             }
+//            BuildingInfo
             Entity update = Entity.create("building_info")
                     .set("total_storey", Integer.parseInt(getField(2)))
                     .set("total_area", area)
