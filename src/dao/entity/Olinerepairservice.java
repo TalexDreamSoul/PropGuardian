@@ -8,11 +8,11 @@ import java.util.logging.Logger;
 
 @Data
 public class Olinerepairservice extends BaseEntity {
-    private String Community; // 小区ID
-    private String Owner; // 楼宇ID
-    private String Type; // 楼层数
-    private String Description; // 总面积
-    private String Status; // 楼高
+    private String Community;
+    private String Owner;
+    private String Type;
+    private String Description;
+    private String Status;
 
 
     private final Logger logger = Logger.getLogger("Olinerepairservice");
