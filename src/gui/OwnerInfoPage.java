@@ -77,6 +77,8 @@ public class OwnerInfoPage extends JFrame {
                 JOptionPane.showMessageDialog(this, "请输入姓名进行查询！");
                 return;
             }
+
+            OwnerInfo ownerInfo = new OwnerInfo();
             try {
                 String sql = "SELECT * FROM owner_info WHERE oname = ?";
                 List<OwnerInfo> results = db.query(sql, OwnerInfo.class, name);
