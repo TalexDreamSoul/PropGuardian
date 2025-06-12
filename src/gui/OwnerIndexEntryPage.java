@@ -2,12 +2,11 @@ package gui;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 //导入 Hutool 工具库中的数据库操作类，用于简化数据库插入、查询等操作。
 import cn.hutool.db.Db;
 import cn.hutool.db.Entity;
 import core.PropCore;
+import dao.entity.OwnerInfo;
 
 public class OwnerIndexEntryPage extends JFrame {
     private JTextField inputDateField;

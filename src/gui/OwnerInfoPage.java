@@ -1,6 +1,7 @@
 package gui;
 
 import cn.hutool.db.Db;
+import cn.hutool.db.Entity;
 import core.PropCore;
 import dao.entity.OwnerInfo;
 import dao.entity.UserInfo;
@@ -79,14 +80,9 @@ public class OwnerInfoPage extends JFrame {
             }
 
             OwnerInfo ownerInfo = new OwnerInfo();
-            try {
-                String sql = "SELECT * FROM owner_info WHERE oname = ?";
-                List<OwnerInfo> results = db.query(sql, OwnerInfo.class, name);
-                updateTable(results);
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(this, "查询失败: " + ex.getMessage(), "错误", JOptionPane.ERROR_MESSAGE);
-                ex.printStackTrace();
-            }
+            Entity oname = ownerInfo.getQueryEntity("oname", name);
+            List<OwnerInfo> results = ownerInfo.loadAllByEntity(oname, OwnerInfo.class);
+            updateTable(results);
         });
 
         addBtn.addActionListener(e -> {
@@ -106,6 +102,17 @@ public class OwnerInfoPage extends JFrame {
                 return;
             }
 
+            OwnerInfo ownerInfo = new OwnerInfo(Short.parseShort(communityNo),
+                    Short.parseShort(buildingNo),
+                    Short.parseShort(houseNo),
+                    Double.parseDouble(propertyArea),
+                    "active",
+                    "res",
+                    name,
+                    gender,
+                    idCard,
+                    contactAddress,
+                    contactPhone);
             String sql = "INSERT INTO owner_info(district_id, building_id, room_id, area, status, purpose, oname, sex, id_Num, address, phone) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
             try {
                 int result = db.execute(sql,
@@ -157,34 +164,8 @@ public class OwnerInfoPage extends JFrame {
                 return;
             }
 
-            OwnerInfo ownerInfo = new OwnerInfo(Integer.parseInt(communityNo), Integer.parseInt(buildingNo), Integer.parseInt(houseNo), Double.parseDouble(propertyArea), "active", "res", name, gender, idCard, contactAddress, contactPhone);
-            ownerInfo.
-            String sql = "UPDATE owner_info SET district_id=?, building_id=?, room_id=?, area=?, status=?, purpose=?, oname=?, sex=?, id_num=?, address=?, phone=? WHERE room_id=?";
-            try {
-                int result = db.execute(sql,
-                        Integer.parseInt(communityNo),
-                        Integer.parseInt(buildingNo),
-                        Integer.parseInt(houseNo),
-                        Double.parseDouble(propertyArea),
-                        "active",
-                        "res",
-                        name,
-                        gender,
-                        idCard,
-                        contactAddress,
-                        contactPhone,
-                        ownerId);
-
-                if (result > 0) {
-                    JOptionPane.showMessageDialog(this, "修改成功！");
-                    refreshTable();
-                } else {
-                    JOptionPane.showMessageDialog(this, "修改失败！", "错误", JOptionPane.ERROR_MESSAGE);
-                }
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(this, "修改失败: " + ex.getMessage(), "错误", JOptionPane.ERROR_MESSAGE);
-                ex.printStackTrace();
-            }
+            OwnerInfo ownerInfo = new OwnerInfo(Short.parseShort(communityNo), Short.parseShort(buildingNo), Short.parseShort(houseNo), Double.parseDouble(propertyArea), "active", "res", name, gender, idCard, contactAddress, contactPhone);
+            ownerInfo.updateFixedSelf(this::refreshTable, this);
         });
 
         deleteBtn.addActionListener(e -> {
@@ -227,22 +208,8 @@ public class OwnerInfoPage extends JFrame {
         refreshTable();
     }
 
-    /*public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            OwnerInfoPage houseInfoPage = new OwnerInfoPage();
-            houseInfoPage.setVisible(true);
-        });
-    }*/
-
     private void refreshTable() {
-        updateTable(new UserInfo().loadAllByEntity(UserInfo.class));
-
-        try {
-            List<OwnerInfo> allData = db.query("SELECT * FROM owner_info", OwnerInfo.class);
-            updateTable(allData);
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "数据加载失败: " + ex.getMessage(), "错误", JOptionPane.ERROR_MESSAGE);
-        }
+        updateTable(new OwnerInfo().loadAllByEntity(OwnerInfo.class));
     }
 
     private void updateTable(List<OwnerInfo> results) {
@@ -250,7 +217,7 @@ public class OwnerInfoPage extends JFrame {
         if (results != null) {
             for (OwnerInfo info : results) {
                 tableModel.addRow(new Object[] {
-                        info.getDistrict_id(), info.getbuilding_id(), info.getRoom_id(), info.getArea(),
+                        info.getDistrict_id(), info.getBuilding_id(), info.getRoom_id(), info.getArea(),
                         info.getStatus(), info.getPurpose(), info.getOname(), info.getSex(), info.getId_num(),
                         info.getAddress(), String.valueOf(info.getPhone())
                 });
