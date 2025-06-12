@@ -1,10 +1,7 @@
 package gui;
 
-import cn.hutool.db.Db;
 import cn.hutool.db.Entity;
-import core.PropCore;
 import dao.entity.UserInfo;
-import lombok.SneakyThrows;
 import utils.MentionUtil;
 
 import javax.swing.*;
