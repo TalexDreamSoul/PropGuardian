@@ -1,49 +1,40 @@
 package dao.entity;
 
-public class PriceType {
-    private int chargeId;
-    private String chargeName;
-    private double unitPrice;
+import dao.BaseEntity;
+import lombok.Data;
+
+import java.util.logging.Logger;
+
+@Data
+public class PriceType extends BaseEntity {
+    private short charge_id;
+    private String charge_name;
+    private double unit_price;
+
+    private final Logger logger = Logger.getLogger("PriceType");
 
     // 构造函数
-    public PriceType(int chargeId, String chargeName, double unitPrice) {
-        this.chargeId = chargeId;
-        this.chargeName = chargeName;
-        this.unitPrice = unitPrice;
+    public PriceType(short charge_id, String charge_name, double unit_price) {
+        super("PriceType");
+
+        this.charge_id = charge_id;
+        this.charge_name = charge_name;
+        this.unit_price = unit_price;
     }
 
-    // getter 和 setter 方法
-    public int getChargeId() {
-        return chargeId;
-    }
-
-    public void setChargeId(int chargeId) {
-        this.chargeId = chargeId;
-    }
-
-    public String getChargeName() {
-        return chargeName;
-    }
-
-    public void setChargeName(String chargeName) {
-        this.chargeName = chargeName;
-    }
-
-    public double getUnitPrice() {
-        return unitPrice;
-    }
-
-    public void setUnitPrice(double unitPrice) {
-        this.unitPrice = unitPrice;
-    }
+    public PriceType() {super("PriceType");}
 
     @Override
-    public String toString() {
-        return "PriceType{" +
-                "chargeId=" + chargeId +
-                ", chargeName='" + chargeName + '\'' +
-                ", unitPrice=" + unitPrice +
-                '}';
+    public boolean storage() {
+        int i = insertOrUpdate(
+                getEntity()
+                        .set("charge_id", this.charge_id)
+                        .set("charge_name", this.charge_name)
+                        .set("unit_price", this.unit_price)
+        );
+        if ( i > 1 ) {
+            logger.warning("[Storage] Take effects to multiple rows, attention pls!");
+        }
+        return i == 1;
     }
-
 }
