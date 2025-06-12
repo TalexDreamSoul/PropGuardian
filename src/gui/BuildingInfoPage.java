@@ -3,6 +3,7 @@ package gui;
 import cn.hutool.db.Db;
 import cn.hutool.db.Entity;
 import core.PropCore;
+import dao.entity.Building;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -92,12 +93,7 @@ public class BuildingInfoPage extends JFrame {
     }
 
     private void loadData() {
-        try {
-            List<Entity> list = db.query("SELECT * FROM building_info");
-            updateTable(list);
-        } catch (SQLException e) {
-            showError("加载失败", e);
-        }
+        updateTable(new Building().loadAll());
     }
 
     private void updateTable(List<Entity> list) {
@@ -123,15 +119,18 @@ public class BuildingInfoPage extends JFrame {
                 return;
             }
 
-            Entity entity = Entity.create("building_info")
-                    .set("district_id", getField(0))
-                    .set("building_id", getField(1))
-                    .set("total_storey", Integer.parseInt(getField(2)))
-                    .set("total_area", totalArea)
-                    .set("height", Double.parseDouble(getField(4)))
-                    .set("type", getField(5))
-                    .set("status", getField(6));
-            db.insert(entity);
+            Building building = new Building(
+                    Short.parseShort(getField(0)),
+                    Short.parseShort(getField(1)),
+                    Short.parseShort(getField(2)),
+                    totalArea,
+                    Double.parseDouble(getField(4)),
+                    Short.parseShort(getField(5)),
+                    getField(6)
+            );
+
+            building.storage(PropCore.INS.getMySql());
+
             loadData();
             resetForm();
         } catch (Exception e) {

@@ -32,11 +32,16 @@ public class OwnerIndexEntryPage extends JFrame {
         
         setTitle("业主水/电/气指数录入");
         setSize(700, 300);
+        // 设置窗口居中
         setLocationRelativeTo(null);
+        //  设置窗口关闭时销毁GUI
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         db = PropCore.INS.getMySql().use();
 
+        // GridBagLayout: 创建一个GridBagLayout布局管理器
+        // 和GridBagConstraints: 创建一个GridBagConstraints对象，用于设置组件的布局属性
+        // GridLayout的区别是：GridBagLayout是按照网格来布局，而GridLayout是按照行列来布局
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 5, 5, 5);
@@ -108,19 +113,9 @@ public class OwnerIndexEntryPage extends JFrame {
         gbc.anchor = GridBagConstraints.WEST;
         add(buttonPanel, gbc);
 
-        submitButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                handleSubmit();
-            }
-        });
+        submitButton.addActionListener(e -> handleSubmit());
 
-        cancelButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                handleCancel();
-            }
-        });
+        cancelButton.addActionListener(e -> handleCancel());
 
         // 新增查询按钮
         queryButton = new JButton("查询");
@@ -130,12 +125,7 @@ public class OwnerIndexEntryPage extends JFrame {
         add(queryButton, gbc);
 
         // 查询按钮事件监听器
-        queryButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                handleQuery();
-            }
-        });
+        queryButton.addActionListener(e -> handleQuery());
 
         setVisible(true);
     }
