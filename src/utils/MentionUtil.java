@@ -22,4 +22,13 @@ public class MentionUtil {
         }
     }
 
+    public static void mentionForUpdate(boolean success,  JFrame parentComponent, Runnable refreshTable) {
+        if (success) {
+            JOptionPane.showMessageDialog(parentComponent, "修改成功！");
+            refreshTable.run();
+        } else {
+            JOptionPane.showMessageDialog(parentComponent, "修改失败！", "错误", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
 }

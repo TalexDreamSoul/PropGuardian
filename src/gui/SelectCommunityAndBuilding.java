@@ -180,7 +180,4 @@ public class SelectCommunityAndBuilding extends JFrame {
         return null;
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new SelectCommunityAndBuilding());
-    }
 }

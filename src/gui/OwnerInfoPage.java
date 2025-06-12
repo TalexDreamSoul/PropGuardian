@@ -3,6 +3,7 @@ package gui;
 import cn.hutool.db.Db;
 import core.PropCore;
 import dao.entity.OwnerInfo;
+import dao.entity.UserInfo;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -23,7 +24,7 @@ public class OwnerInfoPage extends JFrame {
         setLocationRelativeTo(null);
 
 
-            this.db = PropCore.INS.getMySql().use();
+        this.db = PropCore.INS.getMySql().use();
 
 
         String[] columnNames = {"小区号", "楼号", "房号", "产权面积", "状态", "用途", "姓名", "性别", "身份证", "联系地址", "联系电话"};
@@ -154,6 +155,8 @@ public class OwnerInfoPage extends JFrame {
                 return;
             }
 
+            OwnerInfo ownerInfo = new OwnerInfo(Integer.parseInt(communityNo), Integer.parseInt(buildingNo), Integer.parseInt(houseNo), Double.parseDouble(propertyArea), "active", "res", name, gender, idCard, contactAddress, contactPhone);
+            ownerInfo.
             String sql = "UPDATE owner_info SET district_id=?, building_id=?, room_id=?, area=?, status=?, purpose=?, oname=?, sex=?, id_num=?, address=?, phone=? WHERE room_id=?";
             try {
                 int result = db.execute(sql,
@@ -230,6 +233,8 @@ public class OwnerInfoPage extends JFrame {
     }*/
 
     private void refreshTable() {
+        updateTable(new UserInfo().loadAllByEntity(UserInfo.class));
+
         try {
             List<OwnerInfo> allData = db.query("SELECT * FROM owner_info", OwnerInfo.class);
             updateTable(allData);
@@ -243,7 +248,7 @@ public class OwnerInfoPage extends JFrame {
         if (results != null) {
             for (OwnerInfo info : results) {
                 tableModel.addRow(new Object[] {
-                        info.getDistrict_id(), info.getBuilding_id(), info.getRoom_id(), info.getArea(),
+                        info.getDistrict_id(), info.getbuilding_id(), info.getRoom_id(), info.getArea(),
                         info.getStatus(), info.getPurpose(), info.getOname(), info.getSex(), info.getId_num(),
                         info.getAddress(), String.valueOf(info.getPhone())
                 });
