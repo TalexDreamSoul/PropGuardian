@@ -159,7 +159,7 @@ public abstract class BaseEntity implements IDataStorage {
             if (val == -1) {
                 throw new Exception("请选择要删除的行！");
             }
-            boolean success = new UserInfo().delete(key, String.valueOf(val));
+            boolean success = delete(key, String.valueOf(val));
             MentionUtil.mentionForDelete(success, jFrame, runnable);
 
         } catch (Exception e) {
@@ -172,11 +172,40 @@ public abstract class BaseEntity implements IDataStorage {
     }
 
     /**
+     * 固定删除方法 自动处理键值删除
+     */
+    public void deleteFixedEntity(Entity entity, Runnable runnable, JFrame jFrame) {
+        try {
+            boolean success = getMySql().use().del(entity) > 0;
+            MentionUtil.mentionForDelete(success, jFrame, runnable);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(jFrame, e.getMessage());
+        }
+    }
+
+    /**
+     * 固定新增方法 自动处理键值新增
+     */
+    @SneakyThrows
+    public <T extends BaseEntity> void insertFixed(T value, Runnable runnable, JFrame jFrame) {
+        MentionUtil.mentionForAdd(value.storage(), jFrame, runnable);
+    }
+
+    /**
+     * 固定新增方法 自动处理键值新增
+     */
+    @SneakyThrows
+    public <T extends BaseEntity> void insertFixedSelf(Runnable runnable, JFrame jFrame) {
+        MentionUtil.mentionForAdd(this.storage(), jFrame, runnable);
+    }
+
+    /**
      * 固定修改方法 自动处理键值修改
      */
     @SneakyThrows
     public <T extends BaseEntity> void updateFixed(T value, Runnable runnable, JFrame jFrame) {
-        MentionUtil.mentionForDelete(value.storage(), jFrame, runnable);
+        MentionUtil.mentionForUpdate(value.storage(), jFrame, runnable);
     }
 
     /**
@@ -184,6 +213,6 @@ public abstract class BaseEntity implements IDataStorage {
      */
     @SneakyThrows
     public <T extends BaseEntity> void updateFixedSelf(Runnable runnable, JFrame jFrame) {
-        MentionUtil.mentionForDelete(this.storage(), jFrame, runnable);
+        MentionUtil.mentionForUpdate(this.storage(), jFrame, runnable);
     }
 }
