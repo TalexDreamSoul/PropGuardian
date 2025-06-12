@@ -1,99 +1,59 @@
 package dao.entity;
 
-public class Building {
-    private short districtId; // 小区ID
-    private short buildingId; // 楼宇ID
-    private short totalStorey; // 楼层数
-    private double totalArea; // 总面积
+import dao.BaseEntity;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.SneakyThrows;
+
+import java.util.logging.Logger;
+
+@Data
+public class Building extends BaseEntity {
+    private short district_id; // 小区ID
+    private short building_id; // 楼宇ID
+    private short total_storey; // 楼层数
+    private double total_area; // 总面积
     private double height; // 楼高
     private short type; // 类型
     private String status; // 状态
 
+    private final Logger logger = Logger.getLogger("Building");
+
     // 构造函数
-    public Building(short districtId, short buildingId, short totalStorey, double totalArea, double height, short type, String status) {
-        this.districtId = districtId;
-        this.buildingId = buildingId;
-        this.totalStorey = totalStorey;
-        this.totalArea = totalArea;
+    public Building(short district_id, short building_id, short total_storey, double total_area, double height, short type, String status) {
+        super("building_info");
+
+        this.district_id = district_id;
+        this.building_id = building_id;
+        this.total_storey = total_storey;
+        this.total_area = total_area;
         this.height = height;
         this.type = type;
         this.status = status;
     }
 
-    // districtId的getter和setter
-    public short getDistrictId() {
-        return districtId;
+    public Building() {
+        super("building_info");
     }
 
-    public void setDistrictId(short districtId) {
-        this.districtId = districtId;
-    }
-
-    // buildingId的getter和setter
-    public short getBuildingId() {
-        return buildingId;
-    }
-
-    public void setBuildingId(short buildingId) {
-        this.buildingId = buildingId;
-    }
-
-    // totalStorey的getter和setter
-    public short getTotalStorey() {
-        return totalStorey;
-    }
-
-    public void setTotalStorey(short totalStorey) {
-        this.totalStorey = totalStorey;
-    }
-
-    // totalArea的getter和setter
-    public double getTotalArea() {
-        return totalArea;
-    }
-
-    public void setTotalArea(double totalArea) {
-        this.totalArea = totalArea;
-    }
-
-    // height的getter和setter
-    public double getHeight() {
-        return height;
-    }
-
-    public void setHeight(double height) {
-        this.height = height;
-    }
-
-    // type的getter和setter
-    public short getType() {
-        return type;
-    }
-
-    public void setType(short type) {
-        this.type = type;
-    }
-
-    // status的getter和setter
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    // toString方法，用于打印楼宇信息
+    @SneakyThrows
     @Override
-    public String toString() {
-        return "Building{" +
-                "districtId=" + districtId +
-                ", buildingId=" + buildingId +
-                ", totalStorey=" + totalStorey +
-                ", totalArea=" + totalArea +
-                ", height=" + height +
-                ", type=" + type +
-                ", status='" + status + '\'' +
-                '}';
+    public boolean storage() {
+        int i = insertOrUpdate(
+                getEntity()
+                        .set("district_id", this.district_id)
+                        .set("building_id", this.building_id)
+                        .set("total_storey", this.total_storey)
+                        .set("total_area", this.total_area)
+                        .set("height", this.height)
+                        .set("type", this.type)
+                        .set("status", this.status)
+        );
+
+        if ( i > 1 ) {
+            logger.warning("[Storage] Take effects to multiple rows, attention pls!");
+        }
+
+        return i == 1;
     }
 }

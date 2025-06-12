@@ -2,6 +2,9 @@ package gui;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.BadLocationException;
+import javax.swing.event.DocumentListener;
+import javax.swing.event.DocumentEvent;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -63,12 +66,14 @@ public class OnlineRepairService extends JFrame {
         // 小区名称
         JLabel communityLabel = new JLabel("小区名称:");
         communityField = new JTextField(20);
+        limitInputLength(communityField, 20); // 添加限制输入长度的方法调用
         addComponent(panel, communityLabel, gbc, 0, 0, GridBagConstraints.EAST);
         addComponent(panel, communityField, gbc, 1, 0, GridBagConstraints.WEST);
 
         // 业主姓名
         JLabel ownerLabel = new JLabel("业主姓名:");
         ownerField = new JTextField(20);
+        limitInputLength(ownerField, 20); // 添加限制输入长度的方法调用
         addComponent(panel, ownerLabel, gbc, 2, 0, GridBagConstraints.EAST);
         addComponent(panel, ownerField, gbc, 3, 0, GridBagConstraints.WEST);
 
@@ -85,9 +90,14 @@ public class OnlineRepairService extends JFrame {
         descriptionArea.setLineWrap(true);
         descriptionArea.setWrapStyleWord(true);
         JScrollPane descriptionScrollPane = new JScrollPane(descriptionArea);
+        
+        // 修改部分：调整位置
+        gbc.gridx = 0;
+        gbc.gridy = 2;
         gbc.gridwidth = 1;
         gbc.anchor = GridBagConstraints.NORTHEAST;
         panel.add(descriptionLabel, gbc);
+        
         gbc.gridx = 1;
         gbc.gridwidth = 3;
         gbc.fill = GridBagConstraints.HORIZONTAL;
@@ -116,6 +126,37 @@ public class OnlineRepairService extends JFrame {
 
         panel.setBorder(BorderFactory.createTitledBorder("提交报修请求"));
         return panel;
+    }
+
+    // 新增方法：限制输入长度
+    private void limitInputLength(JTextField textField, int maxLength) {
+        textField.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                checkLength(textField, maxLength);
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                checkLength(textField, maxLength);
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                checkLength(textField, maxLength);
+            }
+
+            private void checkLength(JTextField textField, int maxLength) {
+                if (textField.getText().length() > maxLength) {
+                    JOptionPane.showMessageDialog(null, "输入长度不能超过" + maxLength + "个字符！", "警告", JOptionPane.WARNING_MESSAGE);
+                    try {
+                        textField.getDocument().remove(maxLength, textField.getText().length() - maxLength);
+                    } catch (BadLocationException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        });
     }
 
     private JPanel createTableButtonPanel() {

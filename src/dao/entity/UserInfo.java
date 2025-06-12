@@ -1,18 +1,16 @@
 package dao.entity;
 
-import cn.hutool.db.Db;
 import cn.hutool.db.Entity;
-import cn.hutool.db.SqlConnRunner;
+import dao.BaseEntity;
 import dao.upper.IDataStorage;
 import db.MySql;
 import lombok.Getter;
 import lombok.SneakyThrows;
-import lombok.extern.slf4j.Slf4j;
 
 import java.util.logging.Logger;
 
 @Getter
-public class UserInfo implements IDataStorage {
+public class UserInfo extends BaseEntity {
 
     private String uname;
     private String paswrd;
@@ -22,9 +20,15 @@ public class UserInfo implements IDataStorage {
 
     // 构造函数
     public UserInfo(String uname, String paswrd, int purview) {
+        super("userinfo");
+
         this.uname = uname;
         this.paswrd = paswrd;
         this.purview = purview;
+    }
+
+    public UserInfo() {
+        super("userinfo");
     }
 
     @Override
@@ -38,16 +42,13 @@ public class UserInfo implements IDataStorage {
 
     @SneakyThrows
     @Override
-    public boolean storage(MySql mysql) {
-        int i = mysql.use().insertOrUpdate(
-                Entity.create("userinfo")
-                        .set("uname", this.uname)
-                        .set("paswrd", this.paswrd)
-                        .set("purview", this.purview)
-        );
+    public boolean storage() {
+        int i = insertOrUpdate(getEntity().set("uname", this.uname)
+                .set("paswrd", this.paswrd)
+                .set("purview", this.purview));
 
-        if ( i > 2 ) {
-            logger.warning("[Storage] Take effects to multiple rows, attention pls! " + this);
+        if ( i > 1 ) {
+            logger.warning("[Storage] Take effects to multiple rows, attention pls!");
         }
 
         return i == 1;
