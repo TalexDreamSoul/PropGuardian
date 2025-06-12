@@ -4,18 +4,16 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
-// 添加缺失的swing组件导入
-import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 import cn.hutool.db.Db;
 import cn.hutool.db.Entity;
 import core.PropCore;
+import dao.entity.Building;
+import dao.entity.CommunityInfo;
+import dao.entity.MeterReading;
 
 public class UserBillingReport extends JFrame {
 
@@ -202,45 +200,31 @@ public class UserBillingReport extends JFrame {
 
     // 加载小区信息方法
     private void loadCommunities() {
-        try {
-            List<Entity> communities = db.query("SELECT DISTINCT district_id FROM community_info");
-            communityComboBox.removeAllItems();
-            communityComboBox.addItem("选择小区");
-            for (Entity community : communities) {
-                communityComboBox.addItem(community.getStr("district_id"));
-            }
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "加载小区失败: " + ex.getMessage(), "错误", JOptionPane.ERROR_MESSAGE);
-            ex.printStackTrace();
+        List<Entity> communities = new CommunityInfo().loadAll();
+        communityComboBox.removeAllItems();
+        communityComboBox.addItem("选择小区");
+        for (Entity community : communities) {
+            communityComboBox.addItem(community.getStr("district_id"));
         }
     }
 
     // 加载楼宇方法支持按小区过滤
     private void loadBuildings(String communityId) {
-        try {
-            List<Entity> buildings = db.query("SELECT building_id FROM building_info WHERE district_id = ?", communityId);
-            buildingComboBox.removeAllItems();
-            buildingComboBox.addItem("选择楼宇");
-            for (Entity building : buildings) {
-                buildingComboBox.addItem(building.getStr("building_id"));
-            }
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "加载楼宇失败: " + ex.getMessage(), "错误", JOptionPane.ERROR_MESSAGE);
-            ex.printStackTrace();
+        Building build = new Building();
+        List<Entity> buildings = build.loadAll(build.getQueryEntity("district_id", communityId));
+        buildingComboBox.removeAllItems();
+        buildingComboBox.addItem("选择楼宇");
+        for (Entity building : buildings) {
+            buildingComboBox.addItem(building.getStr("building_id"));
         }
     }
 
     // 根据楼宇ID加载房间号
     private void loadRoomIds(String buildingId) {
-        try {
-            List<Entity> rooms = db.query("SELECT room_number FROM meter_reading WHERE building_id = ?", buildingId);
-            String[] roomIds = rooms.stream().map(entity -> entity.getStr("room_number")).toArray(String[]::new);
-            ((JComboBox<String>) roomIdField).setModel(new DefaultComboBoxModel<>(roomIds)); // 修改此处
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "加载房间号失败: " + ex.getMessage(), "错误", JOptionPane.ERROR_MESSAGE);
-            ex.printStackTrace();
-            roomIdField.setModel(new DefaultComboBoxModel<>(new String[]{"加载失败"})); // 添加默认值提示
-        }
+        MeterReading meterReading = new MeterReading();
+        List<Entity> rooms = meterReading.loadAll(meterReading.getQueryEntity("building_id", buildingId));;
+        String[] roomIds = rooms.stream().map(entity -> entity.getStr("room_number")).toArray(String[]::new);
+        roomIdField.setModel(new DefaultComboBoxModel<>(roomIds));
     }
 
     // 查询方法
@@ -249,48 +233,28 @@ public class UserBillingReport extends JFrame {
         String[] columnNames = {"房间ID", "日期", "水表读数", "电费读数", "燃气读数"};
         DefaultTableModel model = new DefaultTableModel(columnNames, 0);
 
-        try {
-            StringBuilder sqlBuilder = new StringBuilder(
-                    "SELECT room_number, input_date AS date, " +
-                            "water_reading, electric_reading, gas_reading " +
-                            "FROM meter_reading WHERE 1=1"
-            );
+        MeterReading  meterReading = new MeterReading();
+        Entity query = meterReading.getEntity();
 
-            List<Object> params = new ArrayList<>();
+        if (!roomId.isEmpty()) {
+            query.set("room_number", roomId);
+        }
+        if (!date.isEmpty()) {
+            query.set("input_date", date + "%");
+        }
 
-            if (!roomId.isEmpty()) {
-                sqlBuilder.append(" AND room_number = ?");
-                params.add(roomId); 
-            }
-            if (!date.isEmpty()) {
-                sqlBuilder.append(" AND input_date LIKE ?");
-                params.add(date + "%");
-            }
+        List<Entity> feesList = meterReading.loadAll(query);
 
-            List<Entity> feesList = this.db.query(sqlBuilder.toString(), params.toArray());
-
-            for (Entity entity : feesList) {
-                model.addRow(new Object[]{
-                        entity.getStr("room_number"),
-                        entity.getStr("date"),
-                        entity.getDouble("water_reading"),
-                        entity.getDouble("electric_reading"),
-                        entity.getDouble("gas_reading")
-                });
-            }
-
-        } catch (SQLException | NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this,
-                    "查询失败: " + ex.getMessage(),
-                    "错误",
-                    JOptionPane.ERROR_MESSAGE);
-            return; // 添加 return 语句，避免异常后继续执行
+        for (Entity entity : feesList) {
+            model.addRow(new Object[]{
+                    entity.getStr("room_number"),
+                    entity.getStr("date"),
+                    entity.getDouble("water_reading"),
+                    entity.getDouble("electric_reading"),
+                    entity.getDouble("gas_reading")
+            });
         }
 
         table.setModel(model);
     }
-
-//    public static void main(String[] args) {
-//        SwingUtilities.invokeLater(() -> new UserBillingReport());
-//    }
 }
