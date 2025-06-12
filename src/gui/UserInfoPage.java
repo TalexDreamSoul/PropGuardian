@@ -1,10 +1,7 @@
 package gui;
 
-import cn.hutool.db.Db;
 import cn.hutool.db.Entity;
-import core.PropCore;
 import dao.entity.UserInfo;
-import lombok.SneakyThrows;
 import utils.MentionUtil;
 
 import javax.swing.*;
@@ -14,7 +11,6 @@ import java.util.List;
 
 public class UserInfoPage extends JFrame {
     private JTable table;
-    private Db db;
     private DefaultTableModel tableModel;
     private JTextField nameField, paswrdField, purviewField;
 
@@ -23,8 +19,6 @@ public class UserInfoPage extends JFrame {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setSize(900, 600);
         setLocationRelativeTo(null);
-
-        this.db = PropCore.INS.getMySql().use();
 
         String[] columnNames = {"姓名", "密码", "权限"};
         tableModel = new DefaultTableModel(columnNames, 0);

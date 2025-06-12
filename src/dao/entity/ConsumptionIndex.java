@@ -7,9 +7,9 @@ import java.util.logging.Logger;
 
 @Data
 public class ConsumptionIndex extends BaseEntity {
-    private long district_id; // 小区ID
-    private long building_id; // 楼宇ID
-    private long room_id;     // 业主ID
+    private short district_id; // 小区ID
+    private short building_id; // 楼宇ID
+    private short room_id;     // 业主ID
     private int date;        // 日期
     private double water_reading; // 用水量
     private double elec_reading;  // 用电量
@@ -21,7 +21,7 @@ public class ConsumptionIndex extends BaseEntity {
         super("consumptionindex");
     }
 
-    public ConsumptionIndex(long district_id, long building_id, long room_id, int date, double water_reading, double elec_reading, double gas_reading) {
+    public ConsumptionIndex(short district_id, short building_id, short room_id, int date, double water_reading, double elec_reading, double gas_reading) {
         super("consumptionindex");
         this.district_id = district_id;
         this.building_id = building_id;
