@@ -7,9 +7,9 @@ import java.util.logging.Logger;
 
 @Data
 public class OwnerInfo extends BaseEntity {
-    private int district_id;   // 小区ID
-    private int building_id;   // 楼宇ID
-    private int room_id;       // 业主ID
+    private short district_id;   // 小区ID
+    private short building_id;   // 楼宇ID
+    private short room_id;       // 业主ID
     private double area;      // 面积
     private String status;    // 状态
     private String purpose;   // 用途
@@ -20,7 +20,7 @@ public class OwnerInfo extends BaseEntity {
     private String phone;     // 电话
 
     // 构造函数
-    public OwnerInfo(int district_id, int building_id, int room_id, double area, String status, String purpose, String oname, String sex, String id_num, String address, String phone) {
+    public OwnerInfo(short district_id, short building_id, short room_id, double area, String status, String purpose, String oname, String sex, String id_num, String address, String phone) {
         super("ownerinfo");
         this.district_id = district_id;
         this.building_id = building_id;
