@@ -4,42 +4,42 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+//导入 Hutool 工具库中的数据库操作类，用于简化数据库插入、查询等操作。
 import cn.hutool.db.Db;
 import cn.hutool.db.Entity;
 import core.PropCore;
 
 public class OwnerIndexEntryPage extends JFrame {
-    private JTextField inputDateField;
+    private JTextField inputDateField;//输入框
     private JTextField waterReadingField1;
     private JTextField electricReadingField1;
     private JTextField gasReadingField1;
     private JTextField waterReadingField2;
     private JTextField electricReadingField2;
     private JTextField gasReadingField2;
-    private JButton submitButton;
+    private JButton submitButton;//按钮
     private JButton cancelButton;
     private JButton queryButton;  // 确保 queryButton 在类的顶部声明
-    private Db db;
+    private Db db;//db 是 Hutool 的数据库操作对象，用于执行数据库插入等操作。
 
-    // 在类顶部添加字段
+    // 在类顶部添加字段，存储社区和楼宇信息，用于后续数据库操作
     private String community;
     private String building;
-
+    //构造函数接收两个参数：community（社区名称）和 building（楼宇名称），并将其保存为类成员变量。
     public OwnerIndexEntryPage(String community, String building) {
         this.community = community;
         this.building = building;
-        
+        //设置窗口标题
         setTitle("业主水/电/气指数录入");
         setSize(700, 300);
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setLocationRelativeTo(null);//设置窗口在屏幕中央显示。
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//设置关闭窗口时释放资源。
 
-        db = PropCore.INS.getMySql().use();
+        db = PropCore.INS.getMySql().use();//获取数据库连接实例，准备进行数据库操作。
 
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(5, 5, 5, 5);
+        gbc.insets = new Insets(5, 5, 5, 5);//设置每个组件之间的间距（上、左、下、右各 5 像素）。
 
         JLabel inputDateLabel = new JLabel("日期(YYYY-MM)");
         gbc.gridx = 1;
