@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ccc77131-6af0-447f-bf09-6192a51df474" name="Changes" comment="refactor(dao): 新增 BaseEntity 类，重构 IDataStorage 接口&#10;&#10;- 新增 BaseEntity 类，实现 IDataStorage 接口的通用方法&#10;- 重构 IDataStorage 接口，新增 getDatabaseName 和 loadAll 方法&#10;- 更新 Building 和 UserInfo 类，使其继承 BaseEntity&#10;- 修改相关 GUI 类，使用新接口方法进行数据库操作&#10;- 更新项目依赖，明确指定 hutool 和 mysql 连接器版本">
+    <list default="true" id="ccc77131-6af0-447f-bf09-6192a51df474" name="Changes" comment="refactor(utils): 移除 MentionUtil 类中未使用的导入&#10;&#10;- 删除了 MentionUtil.java 中未使用的 UserInfo 导入&#10;- 优化了代码结构，提高了代码的可读性和维护性">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/BaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/BaseEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/UserInfoPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/UserInfoPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/MentionUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/MentionUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -102,6 +105,9 @@
     &quot;accountId&quot;: &quot;a8d317a0-a618-452a-ac30-82233210993a&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -260,7 +266,7 @@
       <workItem from="1749469118570" duration="3956000" />
       <workItem from="1749476545459" duration="3638000" />
       <workItem from="1749557204327" duration="3725000" />
-      <workItem from="1749710168782" duration="5465000" />
+      <workItem from="1749710168782" duration="6666000" />
     </task>
     <task id="LOCAL-00002" summary="refactor(userinfo): 重构用户信息管理功能&#10;&#10;- 更新了 UserInfo 类,移除了冗余的 getter 和 setter 方法&#10;- 重写了 UserInfoPage 类,简化了用户信息的展示和操作&#10;- 修改了数据库操作逻辑,使用 Hutool 的 Entity 类进行数据处理&#10;- 优化了项目配置,更新了依赖库版本">
       <option name="closed" value="true" />
@@ -294,13 +300,13 @@
       <option name="project" value="LOCAL" />
       <updated>1749716435242</updated>
     </task>
-    <task id="LOCAL-00006" summary="build: 添加 Hutool 依赖&#10;&#10;- 在 PropGuardian.iml 文件中添加了 cn.hutool.all 库的项目级别依赖- 此修改可能为了引入 Hutool 工具库，以支持项目中的某些功能">
+    <task id="LOCAL-00006" summary="refactor(utils): 移除 MentionUtil 类中未使用的导入&#10;&#10;- 删除了 MentionUtil.java 中未使用的 UserInfo 导入&#10;- 优化了代码结构，提高了代码的可读性和维护性">
       <option name="closed" value="true" />
-      <created>1742455510375</created>
+      <created>1749716507626</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1742455510375</updated>
+      <updated>1749716507626</updated>
     </task>
     <task id="LOCAL-00007" summary="feat(db): 重构数据库连接方式并添加 Hutool 依赖- 修改 .env 文件，将 MySQL 连接信息拆分为单独的属性&#10;- 新增 MySql 类，使用 SimpleDataSource 实现数据库连接- 在 PropCore 中集成 MySql，并在启动时进行连接测试&#10;- 添加 cn.hutool.all 依赖，以支持数据库操作等功能">
       <option name="closed" value="true" />
@@ -422,7 +428,7 @@
       <option name="project" value="LOCAL" />
       <updated>1748512196125</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -466,6 +472,7 @@
     <MESSAGE value="refactor(userinfo): 重构用户信息管理功能&#10;&#10;- 更新了 UserInfo 类,移除了冗余的 getter 和 setter 方法&#10;- 重写了 UserInfoPage 类,简化了用户信息的展示和操作&#10;- 修改了数据库操作逻辑,使用 Hutool 的 Entity 类进行数据处理&#10;- 优化了项目配置,更新了依赖库版本" />
     <MESSAGE value="refactor(gui): 重构业主指数录入页面&#10;&#10;- 在 OwnerIndexEntryPage 中，将输入日期格式统一为 yyyy-MM-dd，末尾自动添加 &quot;-01&quot;&#10;- 更新 PropGuardian.iml 文件，明确指定依赖库版本&#10;- 修改 .idea/workspace.xml，优化工作空间配置" />
     <MESSAGE value="refactor(dao): 新增 BaseEntity 类，重构 IDataStorage 接口&#10;&#10;- 新增 BaseEntity 类，实现 IDataStorage 接口的通用方法&#10;- 重构 IDataStorage 接口，新增 getDatabaseName 和 loadAll 方法&#10;- 更新 Building 和 UserInfo 类，使其继承 BaseEntity&#10;- 修改相关 GUI 类，使用新接口方法进行数据库操作&#10;- 更新项目依赖，明确指定 hutool 和 mysql 连接器版本" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor(dao): 新增 BaseEntity 类，重构 IDataStorage 接口&#10;&#10;- 新增 BaseEntity 类，实现 IDataStorage 接口的通用方法&#10;- 重构 IDataStorage 接口，新增 getDatabaseName 和 loadAll 方法&#10;- 更新 Building 和 UserInfo 类，使其继承 BaseEntity&#10;- 修改相关 GUI 类，使用新接口方法进行数据库操作&#10;- 更新项目依赖，明确指定 hutool 和 mysql 连接器版本" />
+    <MESSAGE value="refactor(utils): 移除 MentionUtil 类中未使用的导入&#10;&#10;- 删除了 MentionUtil.java 中未使用的 UserInfo 导入&#10;- 优化了代码结构，提高了代码的可读性和维护性" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor(utils): 移除 MentionUtil 类中未使用的导入&#10;&#10;- 删除了 MentionUtil.java 中未使用的 UserInfo 导入&#10;- 优化了代码结构，提高了代码的可读性和维护性" />
   </component>
 </project>
