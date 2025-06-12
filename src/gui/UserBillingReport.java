@@ -11,19 +11,19 @@ import java.util.List;
 
 // 添加缺失的swing组件导入
 import javax.swing.*;
-import javax.swing.border.EmptyBorder; // 新增导入语句
+import javax.swing.border.EmptyBorder;
 
-import cn.hutool.db.Db; // 添加缺失的导入语句
+import cn.hutool.db.Db;
 import cn.hutool.db.Entity;
-import core.PropCore; // 添加 PropCore 的导入语句
+import core.PropCore;
 
 public class UserBillingReport extends JFrame {
 
     private JTable table;
     private JComboBox<String> roomIdField; // 修改为 JComboBox<String>
     private JTextField dateField;   // 保留日期字段
-    private JComboBox<String> buildingComboBox; // 新增楼宇选择下拉框
-    private JComboBox<String> communityComboBox; // 新增小区选择下拉框
+    private JComboBox<String> buildingComboBox; // 楼宇选择下拉框
+    private JComboBox<String> communityComboBox; // 小区选择下拉框
     private Db db;
 
     public UserBillingReport() {
@@ -93,7 +93,7 @@ public class UserBillingReport extends JFrame {
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT, 15, 10)); // 增加水平和垂直间距
         JButton queryButton = new JButton("查询");
         
-        // 新增操作按钮
+        // 操作按钮
         JButton addButton = new JButton("新增");
         JButton editButton = new JButton("修改");
         JButton deleteButton = new JButton("删除");
@@ -119,7 +119,7 @@ public class UserBillingReport extends JFrame {
         // 初始化小区下拉框
         loadCommunities();
 
-        // 查询按钮事件保持不变
+        // 查询按钮事件
         queryButton.addActionListener((ActionEvent e) -> {
             String roomId = (String) roomIdField.getSelectedItem(); // 获取选中的房间ID
             String date = dateField.getText().trim();
@@ -149,7 +149,7 @@ public class UserBillingReport extends JFrame {
                 table.setModel(new DefaultTableModel());
             }
             
-            // 新增：当小区选择变化时自动触发查询
+            // 当小区选择变化时自动触发查询
             if(selectedCommunity != null && !selectedCommunity.equals("选择小区")) {
                 String roomId = (String) roomIdField.getSelectedItem();
                 String date = dateField.getText().trim();
@@ -172,7 +172,7 @@ public class UserBillingReport extends JFrame {
                 table.setModel(new DefaultTableModel());
             }
             
-            // 新增：当楼宇选择变化时自动触发查询
+            // 当楼宇选择变化时自动触发查询
             if(selectedBuilding != null && !selectedBuilding.equals("选择楼宇")) {
                 String roomId = (String) roomIdField.getSelectedItem();
                 String date = dateField.getText().trim();
@@ -188,7 +188,7 @@ public class UserBillingReport extends JFrame {
             dateField.setText("");
             table.setModel(new DefaultTableModel());
             
-            // 新增：当房间选择变化时自动触发查询
+            // 当房间选择变化时自动触发查询
             String roomId = (String) roomIdField.getSelectedItem();
             String date = dateField.getText().trim();
             if(roomId != null && !roomId.isEmpty()) {
@@ -200,7 +200,7 @@ public class UserBillingReport extends JFrame {
         //this.loadFeesData("", ""); // 默认不加载所有数据，需选择楼宇后再加载
     }
 
-    // 新增加载小区信息方法
+    // 加载小区信息方法
     private void loadCommunities() {
         try {
             List<Entity> communities = db.query("SELECT DISTINCT district_id FROM community_info");
@@ -215,7 +215,7 @@ public class UserBillingReport extends JFrame {
         }
     }
 
-    // 修改加载楼宇方法支持按小区过滤
+    // 加载楼宇方法支持按小区过滤
     private void loadBuildings(String communityId) {
         try {
             List<Entity> buildings = db.query("SELECT building_id FROM building_info WHERE district_id = ?", communityId);
@@ -245,13 +245,13 @@ public class UserBillingReport extends JFrame {
 
     // 查询方法
     private void loadFeesData(String roomId, String date) {
-        // 更新列名以包含各单项费用
+
         String[] columnNames = {"房间ID", "日期", "水表读数", "电费读数", "燃气读数"};
         DefaultTableModel model = new DefaultTableModel(columnNames, 0);
 
         try {
             StringBuilder sqlBuilder = new StringBuilder(
-                    "SELECT room_number, input_date AS date, " +  // 将 room_id 改为 room_number
+                    "SELECT room_number, input_date AS date, " +
                             "water_reading, electric_reading, gas_reading " +
                             "FROM meter_reading WHERE 1=1"
             );
@@ -259,8 +259,8 @@ public class UserBillingReport extends JFrame {
             List<Object> params = new ArrayList<>();
 
             if (!roomId.isEmpty()) {
-                sqlBuilder.append(" AND room_number = ?");  // 将 room_id 改为 room_number
-                params.add(roomId);  // 移除 Integer.parseInt，直接使用 roomId
+                sqlBuilder.append(" AND room_number = ?");
+                params.add(roomId); 
             }
             if (!date.isEmpty()) {
                 sqlBuilder.append(" AND input_date LIKE ?");
@@ -271,7 +271,7 @@ public class UserBillingReport extends JFrame {
 
             for (Entity entity : feesList) {
                 model.addRow(new Object[]{
-                        entity.getStr("room_number"),  // 将 getInt("room_id") 改为 getStr("room_number")
+                        entity.getStr("room_number"),
                         entity.getStr("date"),
                         entity.getDouble("water_reading"),
                         entity.getDouble("electric_reading"),
@@ -290,7 +290,7 @@ public class UserBillingReport extends JFrame {
         table.setModel(model);
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new UserBillingReport());
-    }
+//    public static void main(String[] args) {
+//        SwingUtilities.invokeLater(() -> new UserBillingReport());
+//    }
 }

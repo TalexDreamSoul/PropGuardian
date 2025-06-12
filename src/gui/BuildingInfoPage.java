@@ -117,11 +117,17 @@ public class BuildingInfoPage extends JFrame {
 
     private void addBuilding() {
         try {
+            double totalArea = Double.parseDouble(getField(3));
+            if (totalArea < 0) { // 添加面积校验
+                showError("面积不能为负数，请输入正确的面积值");
+                return;
+            }
+
             Entity entity = Entity.create("building_info")
                     .set("district_id", getField(0))
                     .set("building_id", getField(1))
                     .set("total_storey", Integer.parseInt(getField(2)))
-                    .set("total_area", Double.parseDouble(getField(3)))
+                    .set("total_area", totalArea)
                     .set("height", Double.parseDouble(getField(4)))
                     .set("type", getField(5))
                     .set("status", getField(6));
@@ -140,9 +146,14 @@ public class BuildingInfoPage extends JFrame {
             return;
         }
         try {
+            double area = Double.parseDouble(getField(3));
+            if (area < 0) { // 添加面积校验
+                showError("面积不能为负数，请输入正确的面积值");
+                return;
+            }
             Entity update = Entity.create("building_info")
                     .set("total_storey", Integer.parseInt(getField(2)))
-                    .set("total_area", Double.parseDouble(getField(3)))
+                    .set("total_area", area)
                     .set("height", Double.parseDouble(getField(4)))
                     .set("type", getField(5))
                     .set("status", getField(6));
@@ -193,6 +204,10 @@ public class BuildingInfoPage extends JFrame {
 
     private String getField(int index) {
         return fields[index].getText().trim();
+    }
+
+    private void showError(String title) {
+        JOptionPane.showMessageDialog(this, title, "错误", JOptionPane.ERROR_MESSAGE);
     }
 
     private void showError(String title, Exception e) {
