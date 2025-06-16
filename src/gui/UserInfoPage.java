@@ -116,7 +116,7 @@ public class UserInfoPage extends JFrame {
         });
 
         deleteBtn.addActionListener(e -> {
-            new UserInfo().deleteFixed("id", table.getSelectedRow(), this::refreshTable, this);
+            new UserInfo().deleteFixedEntity(new UserInfo().getEntity().set("uname", table.getValueAt(table.getSelectedRow(), 0)), this::refreshTable, this);
         });
 
         resetBtn.addActionListener(e -> {

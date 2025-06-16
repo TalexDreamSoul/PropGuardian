@@ -22,7 +22,7 @@ public class OwnerInfo extends BaseEntity {
 
     // 构造函数
     public OwnerInfo(short district_id, short building_id, short room_id, double area, String status, String purpose, String oname, String sex, String id_num, String address, String phone) {
-        super("ownerinfo");
+        super("owner_info");
         this.district_id = district_id;
         this.building_id = building_id;
         this.room_id = room_id;
@@ -36,9 +36,9 @@ public class OwnerInfo extends BaseEntity {
         this.phone = phone;
     }
     // Getter 和 Setter 方法
-    private final Logger logger = Logger.getLogger("Ownerinfo");
+    private final Logger logger = Logger.getLogger("owner_info");
 
-    public OwnerInfo() {super("ownerinfo");}
+    public OwnerInfo() {super("owner_info");}
 
 
     @SneakyThrows
