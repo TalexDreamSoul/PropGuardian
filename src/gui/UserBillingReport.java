@@ -240,7 +240,7 @@ public class UserBillingReport extends JFrame {
             query.set("room_number", roomId);
         }
         if (!date.isEmpty()) {
-            query.set("input_date", date + "%");
+            query.set("input_date", date + "-01");
         }
 
         List<Entity> feesList = meterReading.loadAll(query);
@@ -248,7 +248,7 @@ public class UserBillingReport extends JFrame {
         for (Entity entity : feesList) {
             model.addRow(new Object[]{
                     entity.getStr("room_number"),
-                    entity.getStr("date"),
+                    entity.getStr("input_date"),
                     entity.getDouble("water_reading"),
                     entity.getDouble("electric_reading"),
                     entity.getDouble("gas_reading")

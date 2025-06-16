@@ -1,12 +1,13 @@
 package dao.entity;
 
 import dao.BaseEntity;
+import lombok.Data;
 import lombok.Getter;
 import lombok.SneakyThrows;
 
 import java.util.logging.Logger;
 
-@Getter
+@Data
 public class UserInfo extends BaseEntity {
 
     private String uname;
@@ -17,7 +18,7 @@ public class UserInfo extends BaseEntity {
 
     // 构造函数
     public UserInfo(String uname, String paswrd, int purview) {
-        super("userinfo");
+        super("UserInfo");
 
         this.uname = uname;
         this.paswrd = paswrd;
@@ -25,7 +26,7 @@ public class UserInfo extends BaseEntity {
     }
 
     public UserInfo() {
-        super("userinfo");
+        super("UserInfo");
     }
 
     @SneakyThrows
