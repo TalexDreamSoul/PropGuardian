@@ -1,0 +1,17 @@
+Settings:
+  identifier: stars
+  author: TALEX
+  version: 1.0.0
+
+Stars:
+  1: # 警星等级，只能为数字
+    respawn:
+      w: world # 重生的世界名字
+      x: 0
+      y: 0
+      z: 0
+    health: 0.5 # 重生时的血量百分比 (0.0 ~ 1.0)
+    clear: false # 是否清除星级
+    pay: 0 # 重生时的金钱消耗
+    prison: false # 是否进监狱 若此项为true则respawn的重生位置失效，直接送往监狱）
+
