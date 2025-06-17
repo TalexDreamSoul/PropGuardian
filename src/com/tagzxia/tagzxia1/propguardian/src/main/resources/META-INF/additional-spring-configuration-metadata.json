@@ -1,0 +1,84 @@
+{
+  "properties": [
+    {
+      "name": "sa-token.token-name",
+      "type": "java.lang.String",
+      "description": "Description for sa-token.token-name."
+    },
+    {
+      "name": "sa-token.timeout",
+      "type": "java.lang.String",
+      "description": "Description for sa-token.timeout."
+    },
+    {
+      "name": "sa-token.is-concurrent",
+      "type": "java.lang.String",
+      "description": "Description for sa-token.is-concurrent."
+    },
+    {
+      "name": "mysql.port",
+      "type": "java.lang.String",
+      "description": "Description for mysql.port."
+    },
+    {
+      "name": "mysql.ip",
+      "type": "java.lang.String",
+      "description": "Description for mysql.ip."
+    },
+    {
+      "name": "mysql.database",
+      "type": "java.lang.String",
+      "description": "Description for mysql.database."
+    },
+    {
+      "name": "mysql.username",
+      "type": "java.lang.String",
+      "description": "Description for mysql.username."
+    },
+    {
+      "name": "mysql.password",
+      "type": "java.lang.String",
+      "description": "Description for mysql.password."
+    },
+    {
+      "name": "mysql.useSSL",
+      "type": "java.lang.String",
+      "description": "Description for mysql.useSSL."
+    },
+    {
+      "name": "elasticsearch.schema",
+      "type": "java.lang.String",
+      "description": "Description for elasticsearch.schema."
+    },
+    {
+      "name": "elasticsearch.address",
+      "type": "java.lang.String",
+      "description": "Description for elasticsearch.address."
+    },
+    {
+      "name": "elasticsearch.connectTimeout",
+      "type": "java.lang.String",
+      "description": "Description for elasticsearch.connectTimeout."
+    },
+    {
+      "name": "elasticsearch.socketTimeout",
+      "type": "java.lang.String",
+      "description": "Description for elasticsearch.socketTimeout."
+    },
+    {
+      "name": "elasticsearch.connectionRequestTimeout",
+      "type": "java.lang.String",
+      "description": "Description for elasticsearch.connectionRequestTimeout."
+    },
+    {
+      "name": "elasticsearch.maxConnectNum",
+      "type": "java.lang.String",
+      "description": "Description for elasticsearch.maxConnectNum."
+    },
+    {
+      "name": "elasticsearch.maxConnectPerRoute",
+      "type": "java.lang.String",
+      "description": "Description for elasticsearch.maxConnectPerRoute."
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+<assembly>
+    <id>talexs</id>
+    <formats>
+        <format>tar.gz</format>
+        <format>zip</format>
+    </formats>
+    <includeBaseDirectory>true</includeBaseDirectory>
+    <!--第三方依赖设置-->
+    <dependencySets>
+        <dependencySet>
+            <!-- 不使用项目的artifact，第三方jar不要解压，打包进zip文件的lib目录 -->
+            <useProjectArtifact>false</useProjectArtifact>
+            <outputDirectory>lib</outputDirectory>
+            <unpack>false</unpack>
+        </dependencySet>
+    </dependencySets>
+    <fileSets>
+        <fileSet>
+            <directory>src/main/assembly/start</directory>
+            <outputDirectory>/</outputDirectory>
+            <fileMode>0755</fileMode>
+            <lineEnding>unix</lineEnding>
+            <filtered>true</filtered>
+        </fileSet>
+        <fileSet>
+            <directory>src/main/assembly/config</directory>
+            <outputDirectory>config</outputDirectory>
+            <fileMode>0644</fileMode>
+        </fileSet>
+        <fileSet>
+            <directory>src/main/resources</directory>
+            <outputDirectory>/config</outputDirectory>
+            <includes>
+                <include>**/*.xml</include>
+                <include>**/*.properties</include>
+                <include>**/*.yml</include>
+            </includes>
+            <filtered>true</filtered><!-- 是否进行属性替换 -->
+        </fileSet>
+        <fileSet>
+            <directory>target</directory>
+            <outputDirectory>lib</outputDirectory>
+            <includes>
+                <include>*.jar</include>
+            </includes>
+        </fileSet>
+        <!-- 将项目说明文档打包到docs目录中 -->
+        <fileSet>
+            <directory>.</directory>
+            <outputDirectory>docs</outputDirectory>
+            <includes>
+                <include>*.md</include>
+            </includes>
+            <fileMode>0644</fileMode>
+        </fileSet>
+        <fileSet>
+            <directory>docs</directory>
+            <outputDirectory>docs</outputDirectory>
+            <fileMode>0644</fileMode>
+        </fileSet>
+        <fileSet>
+            <directory>src/main/assembly/docs</directory>
+            <outputDirectory>docs</outputDirectory>
+            <fileMode>0644</fileMode>
+        </fileSet>
+    </fileSets>
+</assembly>

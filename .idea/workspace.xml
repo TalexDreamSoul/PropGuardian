@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ccc77131-6af0-447f-bf09-6192a51df474" name="Changes" comment="chore: update TalexFrame lib" />
+    <list default="true" id="ccc77131-6af0-447f-bf09-6192a51df474" name="Changes" comment="chore: update libs with structure optimized" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -118,8 +118,7 @@
   "keyToString": {
     "Application.PropLauncher.executor": "Run",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "tzx",
-    "last_opened_file_path": "E:/Workspace/Java/Projects/PropGuardian/src/com/tagzxia/propguardian",
+    "last_opened_file_path": "E:/Workspace/Java/Projects/PropGuardian/src/com",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -133,11 +132,14 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Workspace\Java\Projects\PropGuardian\src\com" />
       <recent name="E:\Workspace\Java\Projects\PropGuardian\src\com\tagzxia\trh" />
       <recent name="E:\Workspace\Java\Projects\PropGuardian\src\com\tagzxia\te" />
       <recent name="E:\Workspace\Java\Projects\PropGuardian\src\com\tagzxia" />
       <recent name="E:\Workspace\Java\Projects\PropGuardian\src\com\tagzxia\propguardian" />
-      <recent name="C:\Users\lenovo\IdeaProjects\PropGuardian1\src\learning\zhy\week11223344" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Workspace\Java\Projects\PropGuardian\src\com\tagzxia" />
     </key>
   </component>
   <component name="RunManager" selected="Application.PropLauncher">
@@ -266,7 +268,8 @@
       <workItem from="1749710168782" duration="13651000" />
       <workItem from="1749738043806" duration="2733000" />
       <workItem from="1749977727933" duration="1247000" />
-      <workItem from="1750130178260" duration="3601000" />
+      <workItem from="1750130178260" duration="4338000" />
+      <workItem from="1750171071784" duration="142000" />
     </task>
     <task id="LOCAL-00002" summary="refactor(userinfo): 重构用户信息管理功能&#10;&#10;- 更新了 UserInfo 类,移除了冗余的 getter 和 setter 方法&#10;- 重写了 UserInfoPage 类,简化了用户信息的展示和操作&#10;- 修改了数据库操作逻辑,使用 Hutool 的 Entity 类进行数据处理&#10;- 优化了项目配置,更新了依赖库版本">
       <option name="closed" value="true" />
@@ -388,21 +391,21 @@
       <option name="project" value="LOCAL" />
       <updated>1750169724823</updated>
     </task>
-    <task id="LOCAL-00017" summary="refactor: 重构 StudentExtractor 类&#10;&#10;- 修改包名：从 learning.tzx.lesson4 改为 learning.step4&#10;- 更新文件路径：从 src/learning/tzx/lesson4/StudentExtractor.java 改为 src/learning/step4/StudentExtractor.java">
+    <task id="LOCAL-00017" summary="feat(core): 添加高级工作台和炼金术分类&#10;&#10;- 新增高级工作台机器和相关GUI- 添加炼金术分类和相关物品&#10;- 实现高级工作台的合成逻辑和配方查看功能- 优化物品堆栈管理和配方验证逻辑">
       <option name="closed" value="true" />
-      <created>1746695224488</created>
+      <created>1750170017783</created>
       <option name="number" value="00017" />
       <option name="presentableId" value="LOCAL-00017" />
       <option name="project" value="LOCAL" />
-      <updated>1746695224488</updated>
+      <updated>1750170017783</updated>
     </task>
-    <task id="LOCAL-00018" summary="refactor: 重构 StudentExtractor 类&#10;&#10;- 修改包名：从 learning.tzx.lesson4 改为 learning.step4&#10;- 更新文件路径：从 src/learning/tzx/lesson4/StudentExtractor.java 改为 src/learning/step4/StudentExtractor.java">
+    <task id="LOCAL-00018" summary="chore: update libs with structure optimized">
       <option name="closed" value="true" />
-      <created>1746695400071</created>
+      <created>1750170842429</created>
       <option name="number" value="00018" />
       <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
-      <updated>1746695400071</updated>
+      <updated>1750170842429</updated>
     </task>
     <task id="LOCAL-00019" summary="refactor: 重构 StudentExtractor 类&#10;&#10;- 修改包名：从 learning.tzx.lesson4 改为 learning.step4&#10;- 更新文件路径：从 src/learning/tzx/lesson4/StudentExtractor.java 改为 src/learning/step4/StudentExtractor.java">
       <option name="closed" value="true" />
@@ -428,7 +431,7 @@
       <option name="project" value="LOCAL" />
       <updated>1748512196125</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -481,6 +484,8 @@
     <MESSAGE value="refactor(userinfo): 重构用户信息管理功能&#10;&#10;- 更新了 UserInfo 类，移除了冗余的 getter 和 setter 方法&#10;- 重写了 UserInfoPage 类，简化了用户信息的展示和操作&#10;- 修改了数据库操作逻辑，使用 Hutool 的 Entity 类进行数据处理&#10;- 优化了项目配置，更新了依赖库版本" />
     <MESSAGE value="refactor(gui): 重构业主信息管理功能&#10;&#10;- 更新了 HouseInfoPage 类，移除了冗余的 getter 和 setter 方法&#10;- 重写了 HouseInfoPage 类，简化了业主信息的展示和操作&#10;- 修改了数据库操作逻辑，使用 Hutool 的 Entity 类进行数据处理&#10;- 优化了项目配置，更新了依赖库版本" />
     <MESSAGE value="chore: update TalexFrame lib" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: update TalexFrame lib" />
+    <MESSAGE value="feat(core): 添加高级工作台和炼金术分类&#10;&#10;- 新增高级工作台机器和相关GUI- 添加炼金术分类和相关物品&#10;- 实现高级工作台的合成逻辑和配方查看功能- 优化物品堆栈管理和配方验证逻辑" />
+    <MESSAGE value="chore: update libs with structure optimized" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: update libs with structure optimized" />
   </component>
 </project>
