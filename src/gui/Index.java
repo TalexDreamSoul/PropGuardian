@@ -55,7 +55,7 @@ public class Index extends JFrame {
         });
         // Add action listener to "House Info Maintenance" menu item
         houseInfoItem.addActionListener(e -> {
-            OwnerInfoPage houseInfoPage = new OwnerInfoPage();
+            HouseInfoPage houseInfoPage = new HouseInfoPage();
             houseInfoPage.setVisible(true);
         });
         // Add action listener to "User Info Maintenance" menu item
