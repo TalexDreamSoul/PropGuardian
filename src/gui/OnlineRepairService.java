@@ -90,14 +90,14 @@ public class OnlineRepairService extends JFrame {
         descriptionArea.setLineWrap(true);
         descriptionArea.setWrapStyleWord(true);
         JScrollPane descriptionScrollPane = new JScrollPane(descriptionArea);
-        
+
         // 修改部分：调整位置
         gbc.gridx = 0;
         gbc.gridy = 2;
         gbc.gridwidth = 1;
         gbc.anchor = GridBagConstraints.NORTHEAST;
         panel.add(descriptionLabel, gbc);
-        
+
         gbc.gridx = 1;
         gbc.gridwidth = 3;
         gbc.fill = GridBagConstraints.HORIZONTAL;
