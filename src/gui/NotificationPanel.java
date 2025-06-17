@@ -63,13 +63,6 @@ public class NotificationPanel extends JFrame {
         customCommunityField = new JTextField(20);
         detailsPanel.add(customCommunityField, gbc);
 
-        // 紧急复选框
-        gbc.gridx = 0;
-        gbc.gridy = 3;
-        gbc.gridwidth = 2;
-        urgentCheckBox = new JCheckBox("紧急通知");
-        detailsPanel.add(urgentCheckBox, gbc);
-
         add(detailsPanel, BorderLayout.NORTH);
 
         // 表格用于显示通知状态和反馈
