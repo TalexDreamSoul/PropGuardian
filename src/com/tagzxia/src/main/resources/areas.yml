@@ -1,0 +1,63 @@
+Settings:
+  identifier: areas
+  author: TALEX
+  version: 1.0.0
+  # 更新安全区配置
+  refresh:
+    #时间 单位：秒 （若只有一个区域该功能不生效）
+    time: 900
+    # 更新安全区域时的全服公告，其中变量为安全区域的名字
+    msg: "&c公告：安全区域已经更新为了%ass_place%地区！"
+
+Areas:
+  1: # 区域ID (可以随便填写，尽量填写数字，不可重复）
+    type: SAFE # 填写 SAFE 或者 PRISON 或者 POLICE （表示是安全区 or 监狱 or 警局）
+    world:
+      name: world # 世界名
+      pos1:
+        x: 0 # 区域坐标1
+        y: 0
+        z: 0
+      pos2:
+        x: 0 # 区域坐标2
+        y: 0
+        z: 0
+    stars:
+      # 1星配置
+      1: 50 #在本安全区域内消除警星需要等待的时间，单位为秒
+      2: 100
+      3: 200
+      4: 300
+      5: 500
+  2:
+    type: PRISON
+    world:
+      name: world
+      pos1:
+        x: 0 # 区域坐标1
+        y: 0
+        z: 0
+      pos2:
+        x: 0 # 区域坐标2
+        y: 0
+        z: 0
+    # 保释花费配置
+    bail:
+      # 玩家被释放的时间 单位：秒 （释放后回到重生点）
+      time: 480
+      # 自己保释自己耗费
+      self: 500
+      # 保释他人耗费
+      other: 1000
+  3:
+    type: POLICE
+    world:
+      name: world
+      pos1:
+        x: 0 # 区域坐标1
+        y: 0
+        z: 0
+      pos2:
+        x: 0 # 区域坐标2
+        y: 0
+        z: 0
