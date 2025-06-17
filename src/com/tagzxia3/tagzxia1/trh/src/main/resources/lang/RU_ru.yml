@@ -1,0 +1,60 @@
+Plugin-UnsupportedVersion: '&8[&2Tr&aHologram&8] &cERROR &8| &cПлагин не поддерживает версию сервера Minecraft!'
+Plugin-Loading:
+  - '&r'
+  - '&7Загрузка &2Tr&aHologram... &8{0}'
+  - '&aПеревод подготовлен UnknownZuVEnO'
+  - '&r'
+Plugin-Enabled: '&8[&2Tr&aHologram&8] &bINFO &8| &3Плагин запущен! Версия плагина &2{0}&7.'
+Plugin-Update:
+  - '&8[&2Tr&aHologram&8] &bUPDATE &8| &3Обновление &a{0}&3 найдено! Скачайте его для исправления багов и новых фишек!'
+  - '&bhttps://www.spigotmc.org/resources/75503/'
+Plugin-Dependency-Hooked: '&8[&2Tr&aHologram&8] &6HOOK &8| &7Дополнение &f{0} &7привязан.'
+Plugin-Dependency-Abuse: '&8[&2Tr&aHologram&8] &6HOOK &8| &4Попытка загрузить неустановленный требуемый плагин &c{0}'
+
+Hologram-Loaded: '&8[&2Tr&aHologram&8] &aFINE &8| &a{0} &3Голограммы загрузились за &8({1} ms)'
+
+Paster-Processing: '&8[&2Tr&aHologram&8] &7Вставляем содержимое...'
+Paster-Success: '&8[&2Tr&aHologram&8] &3Содержимое вставлено за &a{0}'
+Paster-Failed: '&8[&2Tr&aHologram&8] &cПроизошла ошибка при вставке содержимого. Проверьте консоль.'
+
+Command-Help-Type: 'Тип'
+Command-Help-Args: 'Параметры'
+
+COMMAND-CREATE-DESCRIPTION: 'Создание новой голограммы'
+COMMAND-DELETE-DESCRIPTION: 'Удалить существующую голограмму'
+COMMAND-LIST-DESCRIPTION: 'Список загруженных голограмм'
+COMMAND-MIRROR-DESCRIPTION: 'Мониторинг производительности'
+COMMAND-MOVEHERE-DESCRIPTION: 'Телепортируйте голограмму в свое местоположение'
+COMMAND-RELOAD-DESCRIPTION: 'Перезагрузить голограммы'
+COMMAND-TELEPORT-DESCRIPTION: 'Телепортироваться в местоположение голограммы'
+
+Command-Reload: '&8[&2Tr&aHologram&8] &aFINE &8| &3Голограммы перезагрузились. &a{0}'
+Command-List-Error: '&8[&2Tr&aHologram&8] &7NORM &8| &7Голограм не нашлось 0_0 &8(Filter: {0})'
+Command-List-Header:
+  - ''
+  - '&8[&2Tr&aHologram&8] &aFINE &8| &7Загружено &f{0} &7голограмм &8(Filter: {1}): '
+  - ''
+Command-List-Format:
+  - type: JSON
+    text: '&8- [&3{0}] &7| &8(Lines: {1})&r'
+    args:
+      - hover: '&7Кликните, чтобы переместить'
+        command: '/trhologram teleport {0}'
+Command-Not-Exists: '&8[&2Tr&aHologram&8] &7NORM &8| &7Голограмма &f{0} не существует.'
+Command-Deleted: '&8[&2Tr&aHologram&8] &aNORM &8| &3Удалена голограмма с именем &3{0}&3.'
+Command-Existed:
+  - type: TITLE
+    title: '&c&lОПЕРАЦИЯ ОТМЕНЕНА'
+    subtitle: '&7&lДублирование ID голограммы'
+  - type: SOUND
+    sound: ITEM_SHIELD_BREAK
+    volume: 1
+    pitch: 2
+Command-Created:
+  - type: TITLE
+    title: '&a&lГОТОВО'
+    subtitle: '&a&lТеперь настройте голограмму'
+  - type: SOUND
+    sound: ITEM_BOTTLE_FILL
+    volume: 1
+    pitch: 2
