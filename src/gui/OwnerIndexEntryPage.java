@@ -180,8 +180,8 @@ public class OwnerIndexEntryPage extends JFrame {
                     Double.parseDouble(waterReading1),
                     Double.parseDouble(electricReading1),
                     Double.parseDouble(gasReading1),
-                    null,
-                    null
+                    -1,
+                    -1
             );
 
             // 添加社区和楼宇信息，确保它们是有效的数字字符串
@@ -200,8 +200,8 @@ public class OwnerIndexEntryPage extends JFrame {
                     Double.parseDouble(waterReading2),
                     Double.parseDouble(electricReading2),
                     Double.parseDouble(gasReading2),
-                    null,
-                    null
+                    -1,
+                    -1
             );
 
             // 添加社区和楼宇信息，确保它们是有效的数字字符串
