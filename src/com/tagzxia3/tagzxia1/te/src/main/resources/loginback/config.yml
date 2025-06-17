@@ -1,0 +1,9 @@
+Settings:
+  login:
+    world: "spawn"
+    x: -121.5
+    y: 11
+    z: 49.5
+    yaw: .5
+    pitch: .5
+  spawn: "/spawn"
