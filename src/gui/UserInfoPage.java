@@ -8,6 +8,7 @@ import utils.MentionUtil;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.sql.SQLException;
 import java.util.List;
 
 public class UserInfoPage extends JFrame {
@@ -21,7 +22,7 @@ public class UserInfoPage extends JFrame {
         setSize(900, 600);
         setLocationRelativeTo(null);
 
-        String[] columnNames = {"姓名", "密码", "权限"};
+        String[] columnNames = {"ID", "姓名", "密码", "权限"};
         tableModel = new DefaultTableModel(columnNames, 0);
         table = new JTable(tableModel);
         JScrollPane scrollPane = new JScrollPane(table);
@@ -84,7 +85,7 @@ public class UserInfoPage extends JFrame {
                 return;
             }
 
-            boolean storage = new UserInfo(name, paswrd, purview).storage();
+            boolean storage = new UserInfo(-1, name, paswrd, purview).storage();
             MentionUtil.mentionForAdd(storage, this, this::refreshTable);
         });
 
@@ -112,7 +113,18 @@ public class UserInfoPage extends JFrame {
                 return;
             }
 
-            new UserInfo(name, paswrd, purview).updateFixedSelf(this::refreshTable, this);
+            UserInfo userInfo = new UserInfo(Integer.parseInt(String.valueOf(table.getValueAt(selectedRow, 0))), name, paswrd, purview);
+            try {
+                userInfo.getMySql().use().update(userInfo.getEntity().set("uname", userInfo.getUname())
+                        .set("paswrd", userInfo.getPaswrd())
+                        .set("purview", userInfo.getPurview()),
+                        userInfo.getEntity().set("id", userInfo.getId())
+                );
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+
+            this.refreshTable();
         });
 
         deleteBtn.addActionListener(e -> {
@@ -127,6 +139,16 @@ public class UserInfoPage extends JFrame {
 
         // 默认加载所有数据到表格中
         refreshTable();
+
+        table.getSelectionModel().addListSelectionListener(e -> {
+            if (!e.getValueIsAdjusting() && table.getSelectedRow() != -1) {
+                int row = table.getSelectedRow();
+
+                nameField.setText(String.valueOf(table.getValueAt(row, 1)));
+                paswrdField.setText(String.valueOf(table.getValueAt(row, 2)));
+                purviewField.setText(String.valueOf(table.getValueAt(row, 3)));
+            }
+        });
     }
 
     private void refreshTable() {
@@ -135,9 +157,11 @@ public class UserInfoPage extends JFrame {
 
     private void updateTable(List<UserInfo> results) {
         tableModel.setRowCount(0);
+
         if (results != null) {
             for (UserInfo info : results) {
                 tableModel.addRow(new Object[] {
+                        info.getId(),
                     info.getUname(),
                     info.getPaswrd(), info.getPurview()
                 });
