@@ -14,9 +14,6 @@ public class Index extends JFrame {
         // Create navigation bar
         JMenuBar menuBar = new JMenuBar();
 
-        JMenu manageMenu = new JMenu("System Management");
-        menuBar.add(manageMenu);
-
         // Add basic information menu and its sub-menu items
         JMenu basicInfoMenu = new JMenu("Basic Information");
         JMenuItem communityInfoItem = new JMenuItem("Community Info Maintenance");
@@ -58,7 +55,7 @@ public class Index extends JFrame {
         });
         // Add action listener to "House Info Maintenance" menu item
         houseInfoItem.addActionListener(e -> {
-            OwnerInfoPage houseInfoPage = new OwnerInfoPage();
+            HouseInfoPage houseInfoPage = new HouseInfoPage();
             houseInfoPage.setVisible(true);
         });
         // Add action listener to "User Info Maintenance" menu item
@@ -116,20 +113,6 @@ public class Index extends JFrame {
         });
         propertyBillItem.addActionListener(e -> {
             new PropertyBillingReportPage().setVisible(true);
-        });
-        // 添加 Exit menu item 到菜单栏
-
-        // Add user information management menu and its sub-menu items
-        JMenu userInfoMenu = new JMenu("User Information Management");
-        JMenuItem manageUserInfoItem = new JMenuItem("Manage User Information");
-
-        userInfoMenu.add(manageUserInfoItem);
-        menuBar.add(userInfoMenu);
-
-        // Add action listener to "Manage User Information" menu item
-        manageUserInfoItem.addActionListener(e -> {
-            UserInfoPage userInfoPage = new UserInfoPage();
-            userInfoPage.setVisible(true);
         });
 
         // Add Exit menu item 到菜单栏
