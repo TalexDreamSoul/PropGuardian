@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ccc77131-6af0-447f-bf09-6192a51df474" name="Changes" comment="refactor(userinfo): 重构用户信息管理功能&#10;&#10;- 更新了 UserInfo 类，移除了冗余的 getter 和 setter 方法&#10;- 重写了 UserInfoPage 类，简化了用户信息的展示和操作&#10;- 修改了数据库操作逻辑，使用 Hutool 的 Entity 类进行数据处理&#10;- 优化了项目配置，更新了依赖库版本">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/HouseInfoPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/HouseInfoPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/Index.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Index.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/OwnerInfoPage.java" beforeDir="false" />
-    </list>
+    <list default="true" id="ccc77131-6af0-447f-bf09-6192a51df474" name="Changes" comment="chore: update TalexFrame lib" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -124,6 +119,7 @@
     "Application.PropLauncher.executor": "Run",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "tzx",
+    "last_opened_file_path": "E:/Workspace/Java/Projects/PropGuardian/src/com/tagzxia/propguardian",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -137,11 +133,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Workspace\Java\Projects\PropGuardian\src\com\tagzxia\trh" />
+      <recent name="E:\Workspace\Java\Projects\PropGuardian\src\com\tagzxia\te" />
+      <recent name="E:\Workspace\Java\Projects\PropGuardian\src\com\tagzxia" />
+      <recent name="E:\Workspace\Java\Projects\PropGuardian\src\com\tagzxia\propguardian" />
       <recent name="C:\Users\lenovo\IdeaProjects\PropGuardian1\src\learning\zhy\week11223344" />
-      <recent name="C:\Users\lenovo\IdeaProjects\PropGuardian1\src\learning\zhy\week112233" />
-      <recent name="C:\Users\lenovo\IdeaProjects\PropGuardian1\src\learning\zhy\week1122" />
-      <recent name="C:\Users\lenovo\IdeaProjects\PropGuardian1\src\learning\zhy\week1234" />
-      <recent name="C:\Users\lenovo\IdeaProjects\PropGuardian1\src\learning\zhy\week1011" />
     </key>
   </component>
   <component name="RunManager" selected="Application.PropLauncher">
@@ -270,7 +266,7 @@
       <workItem from="1749710168782" duration="13651000" />
       <workItem from="1749738043806" duration="2733000" />
       <workItem from="1749977727933" duration="1247000" />
-      <workItem from="1750130178260" duration="2501000" />
+      <workItem from="1750130178260" duration="3601000" />
     </task>
     <task id="LOCAL-00002" summary="refactor(userinfo): 重构用户信息管理功能&#10;&#10;- 更新了 UserInfo 类,移除了冗余的 getter 和 setter 方法&#10;- 重写了 UserInfoPage 类,简化了用户信息的展示和操作&#10;- 修改了数据库操作逻辑,使用 Hutool 的 Entity 类进行数据处理&#10;- 优化了项目配置,更新了依赖库版本">
       <option name="closed" value="true" />
@@ -376,21 +372,21 @@
       <option name="project" value="LOCAL" />
       <updated>1750132085575</updated>
     </task>
-    <task id="LOCAL-00015" summary="feat(gui): 添加主界面并实现登录功能&#10;&#10;- 新增 Index 类作为主界面窗口&#10;- 实现菜单栏和主内容面板的基本布局&#10;- 在 LoginPanel 中添加登录成功后的逻辑，关闭登录窗口并打开主界面&#10;- 更新 workspace.xml，记录新增的 Index.java 文件变更">
+    <task id="LOCAL-00015" summary="refactor(gui): 重构业主信息管理功能&#10;&#10;- 更新了 HouseInfoPage 类，移除了冗余的 getter 和 setter 方法&#10;- 重写了 HouseInfoPage 类，简化了业主信息的展示和操作&#10;- 修改了数据库操作逻辑，使用 Hutool 的 Entity 类进行数据处理&#10;- 优化了项目配置，更新了依赖库版本">
       <option name="closed" value="true" />
-      <created>1745481187843</created>
+      <created>1750132724671</created>
       <option name="number" value="00015" />
       <option name="presentableId" value="LOCAL-00015" />
       <option name="project" value="LOCAL" />
-      <updated>1745481187843</updated>
+      <updated>1750132724671</updated>
     </task>
-    <task id="LOCAL-00016" summary="refactor: 重构 StudentExtractor 类&#10;&#10;- 修改包名：从 learning.tzx.lesson4 改为 learning.step4&#10;- 更新文件路径：从 src/learning/tzx/lesson4/StudentExtractor.java 改为 src/learning/step4/StudentExtractor.java">
+    <task id="LOCAL-00016" summary="chore: update TalexFrame lib">
       <option name="closed" value="true" />
-      <created>1746695008889</created>
+      <created>1750169724823</created>
       <option name="number" value="00016" />
       <option name="presentableId" value="LOCAL-00016" />
       <option name="project" value="LOCAL" />
-      <updated>1746695008889</updated>
+      <updated>1750169724823</updated>
     </task>
     <task id="LOCAL-00017" summary="refactor: 重构 StudentExtractor 类&#10;&#10;- 修改包名：从 learning.tzx.lesson4 改为 learning.step4&#10;- 更新文件路径：从 src/learning/tzx/lesson4/StudentExtractor.java 改为 src/learning/step4/StudentExtractor.java">
       <option name="closed" value="true" />
@@ -432,7 +428,7 @@
       <option name="project" value="LOCAL" />
       <updated>1748512196125</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -449,7 +445,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="tzx" />
                       </list>
                     </value>
                   </entry>
@@ -483,6 +479,8 @@
     <MESSAGE value="refactor(dao): 新增删除和插入方法并优化更新逻辑- 在 BaseEntity 类中添加 deleteFixedEntity、insertFixed 和 insertFixedSelf 方法&#10;- 优化 updateFixed 和 updateFixedSelf 方法的实现&#10;- 修改 deleteFixed 方法的注释，明确其功能为自动处理键值删除&#10;- 在 MentionUtil 类中添加 mentionForUpdate 方法，用于处理更新操作的提示" />
     <MESSAGE value="refactor(gui): 重构小区信息和用户计费报表功能&#10;&#10;- 更新了 BuildingInfoPage 类，优化了小区信息的展示和操作- 重写了 UserBillingReport 类，简化了用户计费报表的查询和展示&#10;- 修改了数据库操作逻辑，使用 Hutool 的 Entity 类进行数据处理&#10;-优化了项目配置，更新了依赖库版本" />
     <MESSAGE value="refactor(userinfo): 重构用户信息管理功能&#10;&#10;- 更新了 UserInfo 类，移除了冗余的 getter 和 setter 方法&#10;- 重写了 UserInfoPage 类，简化了用户信息的展示和操作&#10;- 修改了数据库操作逻辑，使用 Hutool 的 Entity 类进行数据处理&#10;- 优化了项目配置，更新了依赖库版本" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor(userinfo): 重构用户信息管理功能&#10;&#10;- 更新了 UserInfo 类，移除了冗余的 getter 和 setter 方法&#10;- 重写了 UserInfoPage 类，简化了用户信息的展示和操作&#10;- 修改了数据库操作逻辑，使用 Hutool 的 Entity 类进行数据处理&#10;- 优化了项目配置，更新了依赖库版本" />
+    <MESSAGE value="refactor(gui): 重构业主信息管理功能&#10;&#10;- 更新了 HouseInfoPage 类，移除了冗余的 getter 和 setter 方法&#10;- 重写了 HouseInfoPage 类，简化了业主信息的展示和操作&#10;- 修改了数据库操作逻辑，使用 Hutool 的 Entity 类进行数据处理&#10;- 优化了项目配置，更新了依赖库版本" />
+    <MESSAGE value="chore: update TalexFrame lib" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: update TalexFrame lib" />
   </component>
 </project>

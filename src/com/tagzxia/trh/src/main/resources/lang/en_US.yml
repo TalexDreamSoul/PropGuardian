@@ -1,0 +1,59 @@
+Plugin-UnsupportedVersion: '&8[&2Tr&aHologram&8] &cERROR &8| &cPlugin does not support this outdated Minecraft version'
+Plugin-Loading:
+  - '&r'
+  - '&7Loading &2Tr&aHologram... &8{0}'
+  - '&r'
+Plugin-Enabled: '&8[&2Tr&aHologram&8] &bINFO &8| &3Plugin has been enabled. Currently running version &2{0}&7.'
+Plugin-Update:
+  - '&8[&2Tr&aHologram&8] &bUPDATE &8| &3Update &a{0}&3 found ! Download it from the link below for new features and bug fix!'
+  - '&bhttps://www.spigotmc.org/resources/75503/'
+Plugin-Dependency-Hooked: '&8[&2Tr&aHologram&8] &6HOOK &8| &7Soft-Dependency &f{0} &7is hooked.'
+Plugin-Dependency-Abuse: '&8[&2Tr&aHologram&8] &6HOOK &8| &4Attempted to use the non-installed soft-depend plugin &c{0}'
+
+Hologram-Loaded: '&8[&2Tr&aHologram&8] &aFINE &8| &a{0} &3holograms were loaded &8({1} ms)'
+
+Paster-Processing: '&8[&2Tr&aHologram&8] &7Pasting content ...'
+Paster-Success: '&8[&2Tr&aHologram&8] &3The content has been pasted to &a{0}'
+Paster-Failed: '&8[&2Tr&aHologram&8] &cAn error occurred while pasting the content. Please check out console.'
+
+Command-Help-Type: 'Type'
+Command-Help-Args: 'Parameters'
+
+COMMAND-CREATE-DESCRIPTION: 'Create a new hologram'
+COMMAND-DELETE-DESCRIPTION: 'Delete an existed hologram'
+COMMAND-LIST-DESCRIPTION: 'List loaded holograms'
+COMMAND-MIRROR-DESCRIPTION: 'Monitor performance'
+COMMAND-MOVEHERE-DESCRIPTION: 'Teleport hologram to your location'
+COMMAND-RELOAD-DESCRIPTION: 'Reload holograms'
+COMMAND-TELEPORT-DESCRIPTION: 'Teleport to the hologram''s location'
+
+Command-Reload: '&8[&2Tr&aHologram&8] &aFINE &8| &3Successfully reloaded the hologram &a{0}'
+Command-List-Error: '&8[&2Tr&aHologram&8] &7NORM &8| &7No holograms are found... &8(Filter: {0})'
+Command-List-Header:
+  - ''
+  - '&8[&2Tr&aHologram&8] &aFINE &8| &7Loaded &f{0} &7holograms &8(Filter: {1}): '
+  - ''
+Command-List-Format:
+  - type: JSON
+    text: '&8- [&3{0}] &7| &8(Lines: {1})&r'
+    args:
+      - hover: '&7Click to teleport'
+        command: '/trhologram teleport {0}'
+Command-Not-Exists: '&8[&2Tr&aHologram&8] &7NORM &8| &7Hologram &f{0} does not exist.'
+Command-Deleted: '&8[&2Tr&aHologram&8] &aNORM &8| &3Deleted hologram named &3{0}&3.'
+Command-Existed:
+  - type: TITLE
+    title: '&c&lOPERATION FAILED'
+    subtitle: '&7&lDuplicate hologram ID'
+  - type: SOUND
+    sound: ITEM_SHIELD_BREAK
+    volume: 1
+    pitch: 2
+Command-Created:
+  - type: TITLE
+    title: '&a&lCREATED'
+    subtitle: '&a&lEdit the hologram now'
+  - type: SOUND
+    sound: ITEM_BOTTLE_FILL
+    volume: 1
+    pitch: 2

@@ -1,0 +1,9 @@
+package com.tagzxia.te.src.main.resources.de.talex.electricity.function.device;
+
+/**
+ * 用电装置
+ */
+public interface IDevice {
+
+
+}
