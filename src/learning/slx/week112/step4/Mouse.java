@@ -1,4 +1,4 @@
-package learning.slx.week114.step1;
+package learning.slx.week112.step4;
 
 public class Mouse extends Animal {
     public Mouse(String name) {
