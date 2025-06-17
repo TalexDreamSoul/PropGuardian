@@ -1,4 +1,4 @@
-package learning.slx.week114.week11.week112.step4.week11.week112.step1;
+package learning.slx.week112.step4;
 
 import lombok.Data;
 
