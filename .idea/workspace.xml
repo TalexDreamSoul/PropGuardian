@@ -4,193 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ccc77131-6af0-447f-bf09-6192a51df474" name="Changes" comment="chore: update libs with structure optimized">
-      <change afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/assembly/assembly.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/assembly/docs/READEME.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/assembly/docs/Untitled.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/assembly/docs/event/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/assembly/docs/frame/framework.assets/TalexFrame @ Frame 生命周期.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/assembly/docs/frame/framework.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/assembly/start/start for unix.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/assembly/start/start for windows.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/assembly/start/stop for unix.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/checker/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/TalexFrameApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/api/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/config/ConnectorConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/config/ElasticConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/config/RedisConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/config/WebConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/config/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/function/command/BaseCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/function/command/CommandManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/function/command/CommandReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/function/command/ICommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/function/command/IConsoleSender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/function/command/ISender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/function/command/TCmdCompAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/function/command/app/appCmd.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/function/command/app/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/function/command/frame/HelpCmd.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/function/command/frame/InfoCmd.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/function/command/frame/PluginCmd.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/function/command/frame/RestartCmd.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/function/command/frame/StopCmd.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/function/command/frame/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/function/command/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/function/limiter/TLimiter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/function/limiter/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/function/listener/FrameMajorListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/function/listener/FrameSaTokenListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/function/listener/FrameSelfListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/function/listener/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/function/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/application/TApp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/application/TAppCompAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/application/TAppManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/application/TAppPlus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/application/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/FrameListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/MethodManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/TalexEventBus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/events/app/AppPostRegisterEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/events/app/AppPreRegisterEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/events/app/AppUnRegisteredEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/events/dao/BaseDAOEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/events/dao/DAOProcessorConnectFailedEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/events/dao/DAOProcessorConnectedEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/events/dao/DAOProcessorPostCheckStatusEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/events/dao/DAOProcessorPreCheckStatusEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/events/dao/DAOProcessorPreShutdownEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/events/dao/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/events/frame/FrameFirstInstallEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/events/frame/FramePostInstallEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/events/frame/FramePostUnInstallEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/events/frame/FramePreInstallEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/events/frame/FramePreUnInstallEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/events/frame/FrameStartedEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/events/frame/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/events/plugin/WebPluginDisabledEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/events/plugin/WebPluginPreDisableEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/events/plugin/WebPluginPreScanEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/events/plugin/WebPluginScannedEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/events/request/PostHandleRequestEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/events/request/PreHandleRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/events/request/RequestAfterCompletion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/events/request/RequestCannotGetTokenEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/events/request/RequestCorsTryEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/events/request/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/events/satoken/SaKickLogoutEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/events/satoken/SaPostLoginEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/events/satoken/SaPostLogoutEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/events/satoken/SaPostReplacedOutEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/events/satoken/SaSessionCreateEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/events/satoken/SaSessionLogoutEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/events/satoken/SaUserDisabledEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/events/satoken/SaUserEnabledEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/service/Cancellable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/service/IContinue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/service/IEventBus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/service/THandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/service/TalexEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/event/service/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/handler/RestExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/handler/TNamingStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/handler/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/IRequestReceiver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/NetworkListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/NetworkManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/RequestAnalyser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/RequestConnector.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/TRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/app/ClassAppReceiver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/app/ClassReceiverManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/app/addon/ReceiverAddon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/app/addon/ReceiverAddonAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/app/addon/cache/redis/ReceiverCacheRedisAddon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/app/addon/cache/redis/TRedisCache.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/app/addon/limit/ReceiverLimitAddon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/app/addon/limit/TReqLimit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/app/addon/login/ReceiverLoginAddon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/app/addon/login/TReqLoginChecker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/app/addon/method/ReceiverMethodAddon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/app/addon/method/TReqBody.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/app/addon/method/TReqSupportMethod.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/app/addon/param/ReceiverParamAddon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/app/addon/param/TObjParam.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/app/addon/param/TParam.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/app/addon/param/TUrlParam.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/app/addon/param/valid/ReceiverValidateAddon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/app/addon/param/valid/assertions/ReceiverAssertValidateAddon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/app/addon/param/valid/assertions/TAssertValid.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/app/addon/param/valid/max/length/ReceiverMaxLengthValidateAddon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/app/addon/param/valid/max/length/TMaxLengthValid.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/app/addon/param/valid/max/value/ReceiverMaxValueValidateAddon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/app/addon/param/valid/max/value/TMaxValueValid.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/app/addon/param/valid/min/length/ReceiverMinLengthValidateAddon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/app/addon/param/valid/min/length/TMinLengthValid.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/app/addon/param/valid/min/value/ReceiverMinValueValidateAddon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/app/addon/param/valid/min/value/TMinValueValid.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/app/addon/param/valid/pattern/ReceiverPatternValidateAddon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/app/addon/param/valid/pattern/TPatternValid.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/app/addon/param/valid/sql/ReceiverParamSqlValidateAddon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/app/addon/param/valid/sql/TParamSqlValid.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/app/addon/permission/ReceiverPermissionAddon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/app/addon/permission/TReqPermissionChecker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/app/subapp/MethodAppReceiver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/app/trie/TrieNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/app/trie/TrieRouter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/connection/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/http/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/interceptor/ResponseAdviceInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/interceptor/TimeConsumingInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/interceptor/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/interceptor/request/RequestInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/interceptor/request/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/interfaces/IUnRegisterHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/interfaces/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/network/websocket/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/plugins/adapt/PluginCompAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/plugins/adapt/config/json/JSONConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/plugins/adapt/config/json/JSONConfigAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/plugins/adapt/config/yaml/YamlConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/plugins/adapt/config/yaml/YamlConfigAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/plugins/addon/FramePluginListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/plugins/addon/PluginScanner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/plugins/addon/TPluginListenerCompAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/plugins/addon/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/plugins/core/IPlugin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/plugins/core/PluginInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/plugins/core/PluginManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/plugins/core/WebPlugin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/plugins/core/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/repository/TRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/repository/TRepoCompAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/repository/TRepoManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/repository/TRepoPlus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/modules/repository/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/pojo/FrameBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/pojo/annotations/TCmd.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/pojo/annotations/TRepoInject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/pojo/annotations/TValueConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/pojo/annotations/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/pojo/dao/DataProcessorStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/pojo/dao/factory/DAOManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/pojo/dao/factory/mysql/BuilderMap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/pojo/dao/factory/mysql/Mysql.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/pojo/dao/factory/mysql/MysqlConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/pojo/dao/factory/mysql/builder/BuilderParam.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/pojo/dao/factory/mysql/builder/BuilderWhereParam.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/pojo/dao/factory/mysql/builder/SqlBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tagzxia/tagzxia2/propguardian/src/main/java/com/talexframe/frame/core/pojo/dao/factory/mysql/builder/insert/InsertType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="ccc77131-6af0-447f-bf09-6192a51df474" name="Changes" comment="chore: update libs with structure optimized" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -300,23 +114,22 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.PropLauncher.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;tzx&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/Workspace/Java/Projects/PropGuardian/src/com&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.20574713&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.PropLauncher.executor": "Run",
+    "RunOnceActivity.git.unshallow": "true",
+    "last_opened_file_path": "E:/Workspace/Java/Projects/PropGuardian/src/com",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.20574713",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Workspace\Java\Projects\PropGuardian\src\com" />
@@ -456,7 +269,7 @@
       <workItem from="1749738043806" duration="2733000" />
       <workItem from="1749977727933" duration="1247000" />
       <workItem from="1750130178260" duration="4338000" />
-      <workItem from="1750171065891" duration="4000" />
+      <workItem from="1750171071784" duration="142000" />
     </task>
     <task id="LOCAL-00002" summary="refactor(userinfo): 重构用户信息管理功能&#10;&#10;- 更新了 UserInfo 类,移除了冗余的 getter 和 setter 方法&#10;- 重写了 UserInfoPage 类,简化了用户信息的展示和操作&#10;- 修改了数据库操作逻辑,使用 Hutool 的 Entity 类进行数据处理&#10;- 优化了项目配置,更新了依赖库版本">
       <option name="closed" value="true" />
