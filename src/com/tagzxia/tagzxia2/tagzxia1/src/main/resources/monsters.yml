@@ -1,0 +1,16 @@
+Settings:
+  identifier: monsters
+  author: TALEX
+  version: 1.0.0
+
+Monsters:
+  1: # MonsterID (可以随便填写，尽量填写数字，不可重复）
+    star: 1 # 对应的 警星等级
+    mob: MythicMob_1 # 填写 MythicMobs 中对应的 ID
+    amo: 1 # 每次刷新时刷新的数量，每次刷新将会在刷新点周围 3 格内随机刷新
+    cd: 20 # 每次刷新间隔，单位：秒
+  2:
+    star: 2
+    mob: MythicMob_2
+    amo: 1
+    cd: 20
