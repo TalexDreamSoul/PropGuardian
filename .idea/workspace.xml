@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ccc77131-6af0-447f-bf09-6192a51df474" name="Changes" comment="refactor(gui): 重构小区信息和用户计费报表功能&#10;&#10;- 更新了 BuildingInfoPage 类，优化了小区信息的展示和操作- 重写了 UserBillingReport 类，简化了用户计费报表的查询和展示&#10;- 修改了数据库操作逻辑，使用 Hutool 的 Entity 类进行数据处理&#10;-优化了项目配置，更新了依赖库版本">
-      <change afterPath="$PROJECT_DIR$/src/utils/ParserUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/OwnerInfoPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/OwnerInfoPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PropGuardian.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PropGuardian.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/DaoInit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/DaoInit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/entity/UserInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/entity/UserInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/Index.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Index.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/UserInfoPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/UserInfoPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,21 +121,22 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.PropLauncher.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;tzx&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.20574713&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.PropLauncher.executor": "Run",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "tzx",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.20574713",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\lenovo\IdeaProjects\PropGuardian1\src\learning\zhy\week11223344" />
@@ -266,7 +270,9 @@
       <workItem from="1749476545459" duration="3638000" />
       <workItem from="1749557204327" duration="3725000" />
       <workItem from="1749710168782" duration="13651000" />
-      <workItem from="1749738043806" duration="1188000" />
+      <workItem from="1749738043806" duration="2733000" />
+      <workItem from="1749977727933" duration="1247000" />
+      <workItem from="1750130178260" duration="1874000" />
     </task>
     <task id="LOCAL-00002" summary="refactor(userinfo): 重构用户信息管理功能&#10;&#10;- 更新了 UserInfo 类,移除了冗余的 getter 和 setter 方法&#10;- 重写了 UserInfoPage 类,简化了用户信息的展示和操作&#10;- 修改了数据库操作逻辑,使用 Hutool 的 Entity 类进行数据处理&#10;- 优化了项目配置,更新了依赖库版本">
       <option name="closed" value="true" />
@@ -356,13 +362,13 @@
       <option name="project" value="LOCAL" />
       <updated>1749738908945</updated>
     </task>
-    <task id="LOCAL-00013" summary="feat(gui): 添加主界面并实现登录功能&#10;&#10;- 新增 Index 类作为主界面窗口&#10;- 实现菜单栏和主内容面板的基本布局&#10;- 在 LoginPanel 中添加登录成功后的逻辑，关闭登录窗口并打开主界面&#10;- 更新 workspace.xml，记录新增的 Index.java 文件变更">
+    <task id="LOCAL-00013" summary="refactor(gui): 重构小区信息和用户计费报表功能&#10;&#10;- 更新了 BuildingInfoPage 类，优化了小区信息的展示和操作- 重写了 UserBillingReport 类，简化了用户计费报表的查询和展示&#10;- 修改了数据库操作逻辑，使用 Hutool 的 Entity 类进行数据处理&#10;-优化了项目配置，更新了依赖库版本">
       <option name="closed" value="true" />
-      <created>1744872257796</created>
+      <created>1749739280511</created>
       <option name="number" value="00013" />
       <option name="presentableId" value="LOCAL-00013" />
       <option name="project" value="LOCAL" />
-      <updated>1744872257796</updated>
+      <updated>1749739280511</updated>
     </task>
     <task id="LOCAL-00014" summary="feat(gui): 添加主界面并实现登录功能&#10;&#10;- 新增 Index 类作为主界面窗口&#10;- 实现菜单栏和主内容面板的基本布局&#10;- 在 LoginPanel 中添加登录成功后的逻辑，关闭登录窗口并打开主界面&#10;- 更新 workspace.xml，记录新增的 Index.java 文件变更">
       <option name="closed" value="true" />
@@ -428,7 +434,7 @@
       <option name="project" value="LOCAL" />
       <updated>1748512196125</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

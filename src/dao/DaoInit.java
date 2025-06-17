@@ -35,7 +35,7 @@ public class DaoInit {
             return;
         } else {
             // Create New User
-            UserInfo info = new UserInfo("admin", "123456", 1);
+            UserInfo info = new UserInfo(1,"admin", "123456", 1);
 
             info.storage();
 
