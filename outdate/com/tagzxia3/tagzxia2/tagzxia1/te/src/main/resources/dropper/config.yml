@@ -1,9 +1,0 @@
-Worlds:
-  world_the_end:
-    # plus: dayAmo 120% | pro: dayAmo 150%
-    dayAmo: 3
-    costs:
-      1: 1000
-      3: 5000
-      5: 10000
-      10: 1000000
