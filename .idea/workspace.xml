@@ -75,15 +75,11 @@
                 <list>
                   <RecentBranch>
                     <option name="branchName" value="tzx" />
-                    <option name="lastUsedInstant" value="1749109870" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="#22" />
-                    <option name="lastUsedInstant" value="1749107080" />
+                    <option name="lastUsedInstant" value="1750227478" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="master" />
-                    <option name="lastUsedInstant" value="1749009535" />
+                    <option name="lastUsedInstant" value="1750227402" />
                   </RecentBranch>
                 </list>
               </option>
@@ -118,6 +114,7 @@
   "keyToString": {
     "Application.PropLauncher.executor": "Run",
     "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "#85 on tzx",
     "last_opened_file_path": "E:/Workspace/Java/Projects/PropGuardian/src/com",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -139,6 +136,7 @@
       <recent name="E:\Workspace\Java\Projects\PropGuardian\src\com\tagzxia\propguardian" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Workspace\Java\Projects\PropGuardian\outdate" />
       <recent name="E:\Workspace\Java\Projects\PropGuardian\src\com\tagzxia" />
     </key>
   </component>
@@ -270,6 +268,8 @@
       <workItem from="1749977727933" duration="1247000" />
       <workItem from="1750130178260" duration="4338000" />
       <workItem from="1750171071784" duration="142000" />
+      <workItem from="1750171230652" duration="306000" />
+      <workItem from="1750226780011" duration="207000" />
     </task>
     <task id="LOCAL-00002" summary="refactor(userinfo): 重构用户信息管理功能&#10;&#10;- 更新了 UserInfo 类,移除了冗余的 getter 和 setter 方法&#10;- 重写了 UserInfoPage 类,简化了用户信息的展示和操作&#10;- 修改了数据库操作逻辑,使用 Hutool 的 Entity 类进行数据处理&#10;- 优化了项目配置,更新了依赖库版本">
       <option name="closed" value="true" />
