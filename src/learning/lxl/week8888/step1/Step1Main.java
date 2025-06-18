@@ -1,7 +1,4 @@
-package learning.slx.week11.week112.step4.week11.step1;
-
-import learning.lxl.week111.step1.Mouse;
-import learning.lxl.week111.step1.Penguin;
+package learning.lxl.week8888.step1;
 
 public class Step1Main {
 
