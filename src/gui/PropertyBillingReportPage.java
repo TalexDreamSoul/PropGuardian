@@ -123,7 +123,7 @@ public class PropertyBillingReportPage extends JFrame {
                 int ownerId = Integer.parseInt(ownerIdField.getText().trim());
                 String billingDate = dateField.getText().trim();
                 String amountStr = JOptionPane.showInputDialog(this, "请输入金额:");
-                double amount = Double.parseDouble(amountStr);
+                double amount = Double.parseDouble(amountStr);//转换金额的格式
 
 
                 this.db.insert(

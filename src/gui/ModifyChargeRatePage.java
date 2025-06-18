@@ -21,14 +21,14 @@ public class ModifyChargeRatePage extends JFrame {
         setSize(600, 400);
         setLocationRelativeTo(null);
 
-        // 创建主面板
+        // 创建主面板，使用边界布局
         JPanel mainPanel = new JPanel(new BorderLayout());
 
         // 创建表格部分
         String[] columnNames = {"收费项目", "单位", "单价（元）"};
         tableModel = new DefaultTableModel(columnNames, 0); // 空模型
-        table = new JTable(tableModel);
-        JScrollPane scrollPane = new JScrollPane(table);
+        table = new JTable(tableModel);//用模型创建表格
+        JScrollPane scrollPane = new JScrollPane(table);//创建滚动条
 
         // 加载数据库数据
         loadTableFromDatabase();
@@ -38,7 +38,7 @@ public class ModifyChargeRatePage extends JFrame {
         JButton addButton = new JButton("增加");
         JButton editButton = new JButton("修改");
         JButton deleteButton = new JButton("删除");
-
+        //将按钮添加到面板
         buttonPanel.add(addButton);
         buttonPanel.add(editButton);
         buttonPanel.add(deleteButton);
