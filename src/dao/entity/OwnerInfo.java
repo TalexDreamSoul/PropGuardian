@@ -22,7 +22,7 @@ public class OwnerInfo extends BaseEntity {
 
     // 构造函数
     public OwnerInfo(short district_id, short building_id, short room_id, double area, String status, String purpose, String oname, String sex, String id_num, String address, String phone) {
-        super("owner_info");
+        super("owner_info");// 调用父类构造函数
         this.district_id = district_id;
         this.building_id = building_id;
         this.room_id = room_id;
@@ -42,7 +42,7 @@ public class OwnerInfo extends BaseEntity {
 
 
     @SneakyThrows
-    @Override
+    @Override// 重写父类抽象方法
     public boolean storage() {
         int i = insertOrUpdate(
                 getEntity()

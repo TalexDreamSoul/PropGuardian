@@ -20,10 +20,10 @@ public class HouseInfoPage extends JFrame {
     private JTextField nameField, genderField, idCardField, contactAddressField, contactPhoneField;
 
     public HouseInfoPage() {
-        setTitle("业主信息管理");
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setSize(900, 600);
-        setLocationRelativeTo(null);
+        setTitle("业主信息管理");// 设置窗口标题
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);// 设置关闭操作
+        setSize(900, 600);// 设置窗口大小
+        setLocationRelativeTo(null);// 设置窗口居中
 
 
         this.db = PropCore.INS.getMySql().use();

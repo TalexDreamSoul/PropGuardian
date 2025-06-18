@@ -33,7 +33,7 @@ public class UserInfo extends BaseEntity {
     }
 
     @SneakyThrows
-    @Override
+    @Override// 重写父类抽象方法
     public boolean storage() {
         Entity entity = getEntity()
                 .set("uname", this.uname)
