@@ -1,8 +1,0 @@
-Settings:
-  lobby: "[Location:-119,-29,-832@Spawn]"
-  spawn: "[Location:-119,-48,-832@Spawn]"
-  locs:
-    - "[Location:-119,-48,-897@Spawn]"
-    - "[Location:-53,-48,-832@Spawn]"
-    - "[Location:-119,-48,-766@Spawn]"
-    - "[Location:-185,-48,-832@Spawn]"
