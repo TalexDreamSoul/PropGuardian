@@ -3,6 +3,7 @@ package dao;
 import cn.hutool.db.Entity;
 import core.PropCore;
 import dao.entity.UserInfo;
+import dao.upper.IDataCRUD;
 import dao.upper.IDataStorage;
 import db.MySql;
 import lombok.SneakyThrows;
@@ -17,7 +18,7 @@ import java.util.List;
  * @author 
  * @version 1.0
  */
-public abstract class BaseEntity implements IDataStorage {
+public abstract class BaseEntity implements IDataStorage, IDataCRUD {
     /**
      * 数据库名称
      */
