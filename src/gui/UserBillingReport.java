@@ -22,10 +22,8 @@ public class UserBillingReport extends JFrame {
     private JTextField dateField;   // 保留日期字段
     private JComboBox<String> buildingComboBox; // 楼宇选择下拉框
     private JComboBox<String> communityComboBox; // 小区选择下拉框
-    private Db db;
 
     public UserBillingReport() {
-        this.db = PropCore.INS.getMySql().use();
 
         setTitle("User Billing Report");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
