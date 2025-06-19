@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ccc77131-6af0-447f-bf09-6192a51df474" name="Changes" comment="feat(dao): 增加数据 CRUD 接口并优化实体类&#10;&#10;- 在 BaseEntity 中实现 IDataCRUD 接口&#10;- 添加 IDataCRUD 接口，定义了常用的 CRUD 操作方法&#10;- 更新 workspace.xml，记录变更">
+    <list default="true" id="ccc77131-6af0-447f-bf09-6192a51df474" name="Changes" comment="fix: 修改文件名大小写">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/configuration/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/configuration/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/configuration/resources/.env" beforeDir="false" afterPath="$PROJECT_DIR$/src/configuration/resources/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/CommunityInfoPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/CommunityInfoPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/LoginPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/LoginPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -440,7 +437,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750231203936</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="feat(gui): 优化社区信息页面功能和样式&#10;&#10;- 新增查询功能和直接修改表格功能&#10;- 添加版权信息面板和加载动画- 优化按钮样式和布局- 增加输入验证和错误提示&#10;- 重构数据库操作逻辑，提高代码复用性- 更新登录界面样式，使用配置文件中的颜色和字体设置&#10;- 新增环境变量配置，支持自定义UI颜色和字体">
+      <option name="closed" value="true" />
+      <created>1750233197211</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1750233197212</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -470,7 +475,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="refactor(learning): 移除 Hello World! 输出语句&#10;&#10;- 删除了 Main 类中的 System.out.println" />
     <MESSAGE value="feat: fix project err" />
     <MESSAGE value="build: 添加 Hutool 依赖&#10;&#10;- 在 PropGuardian.iml 文件中添加了 cn.hutool.all 库的项目级别依赖- 此修改可能为了引入 Hutool 工具库，以支持项目中的某些功能" />
     <MESSAGE value="feat(db): 重构数据库连接方式并添加 Hutool 依赖- 修改 .env 文件，将 MySQL 连接信息拆分为单独的属性&#10;- 新增 MySql 类，使用 SimpleDataSource 实现数据库连接- 在 PropCore 中集成 MySql，并在启动时进行连接测试&#10;- 添加 cn.hutool.all 依赖，以支持数据库操作等功能" />
@@ -495,7 +499,8 @@
     <MESSAGE value="feat(core): 添加高级工作台和炼金术分类&#10;&#10;- 新增高级工作台机器和相关GUI- 添加炼金术分类和相关物品&#10;- 实现高级工作台的合成逻辑和配方查看功能- 优化物品堆栈管理和配方验证逻辑" />
     <MESSAGE value="chore: update libs with structure optimized" />
     <MESSAGE value="feat(dao): 增加数据 CRUD 接口并优化实体类&#10;&#10;- 在 BaseEntity 中实现 IDataCRUD 接口&#10;- 添加 IDataCRUD 接口，定义了常用的 CRUD 操作方法&#10;- 更新 workspace.xml，记录变更" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(dao): 增加数据 CRUD 接口并优化实体类&#10;&#10;- 在 BaseEntity 中实现 IDataCRUD 接口&#10;- 添加 IDataCRUD 接口，定义了常用的 CRUD 操作方法&#10;- 更新 workspace.xml，记录变更" />
+    <MESSAGE value="feat(gui): 优化社区信息页面功能和样式&#10;&#10;- 新增查询功能和直接修改表格功能&#10;- 添加版权信息面板和加载动画- 优化按钮样式和布局- 增加输入验证和错误提示&#10;- 重构数据库操作逻辑，提高代码复用性- 更新登录界面样式，使用配置文件中的颜色和字体设置&#10;- 新增环境变量配置，支持自定义UI颜色和字体" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(gui): 优化社区信息页面功能和样式&#10;&#10;- 新增查询功能和直接修改表格功能&#10;- 添加版权信息面板和加载动画- 优化按钮样式和布局- 增加输入验证和错误提示&#10;- 重构数据库操作逻辑，提高代码复用性- 更新登录界面样式，使用配置文件中的颜色和字体设置&#10;- 新增环境变量配置，支持自定义UI颜色和字体" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/PropGuardian$Main.ic" NAME="Main Coverage Results" MODIFIED="1750230954580" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
